@@ -29,7 +29,7 @@
 
 ## 🧩 1. Algemene projectbeschrijving
 De leerlingen ontwerpen en ontwikkelen een **webapplicatie voor taken bij te houden**: *Student Task Planner*.  
-De applicatie helpt organisatoren om **evenementen te plannen, beheren en opvolgen**.  
+De applicatie helpt leerlingen om **taken te plannen, beheren en opvolgen**.  
 
 Elke gebruiker kan zich registreren, inloggen en eigen evenementen beheren.  
 De data wordt opgeslagen in een relationele databank en gekoppeld aan een eenvoudige, gebruiksvriendelijke webinterface.
@@ -68,8 +68,8 @@ De data wordt opgeslagen in een relationele databank en gekoppeld aan een eenvou
 
 **Tabel `users`**
 
-| id | username | password |
-|----|-----------|-----------|
+| id | username | password | e-mail |
+|----|-----------|-----------|-----|
 
 **Tabel `tasks`** 
 
