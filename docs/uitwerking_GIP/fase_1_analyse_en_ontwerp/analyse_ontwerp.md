@@ -83,9 +83,17 @@ Een webapplicatie bouwen waarmee studenten hun taken kunnen **toevoegen, bekijke
 
    * navigatie
    * footer
-   * FAQ
+   * FAQ 
+      - Hoe voeg ik bijlagen, comments of labels toe aan een taak?
+      - Welke tool is gratis of goedkoop?
+      - Hoe krijg ik support of community-hulp?
+      - Hoe maak ik een nieuwe taak?
+      - Hoe zet ik een deadline?
+      - Kan ik het ook op mijn telefoon gebruiken?
+      - Waar zie ik al mijn werk?
    * Uitleg over taak manager
    
+
 
 3. **Login/Aanmeldingspagina:**
 
