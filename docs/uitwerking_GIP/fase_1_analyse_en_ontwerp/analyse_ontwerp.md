@@ -79,23 +79,31 @@ Een webapplicatie bouwen waarmee studenten hun taken kunnen **toevoegen, bekijke
     * front-pagina: uitleg, foto's, voorbeeld planner, FAQ
     * footer: otnwikkelaars, logo(ons, instagram, facebook...)
 
-1. **Login/Registratiepagina:**
+2. **more-info pagina**
+
+   * navigatie
+   * footer
+   * FAQ
+   * Uitleg over taak manager
+   
+
+3. **Login/Aanmeldingspagina:**
 
    * Velden: e-mail, wachtwoord
-   * Knoppen: Inloggen / Registreren
+   * Knoppen: Inloggen / Aanmelden
 
-2. **Dashboard / Overzichtspagina:**
+4. **Dashboard / Overzichtspagina:**
 
    * Lijst van alle taken
    * Knoppen: Nieuwe taak toevoegen,
     *tabel: data taken, Taak bewerken, Taak verwijderen
 
-3. **Taak toevoegen / bewerken:**
+5. **Taak toevoegen / bewerken:**
 
-   * Velden: titel, beschrijving, deadline
+   * Velden: titel, beschrijving, deadline, status
    * Knoppen: Opslaan / Annuleren
 
-4. **Detailscherm (optioneel):**
+6. **Detailscherm (optioneel):**
 
    * Toon alle informatie van een taak
    * Knoppen: Bewerken, Verwijderen, Voltooien
