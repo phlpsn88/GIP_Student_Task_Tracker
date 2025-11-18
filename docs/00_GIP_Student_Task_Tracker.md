@@ -54,7 +54,7 @@ De data wordt opgeslagen in een relationele databank en gekoppeld aan een eenvou
  - Admin gebruiker die alle taken kan raadplegen 
 2. **Taakbeheer (CRUD)** 
  - Taken toevoegen, bewerken, verwijderen en markeren als voltooid 
- - Velden: titel, omschrijving, deadline, status 
+ - Velden: titel, omschrijving, deadline, status (afgewerkt, to-do)
 3. **Overzichtspagina account** 
  - Gegevens gebruiker 
  - Mogelijkheid tot aanpassen wachtwoord 
