@@ -91,6 +91,7 @@ Een webapplicatie bouwen waarmee studenten hun taken kunnen **toevoegen, bekijke
       - Hoe zet ik een deadline?
       - Kan ik het ook op mijn telefoon gebruiken?
       - Waar zie ik al mijn werk?
+
    * Uitleg over taak manager
    
 
@@ -119,6 +120,8 @@ Een webapplicatie bouwen waarmee studenten hun taken kunnen **toevoegen, bekijke
 ---
 
 ### 5️⃣ Planning (Taken en Timing)
+
+ERD maken
 
 | Week   | Taken                                                    |
 | ------ | -------------------------------------------------------- |
