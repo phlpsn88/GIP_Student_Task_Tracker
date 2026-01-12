@@ -13,7 +13,7 @@ CREATE TABLE users (
 -- Tabel: tasks
 CREATE TABLE tasks (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
+    user_id INT NOT NULL, 
     title VARCHAR(100) NOT NULL,
     description TEXT,
     due_date DATE,
