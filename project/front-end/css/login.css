@@ -1,0 +1,22 @@
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --gradient: linear-gradient(135deg, #60a5fa, #3b82f6);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f1f5f9;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
