@@ -1,0 +1,112 @@
+:root {
+  --color-navbar-bg: #5ac5f2;
+  --color-link: #ffffff;
+
+  --font-body: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 1.1em;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-navbar-bg);
+    padding: 0.6em 2.5em; 
+    position: relative;
+    z-index: 20;
+}
+
+.logo img {
+    height: 4em;
+    object-fit: contain;
+    padding-top: 0.5em;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    margin-left: 5em;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--color-link);
+    font-size: 1.2em; 
+    font-weight: 500;
+}
+
+.nav-links li a:hover {
+    text-decoration: underline;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2em; 
+    cursor: pointer;
+    user-select: none;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.login-btn {
+    background-color: #222020;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+
+.login-btn:hover {
+    background-color: #413e3e;
+    transition-duration: 0.5s;
+}
+
+.active a {
+    color: black;
+    text-decoration: underline;
+}
+
+@media (max-width: 850px) {
+
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 5em; 
+        left: 0;
+        width: 100%;
+        background-color: var(--color-navbar-bg);
+        padding: 1.25em 0; 
+        gap: 1.6em;
+        text-align: center;
+    }
+
+    #menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+
+    .nav-links li a {
+        font-size: 1.25em; 
+    }
+
+    .navbar {
+        padding: 0.6em 1.25em; 
+    }
+
+    .nav-links {
+        margin-left: 0;
+    }
+}
