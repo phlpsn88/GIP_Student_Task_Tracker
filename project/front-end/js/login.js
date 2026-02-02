@@ -1,5 +1,5 @@
 const loginButton = document.querySelector('#loginBtn')
-const loginOverlay = document.querySelector('.overlay')
+const loginOverlay = document.querySelector('.overlay-login')
 const closeOverlay = document.querySelector('#closeBtn')
 
 
