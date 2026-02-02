@@ -9,7 +9,6 @@ body {
     background: #bfc6cc;
 }
 
-
 .overlay-login {
     position: fixed;
     inset: 0;
@@ -28,8 +27,6 @@ body {
     align-items: center;
 }
 
-
-
 .login-register-modal {
     width: 420px;
     padding: 40px 35px;
@@ -39,7 +36,6 @@ body {
     position: relative;
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
-
 
 .close-btn {
     cursor: pointer;
@@ -57,7 +53,6 @@ body {
     font-size: 18px;
 }
 
-
 h1 {
     text-align: center;
     margin-bottom: 30px;
@@ -65,13 +60,11 @@ h1 {
     font-weight: 600;
 }
 
-
 label {
     display: block;
     margin-bottom: 8px;
     font-size: 18px;
 }
-
 
 input {
     width: 100%;
@@ -97,7 +90,6 @@ button {
     cursor: pointer;
 }
 
-
 .register {
     text-align: center;
     font-size: 16px;
@@ -108,4 +100,8 @@ button {
     color: #001a8f;
     font-weight: 700;
     text-decoration: underline;
+}
+
+#loginFormLink, #registerFormLink {
+    cursor: pointer;
 }
