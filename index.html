@@ -29,6 +29,7 @@
                 <li><a href="#">Task manager</a></li>
                 <li><a href="#">More info</a></li>
                 <li><a class="login-btn" id="loginBtn">Login</a></li>
+                <li><a class="aanmelden-btn" id="aanmeldenBtn">Aanmelden</a></li>
             </ul>
         </nav>
     </header>
@@ -51,7 +52,7 @@
 
         <div class="overlay-login">
             <div class="login-register-modal">
-                <div class="close-btn" id="closeBtn">×</div>
+                <div class="close-btn" id="closeBtnLogin">×</div>
                 <h1>Login</h1>
                 <label for="email">E-mailadres</label>
                 <input id="email" type="email">
@@ -60,23 +61,25 @@
                 <button>Inloggen</button>
                 <div class="register">
                     Heb je nog geen account?<br>
-                    Meld je dan <a href="#">HIER</a> aan
+                    Meld je dan <a id="registerFormLink">HIER</a> aan
                 </div>
             </div>
         </div>
 
         <div class="overlay-register">
             <div class="login-register-modal">
-                <div class="close-btn" id="closeBtn">×</div>
-                <h1>Login</h1>
+                <div class="close-btn" id="closeBtnRegister">×</div>
+                <h1>Aanmelden</h1>
+                <label for="gebruikersnaam">gebruikersnaam</label>
+                <input id="gebruikersnaam" type="gebruikersnaam">
                 <label for="email">E-mailadres</label>
                 <input id="email" type="email">
                 <label for="password">Wachtwoord</label>
                 <input id="password" type="password">
-                <button>Inloggen</button>
+                <button>Aanmelden</button>
                 <div class="register">
-                    Heb je nog geen account?<br>
-                    Meld je dan <a href="#">HIER</a> aan
+                    Heb je al een account?<br>
+                    log je dan <a id="loginFormLink">HIER</a> in
                 </div>
             </div>
         </div>

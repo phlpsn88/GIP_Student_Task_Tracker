@@ -66,6 +66,13 @@ body {
     border-radius: 30px;
 }
 
+.aanmelden-btn {
+    cursor: pointer;
+    background-color: #222020;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+
 .login-btn:hover {
     background-color: #413e3e;
     transition-duration: 0.5s;
