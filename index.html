@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="project/front-end/css/homepangina.css" />
+    <link rel="stylesheet" href="project/front-end/css/navbar.css">
+    <link rel="stylesheet" href="project/front-end/css/footer.css">
+    <link rel="stylesheet" href="project/front-end/css/login.css">
+    <script src="project/front-end/js/login.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.php"><img src="img/logo_R&A_Tasks.png" alt="logo"></a>
+            </div>
+
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+            <ul class="nav-links">
+                <li><a href="index.php" class="active">Home</a></li>
+                <li><a href="#">Task manager</a></li>
+                <li><a href="#">More info</a></li>
+                <li><a class="login-btn" id="loginBtn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main_body">
+            <div class="hero">
+                <h1>Welcome to<br><span>R&A TASKS</span></h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Vestibulum nec sollicitudin arcu. Fusce sed imperdiet lectus,
+                    nec convallis turpis.
+                </p>
+                <a href="#" class="btn">More Info</a>
+            </div>
+            <div class="logo_spiraal">
+                <img src="img/width_1600.webp" alt="">
+            </div>
+        </div>
+
+        <div class="overlay-login">
+            <div class="login-register-modal">
+                <div class="close-btn" id="closeBtn">×</div>
+                <h1>Login</h1>
+                <label for="email">E-mailadres</label>
+                <input id="email" type="email">
+                <label for="password">Wachtwoord</label>
+                <input id="password" type="password">
+                <button>Inloggen</button>
+                <div class="register">
+                    Heb je nog geen account?<br>
+                    Meld je dan <a href="#">HIER</a> aan
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay-register">
+            <div class="login-register-modal">
+                <div class="close-btn" id="closeBtn">×</div>
+                <h1>Login</h1>
+                <label for="email">E-mailadres</label>
+                <input id="email" type="email">
+                <label for="password">Wachtwoord</label>
+                <input id="password" type="password">
+                <button>Inloggen</button>
+                <div class="register">
+                    Heb je nog geen account?<br>
+                    Meld je dan <a href="#">HIER</a> aan
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-column">
+            <h3><strong>Contacteer ons</strong></h3>
+            <p><strong>+32 123 45 67 90</strong></p>
+            <p><strong>Appelboomgaardstraat 2</strong></p>
+            <p><strong>someone@example.com</strong></p>
+            <p><strong>3740 Munsterbilzen - België</strong></p>
+        </div>
+
+        <div class="footer-column">
+            <h3>R&amp;A tasks</h3>
+            <a href="#"><strong>Home</strong></a>
+            <a href="#"><strong>Task manager</strong></a>
+            <a href="#"><strong>More info</strong></a>
+            <a href="#"><strong>Login</strong></a>
+            <a href="#"><strong>Contacteer ons</strong></a>
+        </div>
+
+        <div class="footer-column">
+            <h3><strong>Volg ons</strong></h3>
+            <div class="socials">
+                <span><i class="fa-brands fa-instagram"></i></span>
+                <span><i class="fa-brands fa-facebook"></i></span>
+            </div>
+            <p class="credit"><strong>Ontworpen door<br>Raf Angeli &amp; <br> Amine Kiadi</strong></p>
+        </div>
+    </footer>
+</body>
+
+</html>
