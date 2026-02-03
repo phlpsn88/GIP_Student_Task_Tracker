@@ -5,12 +5,16 @@ const registerLink = document.querySelector('#registerFormLink')
 const registerOverlay = document.querySelector('.overlay-register')
 const closeRegister = document.querySelector('#closeBtnRegister')
 const loginLink = document.querySelector('#loginFormLink')
+const aanmeldenButton = document.querySelector('#aanmeldenBtn')
+
 
 
 
 loginButton.addEventListener("click", function(){
     loginOverlay.style.display = "flex"
 });
+
+
 
 closeLogin.addEventListener("click", function(){
     loginOverlay.style.display = "none"
@@ -30,4 +34,8 @@ loginLink.addEventListener("click", function(){
     loginOverlay.style.display = "flex"
 });
 
+
+aanmeldenButton.addEventListener("click", function(){
+    registerOverlay.style.display = "flex"
+});
 
