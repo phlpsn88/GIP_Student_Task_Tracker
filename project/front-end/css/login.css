@@ -24,9 +24,14 @@ body {
     display: none;
     justify-content: center;
     align-items: center;
+
+}
+
+.fade-overlay {
     z-index: 40;
     background: rgb(191, 198, 204, 0.85);
 }
+
 
 .login-register-modal {
     width: 420px;
@@ -52,6 +57,7 @@ body {
     justify-content: center;
     font-size: 28px;
 }
+
 .close-btn a {
     text-decoration: none;
     color: white;
@@ -105,6 +111,8 @@ button {
     font-weight: 700;
     text-decoration: underline;
 }
-#loginFormLink, #registerFormLink {
+
+#loginFormLink,
+#registerFormLink {
     cursor: pointer;
 }

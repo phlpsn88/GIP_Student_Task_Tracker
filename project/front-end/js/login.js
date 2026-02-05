@@ -1,23 +1,29 @@
+// make variables for navigation login/register button
+const registerButton = document.querySelector('#registerBtn')
 const loginButton = document.querySelector('#loginBtn')
-const loginOverlay = document.querySelector('.overlay-login')
-const closeLogin = document.querySelector('#closeBtnLogin')
-const registerLink = document.querySelector('#registerFormLink')
-const registerOverlay = document.querySelector('.overlay-register')
-const closeRegister = document.querySelector('#closeBtnRegister')
-const loginLink = document.querySelector('#loginFormLink')
-const aanmeldenButton = document.querySelector('#aanmeldenBtn')
 
+// make variables for overlay login/register form
+const registerOverlay = document.querySelector('.overlay-register')
+const loginOverlay = document.querySelector('.overlay-login')
+
+// make variables for close login/register form
+const closeRegister = document.querySelector('#closeBtnRegister')
+const closeLogin = document.querySelector('#closeBtnLogin')
+
+// make variables to switch from login/register to login/register
+const registerLink = document.querySelector('#registerFormLink')
+const loginLink = document.querySelector('#loginFormLink')
 
 
 
 loginButton.addEventListener("click", function(){
     loginOverlay.style.display = "flex"
+    document.body.classList.add("remove-scrolling");
 });
-
-
 
 closeLogin.addEventListener("click", function(){
     loginOverlay.style.display = "none"
+    document.body.classList.remove("remove-scrolling");
 });
 
 registerLink.addEventListener("click", function(){
@@ -27,6 +33,7 @@ registerLink.addEventListener("click", function(){
 
 closeRegister.addEventListener("click", function(){
     registerOverlay.style.display = "none"
+    document.body.classList.remove("remove-scrolling");
 });
 
 loginLink.addEventListener("click", function(){
@@ -34,8 +41,8 @@ loginLink.addEventListener("click", function(){
     loginOverlay.style.display = "flex"
 });
 
-
-aanmeldenButton.addEventListener("click", function(){
+registerButton.addEventListener("click", function(){
     registerOverlay.style.display = "flex"
+    document.body.classList.add("remove-scrolling");
 });
 

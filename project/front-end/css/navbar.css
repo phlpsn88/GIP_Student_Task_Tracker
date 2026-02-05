@@ -1,8 +1,8 @@
 :root {
-  --color-navbar-bg: #5ac5f2;
-  --color-link: #ffffff;
+    --color-navbar-bg: #5ac5f2;
+    --color-link: #ffffff;
 
-  --font-body: Arial, sans-serif;
+    --font-body: Arial, sans-serif;
 }
 
 body {
@@ -16,7 +16,7 @@ body {
     align-items: center;
     justify-content: space-between;
     background-color: var(--color-navbar-bg);
-    padding: 0.6em 2.5em; 
+    padding: 0.6em 2.5em;
     position: relative;
     z-index: 20;
 }
@@ -40,7 +40,7 @@ body {
 .nav-links li a {
     text-decoration: none;
     color: var(--color-link);
-    font-size: 1.2em; 
+    font-size: 1.2em;
     font-weight: 500;
 }
 
@@ -50,7 +50,7 @@ body {
 
 .menu-icon {
     display: none;
-    font-size: 2em; 
+    font-size: 2em;
     cursor: pointer;
     user-select: none;
 }
@@ -66,7 +66,7 @@ body {
     border-radius: 30px;
 }
 
-.aanmelden-btn {
+.register-btn {
     cursor: pointer;
     background-color: #222020;
     padding: 10px 20px;
@@ -93,25 +93,25 @@ body {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 5em; 
+        top: 5em;
         left: 0;
         width: 100%;
         background-color: var(--color-navbar-bg);
-        padding: 1.25em 0; 
+        padding: 1.25em 0;
         gap: 1.6em;
         text-align: center;
     }
 
-    #menu-toggle:checked ~ .nav-links {
+    #menu-toggle:checked~.nav-links {
         display: flex;
     }
 
     .nav-links li a {
-        font-size: 1.25em; 
+        font-size: 1.25em;
     }
 
     .navbar {
-        padding: 0.6em 1.25em; 
+        padding: 0.6em 1.25em;
     }
 
     .nav-links {

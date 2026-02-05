@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Homepage</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="project/front-end/css/homepangina.css" />
     <link rel="stylesheet" href="project/front-end/css/navbar.css">
@@ -16,20 +19,21 @@
 
 <body>
     <header>
+        <!-- navbar -->
         <nav class="navbar">
             <div class="logo">
-                <a href="index.php"><img src="project/front-end/img/logo_R&A_Tasks.png" alt="logo"></a>
+                <a href="index.html"><img src="project/front-end/img/logo_R&A_Tasks.png" alt="logo"></a>
             </div>
 
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon">&#9776;</label>
 
             <ul class="nav-links">
-                <li><a href="index.php" class="active">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="#">Task manager</a></li>
-                <li><a href="#">More info</a></li>
+                <li><a href="project/front-end/more_info.html">More info</a></li>
                 <li><a class="login-btn" id="loginBtn">Login</a></li>
-                <li><a class="aanmelden-btn" id="aanmeldenBtn">Aanmelden</a></li>
+                <li><a class="register-btn" id="registerBtn">Aanmelden</a></li>
             </ul>
         </nav>
     </header>
@@ -39,9 +43,12 @@
             <div class="hero">
                 <h1>Welcome to<br><span>R&A TASKS</span></h1>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vestibulum nec sollicitudin arcu. Fusce sed imperdiet lectus,
-                    nec convallis turpis.
+                    Get it done. Better.
+                    Efficiënt taken beheren is een kunst. R&A Tasks toont hoe het kan: slimme structuren, duidelijke
+                    prioriteiten en tools die écht helpen. Van analyse tot uitvoering, van planning tot evaluatie – hier
+                    vind je de complete aanpak met voorbeelden, stappen en tastbare uitkomsten.
+                    Welkom in mijn wereld van geoptimaliseerde workflows.
+                    Start hieronder met verkennen.
                 </p>
                 <a href="#" class="btn">More Info</a>
             </div>
@@ -50,41 +57,70 @@
             </div>
         </div>
 
-        <div class="overlay-login">
+        <!-- login button-->
+        <div class="overlay-login fade-overlay">
             <div class="login-register-modal">
-                <div class="close-btn" id="closeBtnLogin">×</div>
-                <h1>Login</h1>
-                <label for="email">E-mailadres</label>
-                <input id="email" type="email">
-                <label for="password">Wachtwoord</label>
-                <input id="password" type="password">
-                <button>Inloggen</button>
+                <form>
+                    <div class="close-btn" id="closeBtnLogin">×</div>
+                    <h1>Login</h1>
+                    <label for="email">E-mailadres</label>
+                    <input id="email" type="email">
+                    <label for="password">Wachtwoord</label>
+                    <input id="password" type="password">
+                    <button type="submit">Inloggen</button>
+                </form>
+
                 <div class="register">
                     Heb je nog geen account?<br>
                     Meld je dan <a id="registerFormLink">HIER</a> aan
                 </div>
             </div>
         </div>
-
-        <div class="overlay-register">
+        <!-- register button -->
+        <div class="overlay-register fade-overlay">
             <div class="login-register-modal">
-                <div class="close-btn" id="closeBtnRegister">×</div>
-                <h1>Aanmelden</h1>
-                <label for="gebruikersnaam">gebruikersnaam</label>
-                <input id="gebruikersnaam" type="gebruikersnaam">
-                <label for="email">E-mailadres</label>
-                <input id="email" type="email">
-                <label for="password">Wachtwoord</label>
-                <input id="password" type="password">
-                <button>Aanmelden</button>
+                <form>
+                    <div class="close-btn" id="closeBtnRegister">×</div>
+                    <h1>Aanmelden</h1>
+                    <label for="gebruikersnaam">gebruikersnaam</label>
+                    <input id="gebruikersnaam" type="gebruikersnaam">
+                    <label for="email">E-mailadres</label>
+                    <input id="email" type="email">
+                    <label for="password">Wachtwoord</label>
+                    <input id="password" type="password">
+                    <button type="submit">Aanmelden</button>
+                </form>
                 <div class="register">
                     Heb je al een account?<br>
                     log je dan <a id="loginFormLink">HIER</a> in
                 </div>
             </div>
         </div>
-    </main>
+        <div class="info-container">
+            <div class="info-item">
+                <i class="fa-solid fa-lightbulb"></i>
+                <p>Slimme & praktische tips
+                    Ontdek handige ideeën die je dagelijkse taken sneller en efficiënter maken – zonder ingewikkelde
+                    apps of dure tools nodig te hebben.</p>
+            </div>
 
+            <div class="info-item">
+                <i class="fa-solid fa-shield-halved"></i>
+                <p>100% veilig & privé
+                    Je persoonlijke gegevens en activiteiten zijn volledig versleuteld met de nieuwste
+                    beveiligingstechnologie. Met een gerust hart alles delen en bijhouden.</p>
+            </div>
+
+            <div class="info-item">
+                <i class="fa-solid fa-rocket"></i>
+                <p>Direct meetbare vooruitgang
+                    Begin vandaag nog en zie binnen minuten of uren al concrete verbeteringen. Ons systeem helpt je écht
+                    sneller resultaat te boeken.</p>
+            </div>
+        </div>
+
+    </main>
+    <!-- footer -->
     <footer class="footer">
         <div class="footer-column">
             <h3><strong>Contacteer ons</strong></h3>
@@ -94,6 +130,7 @@
             <p><strong>3740 Munsterbilzen - België</strong></p>
         </div>
 
+        <!-- navigation -->
         <div class="footer-column">
             <h3>R&amp;A tasks</h3>
             <a href="#"><strong>Home</strong></a>
@@ -103,6 +140,7 @@
             <a href="#"><strong>Contacteer ons</strong></a>
         </div>
 
+        <!-- socials -->
         <div class="footer-column">
             <h3><strong>Volg ons</strong></h3>
             <div class="socials">
