@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homepage</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="project/front-end/css/homepangina.css" />
-    <link rel="stylesheet" href="project/front-end/css/navbar.css">
-    <link rel="stylesheet" href="project/front-end/css/footer.css">
-    <link rel="stylesheet" href="project/front-end/css/login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/footer.css">
     <script src="project/front-end/js/login.js" defer></script>
 </head>
 
@@ -22,15 +16,15 @@
         <!-- navbar -->
         <nav class="navbar">
             <div class="logo">
-                <a href="index.html"><img src="project/front-end/img/logo_R&A_Tasks.png" alt="logo"></a>
+                <a href="../../index.html"><img src="img/logo_R&A_Tasks.png" alt="logo"></a>
             </div>
 
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon">&#9776;</label>
 
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="project/front-end/task_maneger.html">Task manager</a></li>
+                <li><a href="../../index.html" class="active">Home</a></li>
+                <li><a href="task_maneger.html">Task manager</a></li>
                 <li><a href="project/front-end/more_info.html">More info</a></li>
                 <li><a class="login-btn" id="loginBtn">Login</a></li>
             </ul>
@@ -38,24 +32,6 @@
     </header>
 
     <main>
-        <div class="main_body">
-            <div class="hero">
-                <h1>Welcome to<br><span>R&A TASKS</span></h1>
-                <p>
-                    Get it done. Better.
-                    Efficiënt taken beheren is een kunst. R&A Tasks toont hoe het kan: slimme structuren, duidelijke
-                    prioriteiten en tools die écht helpen. Van analyse tot uitvoering, van planning tot evaluatie – hier
-                    vind je de complete aanpak met voorbeelden, stappen en tastbare uitkomsten.
-                    Welkom in mijn wereld van geoptimaliseerde workflows.
-                    Start hieronder met verkennen.
-                </p>
-                <a href="#" class="btn">More Info</a>
-            </div>
-            <div class="logo_spiraal">
-                <img src="project/front-end/img/width_1600.webp" alt="">
-            </div>
-        </div>
-
         <!-- login button-->
         <div class="overlay-login fade-overlay">
             <div class="login-register-modal">
@@ -95,30 +71,9 @@
                 </div>
             </div>
         </div>
-        <div class="info-container">
-            <div class="info-item">
-                <i class="fa-solid fa-lightbulb"></i>
-                <p>Slimme & praktische tips
-                    Ontdek handige ideeën die je dagelijkse taken sneller en efficiënter maken – zonder ingewikkelde
-                    apps of dure tools nodig te hebben.</p>
-            </div>
-
-            <div class="info-item">
-                <i class="fa-solid fa-shield-halved"></i>
-                <p>100% veilig & privé
-                    Je persoonlijke gegevens en activiteiten zijn volledig versleuteld met de nieuwste
-                    beveiligingstechnologie. Met een gerust hart alles delen en bijhouden.</p>
-            </div>
-
-            <div class="info-item">
-                <i class="fa-solid fa-rocket"></i>
-                <p>Direct meetbare vooruitgang
-                    Begin vandaag nog en zie binnen minuten of uren al concrete verbeteringen. Ons systeem helpt je écht
-                    sneller resultaat te boeken.</p>
-            </div>
-        </div>
 
     </main>
+
     <!-- footer -->
     <footer class="footer">
         <div class="footer-column">
