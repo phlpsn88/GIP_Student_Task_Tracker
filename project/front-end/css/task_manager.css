@@ -59,7 +59,7 @@
 
 .tasks-table th,
 .tasks-table td {
-    padding: 14px 12px;
+    padding: 1em 2em;
     text-align: left;
     border-bottom: 1px solid #e5e7eb;
 }
