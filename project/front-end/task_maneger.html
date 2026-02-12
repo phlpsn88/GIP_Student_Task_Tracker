@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/task_manager.css">
+    <link rel="stylesheet" href="css/pop_up.css">
     <script src="js/login.js" defer></script>
+    <script src="js/popup.js" defer></script>
 
 </head>
 
@@ -24,10 +26,8 @@
                     <img src="img/logo_R&A_Tasks.png" alt="R&A Tasks logo">
                 </a>
             </div>
-
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon">☰</label>
-
             <ul class="nav-links">
                 <li><a href="../../index.html">Home</a></li>
                 <li><a href="task_manager.html" class="active">Task manager</a></li>
@@ -38,7 +38,6 @@
     </header>
 
     <main>
-
         <!-- Login modal -->
         <div class="overlay-login fade-overlay">
             <div class="login-register-modal">
@@ -51,6 +50,7 @@
                     <input id="password" type="password" required>
                     <button type="submit">Inloggen</button>
                 </form>
+                
                 <div class="register">
                     Heb je nog geen account?<br>
                     Meld je dan <a id="registerFormLink">HIER</a> aan
@@ -104,7 +104,8 @@
                         <tr>
                             <td>Send welcome email</td>
                             <td>
-                                <div class="priority-indicator">het maken van mijn gip en het leren van mijn toet van donderdag</div>
+                                <div class="priority-indicator">het maken van mijn gip en het leren van mijn toet van
+                                    donderdag</div>
                             </td>
                             <td><span class="deadline">(04 Apr 2030)</span></td>
                             <td>
@@ -115,7 +116,6 @@
                                 <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
-
                         <tr>
                             <td>Setup completion</td>
                             <td>
@@ -132,7 +132,6 @@
                                 <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
-
                         <tr>
                             <td>Share tutorial links</td>
                             <td>
@@ -149,7 +148,6 @@
                                 <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
-
                         <tr>
                             <td></td>
                             <td>
@@ -166,7 +164,6 @@
                                 <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
-
                         <tr>
                             <td></td>
                             <td>
@@ -183,7 +180,6 @@
                                 <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
-
                         <tr>
                             <td></td>
                             <td>
@@ -203,11 +199,41 @@
                     </tbody>
                 </table>
             </div>
-
         </section>
+        <div class="overlay-new-task fade-overlay" style="display: none;">
+            <div class="modal">
+                <form>
+                    <div class="modal-header">
+                        <h2 class="modal-title">Taak toevoegen?</h2>
+                        <div class="close-btn-task" id="closeNewTask">x</div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="task-name-row">
+                            <input type="text" class="task-name-input" placeholder="voeg taaknaam toe" autofocus />
+
+                            <h3>status</h3>
+                            <select class="status-dropdown">
+                                <option value="todo">To-do</option>
+                                <option value="inprogress">bezig</option>
+                                <option value="done">Afgewerkt</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="description-field">
+                                <label class="field-label">Beschrijving</label>
+                                <textarea class="description-textarea" placeholder="voeg beschrijving toe"
+                                    rows="6"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-primary">Toevoegen</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
     </main>
-
     <!-- footer -->
     <footer class="footer">
         <div class="footer-column">
@@ -217,14 +243,14 @@
             <p><strong>someone@example.com</strong></p>
             <p><strong>3740 Munsterbilzen - België</strong></p>
         </div>
-
+        <!-- navigation -->
         <div class="footer-column">
             <h3>R&A tasks</h3>
             <a href="../../index.html"><strong>Home</strong></a>
             <a href="task_manager.html"><strong>Task manager</strong></a>
             <a href="more_info.html"><strong>More info</strong></a>
         </div>
-
+        <!-- socials -->
         <div class="footer-column">
             <h3><strong>Volg ons</strong></h3>
             <div class="socials">
@@ -234,6 +260,5 @@
             <p class="credit"><strong>Ontworpen door<br>Raf Angeli &<br> Amine Kiadi</strong></p>
         </div>
     </footer>
-
 </body>
 </html>

@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f0f2f5;
+  min-height: 100vh;
+  color: #1f2937;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 620px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.22);
+  overflow: hidden;
+}
+
+.modal-header {
+  padding: 1.1rem 1.6rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc;
+}
+
+.modal-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.close-btn-task {
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-body {
+  padding: 1.8rem 2rem 1.4rem;
+}
+
+.task-name-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.8rem;
+}
+
+.task-name-input {
+  flex: 1;
+  padding: 0.95rem 1.2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  background: #3b82f6;
+  color: white;
+  outline: none;
+}
+
+.task-name-input::placeholder {
+  color: rgba(255,255,255,0.78);
+}
+
+.status-dropdown {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: white;
+  font-size: 0.95rem;
+  color: #374151;
+  min-width: 140px;
+  cursor: pointer;
+}
+
+.form-row {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.description-field {
+  flex: 1;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.description-textarea {
+  width: 100%;
+  min-height: 140px;
+  padding: 0.95rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: #3b82f6;
+  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  outline: none;
+}
+
+.description-textarea::placeholder {
+  color: rgba(255,255,255,0.78);
+}
+
+.modal-footer {
+  padding: 1.2rem 2rem;
+  border-top: 1px solid #e5e7eb;
+  background: #f8fafc;
+  text-align: right;
+}
+
+.btn {
+  padding: 0.75rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+}
+
+ 
