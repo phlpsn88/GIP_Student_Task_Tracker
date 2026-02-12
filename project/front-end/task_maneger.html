@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/task_manager.css">
     <script src="js/login.js" defer></script>
+    <script src="js/popup.js" defer></script>
 
 </head>
 
@@ -38,7 +39,6 @@
     </header>
 
     <main>
-
         <!-- Login modal -->
         <div class="overlay-login fade-overlay">
             <div class="login-register-modal">
@@ -89,6 +89,27 @@
                 </button>
             </div>
 
+
+            <!-- nieuwe taak maken -->
+            <div class="overlay-new-task fade-overlay" style="display: none;">
+                <div class="login-register-modal">
+                    <form>
+                        <div class="close-btn" id="closeNewTask">×</div>
+                        <h1>nieuwe taak</h1>
+                        <label for="gebruikersnaam">Gebruikersnaam</label>
+                        <input id="gebruikersnaam" type="text" required>
+                        <label for="email">E-mailadres</label>
+                        <input id="email" type="email" required>
+                        <label for="password">Wachtwoord</label>
+                        <input id="password" type="password" required>
+                        <button type="submit">Aanmelden</button>
+                    </form>
+                    <div class="register">
+                        Heb je al een account?<br>
+                        log je dan <a id="loginFormLink">HIER</a> in
+                    </div>
+                </div>
+            </div>
             <div class="tasks-table-wrapper">
                 <table class="tasks-table">
                     <thead>
@@ -104,7 +125,8 @@
                         <tr>
                             <td>Send welcome email</td>
                             <td>
-                                <div class="priority-indicator">het maken van mijn gip en het leren van mijn toet van donderdag</div>
+                                <div class="priority-indicator">het maken van mijn gip en het leren van mijn toet van
+                                    donderdag</div>
                             </td>
                             <td><span class="deadline">(04 Apr 2030)</span></td>
                             <td>
@@ -125,7 +147,6 @@
                             <td>
                                 <div class="status-dropdown">
                                     <span class="status status-todo">To-do</span>
-                                    <i class="fas fa-chevron-down"></i>
                                 </div>
                             </td>
                             <td class="actions">
@@ -240,4 +261,5 @@
     </footer>
 
 </body>
+
 </html>

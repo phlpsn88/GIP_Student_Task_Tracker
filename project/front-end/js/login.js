@@ -1,5 +1,4 @@
 // make variables for navigation login/register button
-const registerButton = document.querySelector('#registerBtn')
 const loginButton = document.querySelector('#loginBtn')
 
 // make variables for overlay login/register form
