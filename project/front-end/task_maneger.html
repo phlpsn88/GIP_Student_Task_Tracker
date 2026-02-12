@@ -1,31 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager</title>
+    <title>Task Manager - R&A Tasks</title>
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/task_manager.css">
     <script src="js/login.js" defer></script>
+
 </head>
 
 <body>
+
     <header>
         <!-- navbar -->
         <nav class="navbar">
             <div class="logo">
-                <a href="../../index.html"><img src="img/logo_R&A_Tasks.png" alt="logo"></a>
+                <a href="../../index.html">
+                    <img src="img/logo_R&A_Tasks.png" alt="R&A Tasks logo">
+                </a>
             </div>
 
             <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <label for="menu-toggle" class="menu-icon">☰</label>
 
             <ul class="nav-links">
-                <li><a href="../../index.html" class="active">Home</a></li>
-                <li><a href="task_maneger.html">Task manager</a></li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="task_manager.html" class="active">Task manager</a></li>
                 <li><a href="more_info.html">More info</a></li>
                 <li><a class="login-btn" id="loginBtn">Login</a></li>
             </ul>
@@ -33,37 +38,38 @@
     </header>
 
     <main>
-        <!-- login button-->
+
+        <!-- Login modal -->
         <div class="overlay-login fade-overlay">
             <div class="login-register-modal">
                 <form>
                     <div class="close-btn" id="closeBtnLogin">×</div>
                     <h1>Login</h1>
                     <label for="email">E-mailadres</label>
-                    <input id="email" type="email">
+                    <input id="email" type="email" required>
                     <label for="password">Wachtwoord</label>
-                    <input id="password" type="password">
+                    <input id="password" type="password" required>
                     <button type="submit">Inloggen</button>
                 </form>
-
                 <div class="register">
                     Heb je nog geen account?<br>
                     Meld je dan <a id="registerFormLink">HIER</a> aan
                 </div>
             </div>
         </div>
-        <!-- register button -->
+
+        <!-- Register modal -->
         <div class="overlay-register fade-overlay">
             <div class="login-register-modal">
                 <form>
                     <div class="close-btn" id="closeBtnRegister">×</div>
                     <h1>Aanmelden</h1>
-                    <label for="gebruikersnaam">gebruikersnaam</label>
-                    <input id="gebruikersnaam" type="gebruikersnaam">
+                    <label for="gebruikersnaam">Gebruikersnaam</label>
+                    <input id="gebruikersnaam" type="text" required>
                     <label for="email">E-mailadres</label>
-                    <input id="email" type="email">
+                    <input id="email" type="email" required>
                     <label for="password">Wachtwoord</label>
-                    <input id="password" type="password">
+                    <input id="password" type="password" required>
                     <button type="submit">Aanmelden</button>
                 </form>
                 <div class="register">
@@ -72,6 +78,138 @@
                 </div>
             </div>
         </div>
+
+        <!-- Hier begint de echte task manager inhoud -->
+        <section class="task-manager-container">
+
+            <div class="header-section">
+                <h1>Task Tracker</h1>
+                <button class="btn-new-task">
+                    Nieuwe taak <span class="plus">+</span>
+                </button>
+            </div>
+
+            <div class="tasks-table-wrapper">
+                <table class="tasks-table">
+                    <thead>
+                        <tr>
+                            <th>Taak</th>
+                            <th>Beschrijving</th>
+                            <th>Deadline</th>
+                            <th>Status</th>
+                            <th>Acties</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Send welcome email</td>
+                            <td>
+                                <div class="priority-indicator">het maken van mijn gip en het leren van mijn toet van donderdag</div>
+                            </td>
+                            <td><span class="deadline">(04 Apr 2030)</span></td>
+                            <td>
+                                <span class="status status-done">Afgewerkt</span>
+                            </td>
+                            <td class="actions">
+                                <button class="btn-edit" title="Bewerken"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Setup completion</td>
+                            <td>
+                                <div class="priority-indicator "></div>
+                            </td>
+                            <td><span class="deadline">(11 Apr 2030)</span></td>
+                            <td>
+                                <div class="status-dropdown">
+                                    <span class="status status-todo">To-do</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </td>
+                            <td class="actions">
+                                <button class="btn-edit" title="Bewerken"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Share tutorial links</td>
+                            <td>
+                                <div class="priority-indicator"></div>
+                            </td>
+                            <td><span class="deadline">(18 Apr 2030)</span></td>
+                            <td>
+                                <div class="status-dropdown">
+                                    <span class="status status-todo">To-do</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </td>
+                            <td class="actions">
+                                <button class="btn-edit" title="Bewerken"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>
+                                <div class="priority-indicator"></div>
+                            </td>
+                            <td><span class="deadline">(25 Apr 2030)</span></td>
+                            <td>
+                                <div class="status-dropdown">
+                                    <span class="status status-not-started">Not started</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </td>
+                            <td class="actions">
+                                <button class="btn-edit" title="Bewerken"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>
+                                <div class="priority-indicator"></div>
+                            </td>
+                            <td><span class="deadline">(02 May 2030)</span></td>
+                            <td>
+                                <div class="status-dropdown">
+                                    <span class="status status-not-started">Not started</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </td>
+                            <td class="actions">
+                                <button class="btn-edit" title="Bewerken"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>
+                                <div class="priority-indicator"></div>
+                            </td>
+                            <td><span class="deadline">(09 May 2030)</span></td>
+                            <td>
+                                <div class="status-dropdown">
+                                    <span class="status status-not-started">Not started</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </td>
+                            <td class="actions">
+                                <button class="btn-edit" title="Bewerken"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
 
     </main>
     <!-- footer -->
@@ -85,9 +223,9 @@
         </div>
         <!-- navigation -->
         <div class="footer-column">
-            <h3>R&amp;A tasks</h3>
+            <h3>R&A tasks</h3>
             <a href="../../index.html"><strong>Home</strong></a>
-            <a href="task_maneger.html"><strong>Task manager</strong></a>
+            <a href="task_manager.html"><strong>Task manager</strong></a>
             <a href="more_info.html"><strong>More info</strong></a>
         </div>
         <!-- socials -->
@@ -97,9 +235,9 @@
                 <span><i class="fa-brands fa-instagram"></i></span>
                 <span><i class="fa-brands fa-facebook"></i></span>
             </div>
-            <p class="credit"><strong>Ontworpen door<br>Raf Angeli &amp; <br> Amine Kiadi</strong></p>
+            <p class="credit"><strong>Ontworpen door<br>Raf Angeli &<br> Amine Kiadi</strong></p>
         </div>
     </footer>
-</body>
 
+</body>
 </html>

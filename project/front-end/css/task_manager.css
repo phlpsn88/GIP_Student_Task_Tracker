@@ -1,0 +1,126 @@
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1e3a8a;
+    color: white;
+    padding: 1rem 1.5rem;
+}
+
+.header-section h1 {
+    margin: 0;
+}
+
+.btn-new-task {
+    background: white;
+    color: #1e3a8a;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 16%;
+    margin: 0;
+}
+
+.btn-new-task .plus {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.tasks-table-wrapper {
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    border-radius: 0 0 8px 8px;
+}
+
+.tasks-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.tasks-table th,
+.tasks-table td {
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tasks-table th {
+    background: #eff6ff;
+    color: #1e40af;
+    font-weight: 600;
+}
+
+.priority-indicator {
+    color: #374151;
+    font-weight: bold;
+}
+
+.deadline {
+    color: #6b7280;
+    white-space: nowrap;
+}
+
+.status {
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.status-done {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-todo {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-not-started {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.status-dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    background: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+}
+
+.status-dropdown i {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.actions {
+    white-space: nowrap;
+}
+
+.btn-edit,
+.btn-delete {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.4rem;
+    color: #4b5563;
+}
+
+.btn-edit:hover {
+    color: #2563eb;
+}
+
+.btn-delete:hover {
+    color: #dc2626;
+}
