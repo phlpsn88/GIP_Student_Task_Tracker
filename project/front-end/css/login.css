@@ -24,14 +24,12 @@ body {
     display: none;
     justify-content: center;
     align-items: center;
-
 }
 
 .fade-overlay {
     z-index: 40;
     background: rgb(191, 198, 204, 0.85);
 }
-
 
 .login-register-modal {
     width: 420px;
@@ -107,8 +105,9 @@ button {
 }
 
 .register a {
-    color: #001a8f;
+    color: #ffffff;
     font-weight: 700;
+    font-size: 22px;
     text-decoration: underline;
 }
 
