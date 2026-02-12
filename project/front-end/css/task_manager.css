@@ -111,10 +111,11 @@
 .btn-delete {
     background: none;
     border: none;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     cursor: pointer;
-    padding: 0.4rem;
+    padding: 0.2em;
     color: #4b5563;
+    display: revert;
 }
 
 .btn-edit:hover {
