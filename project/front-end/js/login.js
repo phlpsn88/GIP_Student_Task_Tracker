@@ -1,6 +1,7 @@
 // make variables for navigation login/register button
 const loginButton = document.querySelector('#loginBtn')
 
+
 // make variables for overlay login/register form
 const registerOverlay = document.querySelector('.overlay-register')
 const loginOverlay = document.querySelector('.overlay-login')
@@ -39,9 +40,3 @@ loginLink.addEventListener("click", function(){
     registerOverlay.style.display = "none"
     loginOverlay.style.display = "flex"
 });
-
-registerButton.addEventListener("click", function(){
-    registerOverlay.style.display = "flex"
-    document.body.classList.add("remove-scrolling");
-});
-

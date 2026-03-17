@@ -50,7 +50,7 @@
                     <input id="password" type="password" required>
                     <button type="submit">Inloggen</button>
                 </form>
-                
+
                 <div class="register">
                     Heb je nog geen account?<br>
                     Meld je dan <a id="registerFormLink">HIER</a> aan
@@ -112,7 +112,8 @@
                                 <span class="status status-done">Afgewerkt</span>
                             </td>
                             <td class="actions">
-                                <button class="btn-edit" id="overlay-edit-task" title="Bewerken"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn-edit-task" title="Bewerken"><i class="fas fa-pencil-alt"
+                                        id="pencil-edit-task"></i></button>
                                 <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
@@ -128,7 +129,8 @@
                                 </div>
                             </td>
                             <td class="actions">
-                                <button class="btn-edit" id="overlay-edit-task" title="Bewerken"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn-edit-task" title="Bewerken"><i class="fas fa-pencil-alt"
+                                        id="overlay-edit-task"></i></button>
                                 <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
@@ -144,7 +146,8 @@
                                 </div>
                             </td>
                             <td class="actions">
-                                <button class="btn-edit" id="overlay-edit-task" title="Bewerken"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn-edit-task" id="overlay-edit-task" title="Bewerken"><i
+                                        class="fas fa-pencil-alt"></i></button>
                                 <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
@@ -160,7 +163,8 @@
                                 </div>
                             </td>
                             <td class="actions">
-                                <button class="btn-edit" id="overlay-edit-task" title="Bewerken"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn-edit-task" id="overlay-edit-task" title="Bewerken"><i
+                                        class="fas fa-pencil-alt"></i></button>
                                 <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
@@ -176,7 +180,8 @@
                                 </div>
                             </td>
                             <td class="actions">
-                                <button class="btn-edit" id="overlay-edit-task" title="Bewerken"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn-edit-task" id="overlay-edit-task" title="Bewerken"><i
+                                        class="fas fa-pencil-alt"></i></button>
                                 <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
@@ -192,7 +197,8 @@
                                 </div>
                             </td>
                             <td class="actions">
-                                <button class="btn-edit" id="overlay-edit-task" title="Bewerken"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn-edit-task" id="overlay-edit-task" title="Bewerken"><i
+                                        class="fas fa-pencil-alt"></i></button>
                                 <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
@@ -231,14 +237,14 @@
                     </div>
                 </form>
             </div>
+        </div>
 
-
-             <div class="overlay-edit-task fade-overlay" style="display: none;">
+        <div class="fade-overlay" id="edit-task-overlay">
             <div class="modal">
                 <form>
                     <div class="modal-header">
                         <h2 class="modal-title">Taak bewerken?</h2>
-                        <div class="close-btn-task" id="closeNewTask">x</div>
+                        <div class="close-btn-task" id="closeEditTask">x</div>
                     </div>
                     <div class="modal-body">
                         <div class="task-name-row">
@@ -264,10 +270,8 @@
                     </div>
                 </form>
             </div>
-            
-        </div>
-        </div>
 
+         </div>
 
 
     </main>
@@ -298,4 +302,5 @@
         </div>
     </footer>
 </body>
+
 </html>

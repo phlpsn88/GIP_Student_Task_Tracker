@@ -23,7 +23,8 @@
 }
 
 
-.overlay-new-task {
+.overlay-new-task,
+#edit-task-overlay {
     position: fixed;
     inset: 0;
     display: none;
@@ -122,7 +123,7 @@
     white-space: nowrap;
 }
 
-.btn-edit,
+.btn-edit-task,
 .btn-delete {
     background: none;
     border: none;
@@ -133,7 +134,7 @@
     display: revert;
 }
 
-.btn-edit:hover {
+.btn-edit-task:hover {
     color: #2563eb;
 }
 
