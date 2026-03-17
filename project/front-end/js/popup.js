@@ -3,9 +3,9 @@ const newTaskOverlay = document.querySelector('.overlay-new-task')
 const closeNewTask = document.querySelector('#closeNewTask')
 const datePicker = document.querySelector('#datePicker')
 const editTaskButton = document.querySelector('.btn-edit-task');
-const pencilEdit = document.querySelector('#pencil-edit-task')
+const pencilEdit = document.querySelector('.pencil-edit-task')
 const editTaskOverlay = document.querySelector('#edit-task-overlay')
-const closeEditTask = document.querySelector('.close-btn-task')
+const closeEditTask = document.querySelector('#closeEditTask')
 
 newTaskButton.addEventListener("click", function(){
     newTaskOverlay.style.display = "flex"
@@ -32,6 +32,6 @@ pencilEdit.addEventListener("click", function(){
 });
 
 closeEditTask.addEventListener("click", function(){
-    closeEditOverlay.style.display = "none"
+    editTaskOverlay.style.display = "none"
     document.body.classList.remove("remove-scrolling");
 });
