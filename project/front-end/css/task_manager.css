@@ -141,3 +141,113 @@
 .btn-delete:hover {
     color: #dc2626;
 }
+
+/* Responsive */
+@media (max-width: 1024px) {
+
+    .tasks-table {
+        margin: 1rem;
+        padding: 0;
+    }
+
+    .tasks-table th,
+    .tasks-table td {
+        padding: 0.8rem 1rem;
+    }
+
+    .btn-new-task {
+        width: auto;
+        padding: 0.6rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .header-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .btn-new-task {
+        width: 100%;
+        text-align: center;
+    }
+
+    .tasks-table {
+        font-size: 0.9rem;
+    }
+
+    .tasks-table th,
+    .tasks-table td {
+        padding: 0.6rem;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .tasks-table thead {
+        display: none;
+    }
+
+    .tasks-table,
+    .tasks-table tbody,
+    .tasks-table tr,
+    .tasks-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .tasks-table tr {
+        background: white;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 0.5rem;
+    }
+
+    .tasks-table td {
+        border: none;
+        padding: 0.5rem 0.8rem;
+        position: relative;
+    }
+
+    /* Labels toevoegen */
+    .tasks-table td::before {
+        font-weight: bold;
+        display: block;
+        color: #1e3a8a;
+        margin-bottom: 0.2rem;
+    }
+
+    .tasks-table td:nth-child(1)::before { content: "Taak"; }
+    .tasks-table td:nth-child(2)::before { content: "Beschrijving"; }
+    .tasks-table td:nth-child(3)::before { content: "Deadline"; }
+    .tasks-table td:nth-child(4)::before { content: "Status"; }
+    .tasks-table td:nth-child(5)::before { content: "Acties"; }
+
+    .actions {
+        display: flex;
+        gap: 1rem;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .header-section {
+        padding: 0.8rem;
+    }
+
+    .header-section h1 {
+        font-size: 1.2rem;
+    }
+
+    .btn-new-task {
+        font-size: 0.9rem;
+    }
+
+    .status {
+        font-size: 0.8rem;
+    }
+}

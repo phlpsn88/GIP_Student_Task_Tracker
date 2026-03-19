@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/width_1600.webp" type="image/x-icon">
     <title>Task Manager - R&A Tasks</title>
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/task_manager.css">
     <link rel="stylesheet" href="css/pop_up.css">
+    <link rel="stylesheet" href="css/verwijder_popup.css">
     <script src="js/login.js" defer></script>
     <script src="js/popup.js" defer></script>
 
@@ -48,7 +50,7 @@
                     <input id="email" type="email" required>
                     <label for="password">Wachtwoord</label>
                     <input id="password" type="password" required>
-                    <button type="submit">Inloggen</button>
+                    <button type="submit" class="login-btn">Inloggen</button>
                 </form>
 
                 <div class="register">
@@ -70,7 +72,7 @@
                     <input id="email" type="email" required>
                     <label for="password">Wachtwoord</label>
                     <input id="password" type="password" required>
-                    <button type="submit">Aanmelden</button>
+                    <button type="submit" class="login-btn">Aanmelden</button>
                 </form>
                 <div class="register">
                     Heb je al een account?<br>
@@ -130,8 +132,9 @@
                                 </div>
                             </td>
                             <td class="actions">
-                                <button class="btn-edit-task" title="Bewerken"><i class="fas fa-pencil-alt"
-                                        id="pencil-edit-task"></i></button>
+                                <button class="btn-edit-task" title="Bewerken">
+                                    <i id="pencil-edit-task" class="fas fa-pencil-alt"></i>
+                                </button>
                                 <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
@@ -147,7 +150,9 @@
                                 </div>
                             </td>
                             <td class="actions">
-                                <button class="btn-edit-task" title="Bewerken"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn-edit-task" title="Bewerken">
+                                    <i id="pencil-edit-task" class="fas fa-pencil-alt"></i>
+                                </button>
                                 <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
@@ -163,8 +168,9 @@
                                 </div>
                             </td>
                             <td class="actions">
-                                <button class="btn-edit-task" title="Bewerken"><i class="fas fa-pencil-alt"
-                                        id="pencil-edit-task"></i></button>
+                                <button class="btn-edit-task" title="Bewerken">
+                                    <i id="pencil-edit-task" class="fas fa-pencil-alt"></i>
+                                </button>
                                 <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
@@ -180,8 +186,9 @@
                                 </div>
                             </td>
                             <td class="actions">
-                                <button class="btn-edit-task" title="Bewerken"><i class="fas fa-pencil-alt"
-                                        id="pencil-edit-task"></i></button>
+                                <button class="btn-edit-task" title="Bewerken">
+                                    <i id="pencil-edit-task" class="fas fa-pencil-alt"></i>
+                                </button>
                                 <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
@@ -197,8 +204,9 @@
                                 </div>
                             </td>
                             <td class="actions">
-                                <button class="btn-edit-task" title="Bewerken"><i class="fas fa-pencil-alt"
-                                        id="pencil-edit-task"></i></button>
+                                <button class="btn-edit-task" title="Bewerken">
+                                    <i id="pencil-edit-task" class="fas fa-pencil-alt"></i>
+                                </button>
                                 <button class="btn-delete" title="Verwijderen"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
@@ -270,7 +278,17 @@
                     </div>
                 </form>
             </div>
+        </div>
+        <div class="overlay" id="popup" style="display: none;">
+            <div class="modal">
+                <h2>Taak verwijderen?</h2>
+                <p>Weet je zeker dat je de taak wilt verwijderen?</p>
 
+                <div class="buttons">
+                    <button class="btn delete">verwijderen</button>
+                    <button class="btn cancel" onclick="closePopup()">Annuleren</button>
+                </div>
+            </div>
         </div>
 
 

@@ -74,6 +74,10 @@ label {
     font-size: 18px;
 }
 
+.login-btn {
+    margin: 10px auto 25px;
+}
+
 input {
     width: 100%;
     padding: 14px 18px;
@@ -87,7 +91,6 @@ input {
 
 button {
     width: 60%;
-    margin: 10px auto 25px;
     display: block;
     padding: 14px;
     border-radius: 999px;

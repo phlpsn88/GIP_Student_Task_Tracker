@@ -5,6 +5,9 @@ const datePicker = document.querySelector('#datePicker')
 const editTaskButton = document.querySelector('.btn-edit-task');
 const editTaskOverlay = document.querySelector('#edit-task-overlay')
 const closeEditTask = document.querySelector('#closeEditTask')
+const deleteButtons = document.querySelectorAll(".btn-delete");
+const deletePopup = document.getElementById("popup");
+
 
 newTaskButton.addEventListener("click", function () {
     newTaskOverlay.style.display = "flex"
@@ -38,3 +41,15 @@ iconsEdit.forEach(edit => {
         document.body.classList.remove("remove-scrolling");
     });
 });
+
+deleteButtons.forEach(btn => {
+    btn.addEventListener("click", function () {
+        deletePopup.style.display = "flex";
+        document.body.classList.add("remove-scrolling");
+    });
+});
+
+function closePopup() {
+    deletePopup.style.display = "none";
+    document.body.classList.remove("remove-scrolling");
+}
