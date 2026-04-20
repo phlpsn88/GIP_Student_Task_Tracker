@@ -1,4 +1,5 @@
 -- Database aanmaken
+DROP DATABASE IF EXISTS taskmanager; 
 CREATE DATABASE taskmanager;
 USE taskmanager;
 
@@ -38,5 +39,7 @@ VALUES
 (1, 'SQL oefenen', 'SELECT en INSERT oefenen', '2025-12-20', 'in progress'),
 (2, 'Documentatie schrijven', 'Uitleg maken van databank', '2025-12-18', 'open');
 
--- Voorbeeld queries
-
+SELECT u.id, u.username, u.email, t.title, t.description, t.due_date, t.status
+FROM users u
+INNER JOIN tasks t ON u.id = t.user_id
+ORDER BY t.due_date;    

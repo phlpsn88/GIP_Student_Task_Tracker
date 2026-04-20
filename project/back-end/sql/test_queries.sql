@@ -21,7 +21,7 @@ SET status = 'done'
 WHERE id = 1;
 
 --login
-SELECT id, username
+SELECT id, username, password
 FROM users
 WHERE email = 'jan@email.com'
 AND password = 'hashedpassword1';
