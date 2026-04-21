@@ -50,7 +50,6 @@
 }
 
 .tasks-table {
-    width: 100%;
     border-collapse: collapse;
     background: white;
     max-width: 1200px;
@@ -175,7 +174,7 @@
     }
 
     .tasks-table {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .tasks-table th,
@@ -195,7 +194,7 @@
     .tasks-table tr,
     .tasks-table td {
         display: block;
-        width: 100%;
+        width: 98%;
     }
 
     .tasks-table tr {
