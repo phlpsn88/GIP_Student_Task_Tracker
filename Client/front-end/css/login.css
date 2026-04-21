@@ -118,3 +118,9 @@ button {
 #registerFormLink {
     cursor: pointer;
 }
+@media(max-width: 504px) {
+    .login-register-modal {
+        max-width: 90%;
+    }
+   
+}

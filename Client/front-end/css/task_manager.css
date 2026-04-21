@@ -37,6 +37,9 @@
     overflow: hidden;
 }
 
+.padding-box-gsm {
+    padding: 1rem;
+}
 
 .btn-new-task .plus {
     font-size: 1.4rem;
@@ -52,7 +55,7 @@
 .tasks-table {
     border-collapse: collapse;
     background: white;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 2rem auto;
     padding: 0 1.5rem;
 }

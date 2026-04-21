@@ -25,7 +25,6 @@
   border-radius: 16px;
   padding: 30px 25px;
   width: 100%;
-  max-width: 500px;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
@@ -80,6 +79,12 @@
 
 .cancel:hover {
   background: #255ad1;
+}
+
+.dropdown-menu-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
 }
 
 /* 📱 Responsive */

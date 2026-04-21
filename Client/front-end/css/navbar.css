@@ -53,6 +53,7 @@ body {
     font-size: 2em;
     cursor: pointer;
     user-select: none;
+    color: white;
 }
 
 #menu-toggle {

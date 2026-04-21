@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/width_1600.webp" type="image/x-icon">
-    <title>Task Manager - R&A Tasks</title>
+    <title>Taak Manager - R&A Tasks</title>
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/login.css">
@@ -24,16 +24,16 @@
         <!-- navbar -->
         <nav class="navbar">
             <div class="logo">
-                <a href="../../index.html">
+                <a href="../index.html">
                     <img src="img/logo_R&A_Tasks.png" alt="R&A Tasks logo">
                 </a>
             </div>
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon">☰</label>
             <ul class="nav-links">
-                <li><a href="../../index.html">Home</a></li>
-                <li><a href="task_manager.html" class="active">Task manager</a></li>
-                <li><a href="more_info.html">More info</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="task_manager.html" class="active">Taak manager</a></li>
+                <li><a href="more_info.html">Meer info</a></li>
                 <li><a class="login-btn" id="loginBtn">Login</a></li>
             </ul>
         </nav>
@@ -111,7 +111,9 @@
                             </td>
                             <td><span class="deadline">(04 Apr 2030)</span></td>
                             <td>
-                                <span class="status status-done">Afgewerkt</span>
+                                <div class="padding-box-gsm">
+                                    <span class="status status-done">Afgewerkt</span>
+                                </div>
                             </td>
                             <td class="actions">
                                 <button class="btn-edit-task" title="Bewerken">
@@ -222,26 +224,34 @@
                         <div class="close-btn-task" id="closeNewTask">x</div>
                     </div>
                     <div class="modal-body">
-                        <div class="task-name-row">
-                            <input type="text" class="task-name-input" placeholder="voeg taaknaam toe" autofocus />
-
-                            <h3>status</h3>
+                        <label class="field-label">
+                            <h3>Titel</h3>
+                        </label>
+                        <input type="text" class="task-name-input" placeholder="voeg taaknaam toe" autofocus />
+                        <div class="dropdown-menu-left">
+                            <label class="field-label">
+                                <h3>status</h3>
+                            </label>
                             <select class="status-dropdown">
                                 <option value="todo">Niet gestart</option>
                                 <option value="inprogress">bezig</option>
                                 <option value="done">Afgewerkt</option>
                             </select>
                         </div>
-                        <div class="form-row">
-                            <div class="description-field">
-                                <label class="field-label">Beschrijving</label>
-                                <textarea class="description-textarea" placeholder="voeg beschrijving toe"
-                                    rows="6"></textarea>
-                            </div>
+                        <div class="description-field">
+                            <label class="field-label">
+                                <h3>Beschrijving</h3>
+                            </label>
+                            <textarea class="description-textarea" placeholder="voeg beschrijving toe"
+                                rows="6"></textarea>
                         </div>
+                        <label class="field-label">
+                            <h3>Datum</h3>
+                        </label>
+                        <input class="date-box" type="date" id="date" name="date">
                     </div>
                     <div class="modal-footer">
-                        <button class="btn-primary login-btn" >Toevoegen</button>
+                        <button class="btn-primary login-btn">Toevoegen</button>
                     </div>
                 </form>
             </div>
@@ -255,29 +265,38 @@
                         <div class="close-btn-task" id="closeEditTask">x</div>
                     </div>
                     <div class="modal-body">
-                        <div class="task-name-row">
-                            <input type="text" class="task-name-input" placeholder="voeg taaknaam toe" autofocus />
-
-                            <h3>status</h3>
+                        <label class="field-label">
+                            <h3>Titel</h3>
+                        </label>
+                        <input type="text" class="task-name-input" placeholder="voeg taaknaam toe" autofocus />
+                        <div class="dropdown-menu-left">
+                            <label class="field-label">
+                                <h3>status</h3>
+                            </label>
                             <select class="status-dropdown">
                                 <option value="todo">Niet gestart</option>
                                 <option value="inprogress">bezig</option>
                                 <option value="done">Afgewerkt</option>
                             </select>
                         </div>
-                        <div class="form-row">
-                            <div class="description-field">
-                                <label class="field-label">Beschrijving</label>
-                                <textarea class="description-textarea" placeholder="voeg beschrijving toe"
-                                    rows="6"></textarea>
-                            </div>
+                        <div class="description-field">
+                            <label class="field-label">
+                                <h3>Beschrijving</h3>
+                            </label>
+                            <textarea class="description-textarea" placeholder="voeg beschrijving toe"
+                                rows="6"></textarea>
                         </div>
+                        <label class="field-label">
+                            <h3>Datum</h3>
+                        </label>
+                        <input class="date-box" type="date" id="date" name="date">
                     </div>
                     <div class="modal-footer">
                         <button class="btn-primary login-btn">bewerken</button>
                     </div>
-                </form>
             </div>
+            </form>
+        </div>
         </div>
         <div class="overlay" id="popup" style="display: none;">
             <div class="modal">
@@ -306,8 +325,8 @@
         <div class="footer-column">
             <h3>R&A tasks</h3>
             <a href="../../index.html"><strong>Home</strong></a>
-            <a href="task_manager.html"><strong>Task manager</strong></a>
-            <a href="more_info.html"><strong>More info</strong></a>
+            <a href="task_manager.html"><strong>Taak manager</strong></a>
+            <a href="more_info.html"><strong>Meer info</strong></a>
         </div>
         <!-- socials -->
         <div class="footer-column">
