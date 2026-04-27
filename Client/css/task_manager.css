@@ -22,7 +22,6 @@
     margin: 0;
 }
 
-
 .overlay-new-task,
 #edit-task-overlay {
     position: fixed;
@@ -37,125 +36,21 @@
     overflow: hidden;
 }
 
-.padding-box-gsm {
-    padding: 1rem;
-}
-
 .btn-new-task .plus {
     font-size: 1.4rem;
     font-weight: bold;
 }
 
-.tasks-table-wrapper {
-    overflow-x: auto;
-    border: 1px solid #ddd;
-    border-radius: 0 0 8px 8px;
-}
-
-.tasks-table {
-    border-collapse: collapse;
-    background: white;
-    max-width: 1300px;
-    margin: 2rem auto;
-    padding: 0 1.5rem;
-}
-
-.tasks-table th,
-.tasks-table td {
-    padding: 1em 2em;
-    text-align: left;
-    border-bottom: 1px solid #e5e7eb;
-}
-
-.tasks-table th {
-    background: #eff6ff;
-    color: #1e40af;
-    font-weight: 600;
-}
-
-.priority-indicator {
-    color: #374151;
-    font-weight: bold;
-}
-
-.deadline {
-    color: #6b7280;
-    white-space: nowrap;
-}
-
-.status {
-    padding: 0.35rem 0.85rem;
-    border-radius: 999px;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.status-done {
-    background: #d1fae5;
-    color: #065f46;
-}
-
-.status-todo {
-    background: #fef3c7;
-    color: #92400e;
-}
-
-.status-not-started {
-    background: #fee2e2;
-    color: #991b1b;
-}
-
 .status-dropdown {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    background: white;
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
-}
-
-.status-dropdown i {
-    font-size: 0.9rem;
-    color: #6b7280;
-}
-
-.actions {
-    white-space: nowrap;
-}
-
-.btn-edit-task,
-.btn-delete {
-    background: none;
-    border: none;
-    font-size: 1.3rem;
-    cursor: pointer;
-    padding: 0.2em;
-    color: #4b5563;
-    display: revert;
-}
-
-.btn-edit-task:hover {
-    color: #2563eb;
-}
-
-.btn-delete:hover {
-    color: #dc2626;
+    border: solid;
+    border-radius: 8px;
+    background: #ffffff;
+    padding: 14px 18px;
+    font-size: 16px;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
-
-    .tasks-table {
-        margin: 1rem;
-        padding: 0;
-    }
-
-    .tasks-table th,
-    .tasks-table td {
-        padding: 0.8rem 1rem;
-    }
 
     .btn-new-task {
         width: auto;
@@ -176,64 +71,7 @@
         text-align: center;
     }
 
-    .tasks-table {
-        font-size: 0.8rem;
-    }
-
-    .tasks-table th,
-    .tasks-table td {
-        padding: 0.6rem;
-    }
 }
-
-@media (max-width: 600px) {
-
-    .tasks-table thead {
-        display: none;
-    }
-
-    .tasks-table,
-    .tasks-table tbody,
-    .tasks-table tr,
-    .tasks-table td {
-        display: block;
-        width: 98%;
-    }
-
-    .tasks-table tr {
-        background: white;
-        margin-bottom: 1rem;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 0.5rem;
-    }
-
-    .tasks-table td {
-        border: none;
-        padding: 0.5rem 0.8rem;
-        position: relative;
-    }
-
-    /* Labels toevoegen */
-    .tasks-table td::before {
-        font-weight: bold;
-        display: block;
-        color: #1e3a8a;
-        margin-bottom: 0.2rem;
-    }
-
-    .tasks-table td:nth-child(1)::before { content: "Taak"; }
-    .tasks-table td:nth-child(2)::before { content: "Beschrijving"; }
-    .tasks-table td:nth-child(3)::before { content: "Deadline"; }
-    .tasks-table td:nth-child(4)::before { content: "Status"; }
-    .tasks-table td:nth-child(5)::before { content: "Acties"; }
-
-    .actions {
-        display: flex;
-        gap: 1rem;
-    }
-}
-
 
 @media (max-width: 400px) {
 
@@ -249,7 +87,4 @@
         font-size: 0.9rem;
     }
 
-    .status {
-        font-size: 0.8rem;
-    }
 }

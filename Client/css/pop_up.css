@@ -84,16 +84,6 @@ body {
   color: rgba(255,255,255,0.78);
 }
 
-.status-dropdown {
-  padding: 0.8rem 1rem;
-  border-radius: 8px;
-  background: white;
-  font-size: 0.95rem;
-  color: #374151;
-  min-width: 140px;
-  cursor: pointer;
-}
-
 .form-row {
   display: flex;
   gap: 2rem;

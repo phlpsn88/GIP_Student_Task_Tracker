@@ -16,7 +16,7 @@ if (registerForm) {
         const wachtwoord = document.getElementById('password').value;
 
         // fetch() stuurt een POST-request naar de server
-        const response = await fetch('/api/register', {
+        const response = await fetch('http://localhost:3000/api/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' }, // vertel de server dat we JSON sturen
             body: JSON.stringify({ naam, email, wachtwoord }) // zet JS-object om naar JSON-tekst
@@ -26,7 +26,7 @@ if (registerForm) {
         if (response.ok) {
             // response.ok = true als de statuscode 200-299 is (hier: 201)
             // Registratie gelukt → doorsturen naar loginpagina
-            window.location.href = '/index.html';
+            window.location.href = 'index.html';
         } else {
             // Fout (bv. e-mail al in gebruik) → toon de foutmelding
             const fout = document.getElementById('foutmelding');
