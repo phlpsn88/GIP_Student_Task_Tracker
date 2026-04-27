@@ -73,6 +73,65 @@ app.get('/api/test-db', async (req, res) => {
     res.json(rijen);
 });
 
+app.get('/api/tasks', async (req, res) => {
+    // pool.execute() voert de SQL-query uit en wacht op het resultaat (await).
+    // Het geeft een array van twee elementen terug:
+    //   [0] = de rijen die MySQL teruggeeft (een array van objecten)
+    //   [1] = metadata over de kolommen (negeren we hier)
+    // Door destructuring schrijven we [rijen] in plaats van result[0].
+    const [rijen] = await pool.execute(
+        'SELECT * FROM tasks ORDER BY datum ASC'
+        // ORDER BY datum ASC = vroegste datum eerst
+    );
+
+    // res.json() zet het JS-array om naar JSON-tekst en stuurt het terug.
+    // Express zet automatisch de Content-Type header op 'application/json'.
+    res.json(rijen);
+});
+
+// ── POST /api/register — nieuw account aanmaken ────────────────────────────────
+app.post('/api/register', async (req, res) => {
+    // req.body bevat de JSON die het registratieformulier meestuurde
+    const { naam, email, wachtwoord } = req.body;
+
+    // Validatie: zijn alle verplichte velden ingevuld?
+    if (!naam || !email || !wachtwoord) {
+        return res.status(400).json({ fout: 'Alle velden zijn verplicht' });
+    }
+    if (wachtwoord.length < 8) {
+        return res.status(400).json({ fout: 'Wachtwoord moet minstens 8 tekens zijn' });
+    }
+
+    // Controleer of dit e-mailadres al in gebruik is
+    const [bestaande] = await pool.execute(
+        'SELECT id FROM users WHERE email = ?', [email]
+    );
+    if (bestaande.length > 0) {
+        // 409 Conflict: het e-mailadres is al bezet
+        return res.status(409).json({ fout: 'E-mailadres is al in gebruik' });
+    }
+
+    // bcrypt.hash(wachtwoord, 10):
+    //   - wachtwoord: de leesbare tekst die de gebruiker intypte
+    //   - 10: het aantal "salt rounds" — hoe meer rounds, hoe veiliger maar trager.
+    //         10 is de industriestandaard: veilig én snel genoeg voor login.
+    // De hash ziet er zo uit: '$2b$10$...' (altijd 60 tekens lang)
+    const hash = await bcrypt.hash(wachtwoord, 10);
+
+    // Sla de gebruiker op — nooit het originele wachtwoord, altijd de hash!
+    // rol hoeven we niet mee te geven: de database gebruikt DEFAULT 'gebruiker'
+    const [r] = await pool.execute(
+        'INSERT INTO users (naam, email, wachtwoord) VALUES (?, ?, ?)',
+        [naam, email, hash]
+    );
+
+    // 201 Created: account succesvol aangemaakt
+    // r.insertId = het AUTO_INCREMENT-id van de nieuwe gebruiker
+    res.status(201).json({ id: r.insertId, bericht: 'Account aangemaakt' });
+});
+
+
+
 // ── Server starten ────────────────────────────────────────────────────────────
 // app.listen() start de server op de opgegeven poort.
 // De callback wordt éénmalig uitgevoerd zodra de server klaar is.

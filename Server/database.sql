@@ -5,8 +5,8 @@ USE taskmanager;
 -- Tabel: users
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
+    naam VARCHAR(50) NOT NULL UNIQUE,
+    wachtwoord VARCHAR(255) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     rol VARCHAR(20)  NOT NULL DEFAULT 'gebruiker'
 );
@@ -16,15 +16,15 @@ CREATE TABLE tasks (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL, 
     title VARCHAR(100) NOT NULL,
-    description TEXT,
-    due_date DATE,
-    status VARCHAR(20) DEFAULT 'open',
+    beschrijving TEXT,
+    datum DATE,
+    status VARCHAR(20) DEFAULT 'Niet gestart',
     FOREIGN KEY (user_id) REFERENCES users(id)
         ON DELETE CASCADE
 );
 
 -- Testdata invoeren
-INSERT INTO users (username, password, email, rol)
+INSERT INTO users (naam, wachtwoord, email, rol)
 VALUES
 ('Admin', 'PLACEHOLDER', 'admin@taskmanager.be', 'admin'),
 ('jan', 'PLACEHOLDER', 'jan@email.com', 'gebruiker'),
@@ -34,8 +34,8 @@ VALUES
 ('lisa', 'PLACEHOLDER', 'lisa@mail.com', 'gebruiker');
 
 
-INSERT INTO tasks (user_id, title, description, due_date, status)
+INSERT INTO tasks (user_id, title, beschrijving, datum, status)
 VALUES
-(1, 'Databank maken', 'MySQL databank ontwerpen', '2025-12-15', 'open'),
-(1, 'SQL oefenen', 'SELECT en INSERT oefenen', '2025-12-20', 'in progress'),
-(2, 'Documentatie schrijven', 'Uitleg maken van databank', '2025-12-18', 'open');
+(1, 'Databank maken', 'MySQL databank ontwerpen', '2025-12-15', 'Afgewerkt'),
+(1, 'SQL oefenen', 'SELECT en INSERT oefenen', '2025-12-20', 'Bezig'),
+(2, 'Documentatie schrijven', 'Uitleg maken van databank', '2025-12-18', 'Niet gestart');
