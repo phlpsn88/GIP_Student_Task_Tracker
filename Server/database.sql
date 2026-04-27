@@ -5,7 +5,7 @@ USE taskmanager;
 -- Tabel: users
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    naam VARCHAR(50) NOT NULL UNIQUE,
+    naam VARCHAR(50) NOT NULL,
     wachtwoord VARCHAR(255) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     rol VARCHAR(20)  NOT NULL DEFAULT 'gebruiker'
