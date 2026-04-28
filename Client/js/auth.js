@@ -12,11 +12,11 @@ if (registerForm) {
         e.preventDefault();
 
         const naam = document.getElementById('gebruikersnaam').value;
-        const email = document.getElementById('email').value;
-        const wachtwoord = document.getElementById('password').value;
+        const email = document.getElementById('emailRegister').value;
+        const wachtwoord = document.getElementById('wachtwoordRegister').value;
 
         // fetch() stuurt een POST-request naar de server
-        const response = await fetch('http://localhost:3000/api/register', {
+        const response = await fetch('/api/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' }, // vertel de server dat we JSON sturen
             body: JSON.stringify({ naam, email, wachtwoord }) // zet JS-object om naar JSON-tekst
@@ -29,7 +29,7 @@ if (registerForm) {
             window.location.href = 'index.html';
         } else {
             // Fout (bv. e-mail al in gebruik) → toon de foutmelding
-            const fout = document.getElementById('foutmelding');
+            const fout = document.getElementById('foutmeldingRegister');
             fout.textContent = data.fout;  // tekst van de server instellen
             fout.hidden = false;           // element zichtbaar maken
         }

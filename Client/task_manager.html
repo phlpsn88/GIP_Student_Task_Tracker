@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/tasks.css">
     <script src="js/login.js" defer></script>
     <script src="js/popup.js" defer></script>
+    <script src="js/auth.js" type="module"></script>
 
 </head>
 
@@ -47,13 +48,11 @@
                 <form>
                     <div class="close-btn" id="closeBtnLogin">×</div>
                     <h1>Login</h1>
-                    <label for="email">E-mailadres</label>
-                    <input id="email" type="email" required>
-                    <label for="password">Wachtwoord</label>
-                    <input id="password" type="password" required>
+                    <label>E-mailadres<input id="emailLogin" type="email" required></label>
+                    <label>Wachtwoord<input id="wachtwoordLogin" type="password" required></label>
                     <button type="submit" class="login-btn">Inloggen</button>
                 </form>
-
+                <p id="foutmelding" class="fout" hidden></p>
                 <div class="register">
                     Heb je nog geen account?<br>
                     Meld je dan <a id="registerFormLink">HIER</a> aan
@@ -68,10 +67,11 @@
                     <div class="close-btn" id="closeBtnRegister">×</div>
                     <h1>Aanmelden</h1>
                     <label>Naam<input id="gebruikersnaam" type="text" required></label>
-                    <label>E-mailadres<input id="email" type="email" required></label>
-                    <label>Wachtwoord<input id="password" type="password" required></label>
+                    <label>E-mailadres<input id="emailRegister" type="email" required></label>
+                    <label>Wachtwoord<input id="wachtwoordRegister" type="password" required></label>
                     <button type="submit" class="login-btn">Aanmelden</button>
                 </form>
+                <p id="foutmelding" class="fout" hidden></p>
                 <div class="register">
                     Heb je al een account?<br>
                     log je dan <a id="loginFormLink">HIER</a> in
