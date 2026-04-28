@@ -20,6 +20,7 @@ closeNewTask.addEventListener("click", function () {
 });
 
 editTaskButton.addEventListener("click", function () {
+    editTaskOverlay.style.display = "flex"
     document.body.classList.add("remove-scrolling");
 });
 
