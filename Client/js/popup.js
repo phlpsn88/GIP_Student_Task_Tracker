@@ -35,7 +35,6 @@ const iconsEdit = document.querySelectorAll("#pencil-edit-task");
 iconsEdit.forEach(edit => {
     edit.addEventListener("click", function () {
         editTaskOverlay.style.display = "flex"
-        document.body.classList.remove("remove-scrolling");
     });
 });
 
