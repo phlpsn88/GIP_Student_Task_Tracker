@@ -131,6 +131,62 @@ app.post('/api/register', async (req, res) => {
 });
 
 
+// ── POST /api/login — inloggen ─────────────────────────────────────────────────
+app.post('/api/login', async (req, res) => {
+    const { email, wachtwoord } = req.body;
+
+    // Zoek de gebruiker op via e-mail
+    const [rijen] = await pool.execute(
+        'SELECT * FROM users WHERE email = ?', [email]
+    );
+
+    // Geen gebruiker gevonden? Geef DEZELFDE fout als bij een verkeerd wachtwoord.
+    // Zo weet een aanvaller niet of het e-mailadres bestaat of niet.
+    if (rijen.length === 0) {
+        return res.status(401).json({ fout: 'Ongeldig e-mailadres of wachtwoord' });
+    }
+
+    const gebruiker = rijen[0];
+
+    // bcrypt.compare(ingevoerd, opgeslagenHash):
+    //   - berekent de hash van 'ingevoerd' en vergelijkt die met de opgeslagen hash
+    //   - geeft true terug als ze overeenkomen, false als niet
+    const klopt = await bcrypt.compare(wachtwoord, gebruiker.wachtwoord);
+    if (!klopt) {
+        return res.status(401).json({ fout: 'Ongeldig e-mailadres of wachtwoord' });
+    }
+
+    // Sessie aanmaken: sla gebruikersgegevens op voor volgende requests.
+    // req.session is een object dat express-session bijhoudt tussen requests.
+    req.session.gebruikerId = gebruiker.id;    // nodig om te weten wie er ingelogd is
+    req.session.naam        = gebruiker.naam;  // voor weergave in de UI
+    req.session.rol         = gebruiker.rol;   // 'gebruiker' of 'admin'
+
+    // Stuur naam en rol terug — de front-end gebruikt dit om door te sturen
+    res.json({ bericht: 'Ingelogd', naam: gebruiker.naam, rol: gebruiker.rol });
+});
+
+
+// ── POST /api/logout — uitloggen ───────────────────────────────────────────────
+app.post('/api/logout', (req, res) => {
+    // req.session.destroy() verwijdert de sessie volledig van de server
+    req.session.destroy(() => {
+        res.json({ bericht: 'Uitgelogd' });
+    });
+});
+
+
+// ── GET /api/mij — wie is er ingelogd? ────────────────────────────────────────
+app.get('/api/mij', (req, res) => {
+    // req.session.gebruikerId is undefined als niemand ingelogd is
+    if (!req.session.gebruikerId) {
+        return res.status(401).json({ fout: 'Niet ingelogd' });
+    }
+    // Stuur de sessiegegevens terug — de front-end roept dit op bij het laden van elke beveiligde pagina
+    res.json({ id: req.session.gebruikerId, naam: req.session.naam, rol: req.session.rol });
+});
+
+
 
 // ── Server starten ────────────────────────────────────────────────────────────
 // app.listen() start de server op de opgegeven poort.

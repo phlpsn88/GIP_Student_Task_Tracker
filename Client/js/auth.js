@@ -38,3 +38,34 @@ if (registerForm) {
         }
     });
 }
+
+// ── Login ─────────────────────────────────────────────────────────────────────
+const loginForm = document.getElementById('login-form');
+
+// Alleen uitvoeren als we op login.html zijn
+if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email      = document.getElementById('emailLogin').value;
+        const wachtwoord = document.getElementById('wachtwoordLogin').value;
+
+        const response = await fetch('/api/login', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify({ email, wachtwoord })
+        });
+        const data = await response.json();
+
+        if (response.ok) {
+            // Login gelukt — stuur door op basis van de rol die de server terugstuurde:
+            //   admin     → admin.html (adminpanel)
+            //   gebruiker → dashboard.html (eigen activiteiten)
+            window.location.href = data.rol === 'admin' ? '/admin.html' : '/task_manager.html';
+        } else {
+            const fout = document.getElementById('foutmelding');
+            fout.textContent = data.fout;
+            fout.hidden = false;
+        }
+    });
+}
