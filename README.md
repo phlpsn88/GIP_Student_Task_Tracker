@@ -6,7 +6,7 @@
 
 Ga naar de officiële website om Node.js te downloaden:
 
-👉 [https://nodejs.org](https://nodejs.org)
+👉 [https://nodejs.org](https://nodejs.org/en/download)
 
 ---
 
