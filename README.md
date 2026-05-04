@@ -1,5 +1,23 @@
 # 📋 Taskmanager – Volledig Stappenplan
 
+# 🟢 Node.js Downloaden
+
+## 📥 Download Node.js
+
+Ga naar de officiële website om Node.js te downloaden:
+
+👉 [https://nodejs.org](https://nodejs.org)
+
+---
+
+## ⚙️ Wat moet je doen?
+
+1. Open de link hierboven
+2. Klik op de **LTS versie (aanbevolen)**
+3. Download het bestand voor jouw besturingssysteem (Windows of Mac)
+4. Open het gedownloade bestand
+5. Volg de installatie stappen en klik telkens op **Next / Continue**
+
 ---
 
 ## ⚙️ 1. Project aanmaken
