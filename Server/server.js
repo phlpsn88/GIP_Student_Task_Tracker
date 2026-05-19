@@ -63,6 +63,82 @@ app.get('/api/test', (req, res) => {
     res.json({ bericht: 'Server werkt!' });
 });
 
+// ── Middleware: vereisLogin ───────────────────────────────────
+// Middleware is een functie met drie parameters: req, res, next.
+//   - Als de controle slaagt → next() aanroepen zodat de route verder gaat
+//   - Als de controle mislukt → zelf een response sturen (route wordt NIET uitgevoerd)
+function vereisLogin(req, res, next) {
+    // req.session.gebruikerId werd ingesteld bij inloggen (H04)
+    // Als het undefined is, is niemand ingelogd
+    if (!req.session.gebruikerId) {
+        return res.status(401).json({ fout: 'Inloggen vereist' });
+    }
+    next(); // alles OK — laat de route verder gaan
+}
+
+// ── GET /api/mijn-activiteiten — alleen eigen activiteiten ───
+// vereisLogin als tweede argument: Express roept vereisLogin aan VÓÓR de route-functie
+app.get('/api/mijn-tasks', vereisLogin, async (req, res) => {
+    const [rijen] = await pool.execute(
+        // WHERE user_id = ? filtert enkel de activiteiten van de ingelogde gebruiker
+        // req.session.gebruikerId werd ingesteld bij het inloggen in H04
+        'SELECT * FROM tasks WHERE user_id = ? ORDER BY datum ASC',
+        [req.session.gebruikerId]
+    );
+    res.json(rijen);
+});
+
+// ── POST /api/activiteiten — nieuwe activiteit aanmaken ──────
+// (vervangt de versie uit H03: user_id wordt nu automatisch ingesteld)
+app.post('/api/tasks', vereisLogin, async (req, res) => {
+    const {beschrijving, datum, title, status} = req.body;
+    if (!title || !datum) {
+        return res.status(400).json({ fout: 'titel en datum zijn verplicht' });
+    }
+    const [r] = await pool.execute(
+        `INSERT INTO tasks
+         (title, beschrijving, datum, status, user_id)
+         VALUES (?, ?, ?, ?, ?)`,
+        // user_id = req.session.gebruikerId: de activiteit wordt gekoppeld aan de ingelogde gebruiker
+        [title, beschrijving || null, datum, status || 'Niet gestart', req.session.gebruikerId]
+    );
+    res.status(201).json({ id: r.insertId, bericht: 'Taak aangemaakt' });
+});
+
+// ── PUT /api/tasks/:id — eigen activiteit bewerken ────
+app.put('/api/tasks/:id', vereisLogin, async (req, res) => {
+    const { title, beschrijving, datum, status } = req.body;
+    const [r] = await pool.execute(
+        `UPDATE activiteiten
+         SET title=?, beschrijving=?, datum=?, status=?
+         WHERE id=? AND user_id=?`,
+        [title, beschrijving || null, datum, status || 'Niet gestart',
+         req.params.id, req.session.gebruikerId]
+    );
+    // affectedRows === 0: twee mogelijke oorzaken:
+    //   1. De activiteit bestaat niet (id ongeldig)
+    //   2. De activiteit bestaat wel, maar de gebruiker is niet de eigenaar
+    // In beide gevallen: 403 Forbidden
+    if (r.affectedRows === 0) {
+        return res.status(403).json({ fout: 'Taak niet gevonden of geen toegang' });
+    }
+    res.json({ bericht: 'Taak bijgewerkt' });
+});
+
+// ── DELETE /api/activiteiten/:id — eigen activiteit verwijderen
+app.delete('/api/tasks/:id', vereisLogin, async (req, res) => {
+    const [r] = await pool.execute(
+        // Zelfde eigendomscontrole via AND user_id = ?
+        // Een gebruiker kan nooit de activiteiten van iemand anders verwijderen
+        'DELETE FROM tasks WHERE id=? AND user_id=?',
+        [req.params.id, req.session.gebruikerId]
+    );
+    if (r.affectedRows === 0) {
+        return res.status(403).json({ fout: 'Taak niet gevonden of geen toegang' });
+    }
+    res.status(204).end();
+});
+
 app.get('/api/test-db', async (req, res) => {
     // pool.execute() voert de SQL-query uit en geeft een array terug.
     // Destructuring: [rijen] pakt het eerste element (de resultaatrijen).

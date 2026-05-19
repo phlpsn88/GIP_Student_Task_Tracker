@@ -17,10 +17,13 @@
     <link rel="stylesheet" href="css/login.css">
     <script src="js/login.js" defer></script>
     <script src="js/auth.js" type="module"></script>
+    <script src="js/index.js" type="module"></script>
 </head>
 
 <body>
     <header>
+        <input type="hidden" id="hdnSession" data-value="@Request.RequestContext.HttpContext.Session['gebruikerId']" />
+
         <!-- navbar -->
         <nav class="navbar">
             <div class="logo">

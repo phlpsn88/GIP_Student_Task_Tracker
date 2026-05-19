@@ -14,13 +14,13 @@ CREATE TABLE users (
 -- Tabel: tasks
 CREATE TABLE tasks (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL, 
+    user_id INT, 
     title VARCHAR(100) NOT NULL,
     beschrijving TEXT,
     datum DATE,
     status VARCHAR(20) DEFAULT 'Niet gestart',
     FOREIGN KEY (user_id) REFERENCES users(id)
-        ON DELETE CASCADE
+        ON DELETE SET NULL
 );
 
 -- Testdata invoeren
