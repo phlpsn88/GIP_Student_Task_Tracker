@@ -85,66 +85,17 @@
         <section class="task-manager-container">
 
             <div class="header-section">
-                <span id="gebruiker-naam">Hallo</span>
+                <span id="gebruiker-naam"></span>
                 <button class="btn-new-task">
                     Nieuwe taak <span class="plus">+</span>
                 </button>
             </div>
 
-            <div class="tasks-wrapper">
-
-                <article class="task-card">
-                    <h3>Send welcome email</h3>
-                    <p class="description">
-                        het maken van mijn gip en het leren van mijn toets van donderdag
-                    </p>
-                    <p class="deadline">(04 Apr 2030)</p>
-                    <span class="status status-done">Afgewerkt</span>
-                    <div class="actions">
-                        <button id="pencil-edit-task" class="btn-edit-task" title="Bewerken">
-                            <i class="fas fa-pencil-alt"></i>
-                        </button>
-                        <button class="btn-delete" title="Verwijderen">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                </article>
-
-                <article class="task-card">
-                    <h3>Setup completion</h3>
-                    <p class="description"></p>
-                    <p class="deadline">(11 Apr 2030)</p>
-                    <span class="status status-todo">Bezig</span>
-                    <div class="actions">
-                        <button id="pencil-edit-task" class="btn-edit-task" title="Bewerken">
-                            <i class="fas fa-pencil-alt"></i>
-                        </button>
-                        <button class="btn-delete" title="Verwijderen">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                </article>
-
-                <article class="task-card">
-                    <h3>Share tutorial links</h3>
-                    <p class="description"></p>
-                    <p class="deadline">(18 Apr 2030)</p>
-                    <span class="status status-todo">Bezig</span>
-                    <div class="actions">
-                        <button id="pencil-edit-task" class="btn-edit-task" title="Bewerken">
-                            <i class="fas fa-pencil-alt"></i>
-                        </button>
-                        <button class="btn-delete" title="Verwijderen">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                </article>
-
-            </div>
+            <div id="tasksTabel" class="tasks-wrapper"></div>
         </section>
         <div class="overlay-new-task fade-overlay" style="display: none;">
             <div class="modal">
-                <form>
+                <form id="tasksForm">
                     <div class="modal-header">
                         <h2 class="modal-title">Taak toevoegen?</h2>
                         <div class="close-btn-task" id="closeNewTask">x</div>
@@ -181,48 +132,6 @@
                     </div>
                 </form>
             </div>
-        </div>
-
-        <div class="fade-overlay" id="edit-task-overlay">
-            <div class="modal">
-                <form>
-                    <div class="modal-header">
-                        <h2 class="modal-title">Taak bewerken?</h2>
-                        <div class="close-btn-task" id="closeEditTask">x</div>
-                    </div>
-                    <div class="modal-body">
-                        <label class="field-label">
-                            <h3>Titel</h3>
-                        </label>
-                        <input type="text" class="task-name-input" placeholder="voeg taaknaam toe" autofocus />
-                        <div class="dropdown-menu-left">
-                            <label class="field-label">
-                                <h3>status</h3>
-                            </label>
-                            <select class="status-dropdown">
-                                <option value="todo">Niet gestart</option>
-                                <option value="inprogress">bezig</option>
-                                <option value="done">Afgewerkt</option>
-                            </select>
-                        </div>
-                        <div class="description-field">
-                            <label class="field-label">
-                                <h3>Beschrijving</h3>
-                            </label>
-                            <textarea class="description-textarea" placeholder="voeg beschrijving toe"
-                                rows="6"></textarea>
-                        </div>
-                        <label class="field-label">
-                            <h3>Datum</h3>
-                        </label>
-                        <input class="date-box" type="date" id="date" name="date">
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn-primary login-btn">bewerken</button>
-                    </div>
-            </div>
-            </form>
-        </div>
         </div>
         <div class="overlay" id="popup" style="display: none;">
             <div class="modal">

@@ -63,7 +63,7 @@ if (loginForm) {
             //   gebruiker → dashboard.html (eigen activiteiten)
             window.location.href = data.rol === 'admin' ? '/admin.html' : '/task_manager.html';
         } else {
-            const fout = document.getElementById('foutmelding');
+            const fout = document.getElementById('foutmeldingLogin');
             fout.textContent = data.fout;
             fout.hidden = false;
         }
