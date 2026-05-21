@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/login.css">
     <script src="js/login.js" defer></script>
     <script src="js/auth.js" type="module"></script>
-    <script src="js/index.js" type="module"></script>
+    <script src="js/nav-controle.js" type="module"></script>
 </head>
 
 <body>
@@ -34,10 +34,11 @@
             <label for="menu-toggle" class="menu-icon">&#9776;</label>
 
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="task_manager.html">Taak manager</a></li>
-                <li><a href="more_info.html">Meer info</a></li>
-                <li><a class="login-btn" id="loginBtn">Login</a></li>
+                <li><a href="index.html" class="active nav-links-menu">Home</a></li>
+                <li><a id="taskManagerLink" class="nav-links-menu">Taak manager</a></li>
+                <li><a href="more_info.html" class="nav-links-menu">Meer info</a></li>
+                <li id="linkLogin"><a class="login-btn" id="loginBtn">Login</a></li>
+                <li id="linkLogout"><a class="login-btn" id="logoutBtn" hidden>Logout</a></li>
             </ul>
         </nav>
     </header>

@@ -5,14 +5,7 @@ async function init() {
     // Vraag de server: wie is er momenteel ingelogd?
     // GET /api/mij kijkt naar de sessie-cookie die de browser meestuurt.
     const response = await fetch('/api/mij');
-
-    if (!response.ok) {
-        // 401 = niet ingelogd → doorsturen naar loginpagina
-        // Dit voorkomt dat niet-ingelogde bezoekers het dashboard zien
-        window.location.href = '/login.html';
-        return; // stop de functie — de rest mag niet uitgevoerd worden
-    }
-
+    
     const gebruiker = await response.json();
     document.getElementById('gebruiker-naam').textContent = gebruiker.naam;
 
@@ -29,11 +22,6 @@ async function init() {
         .addEventListener('submit', slaActiviteitOp);
     document.getElementById('annuleer-btn')
         .addEventListener('click', resetFormulier);
-    document.getElementById('logout-btn')
-        .addEventListener('click', async () => {
-            await fetch('/api/logout', { method: 'POST' });
-            window.location.href = '/login.html';
-        });
 }
 
 // Module-level cache — beschikbaar voor event delegation zonder inline onclick
