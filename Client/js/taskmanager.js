@@ -16,7 +16,8 @@ async function init() {
 
     laadTasks();
 
-
+    document.getElementById('tasksForm')
+        .addEventListener('submit', slaTaskOp);
 
 }
 
@@ -40,7 +41,7 @@ async function laadTasks() {
                 <article class="task-card">
                     <h3>${T.title}</h3>
                     <p class="description">${T.beschrijving}</p>
-                    <p class="deadline">${T.datum}</p>
+                    <p class="deadline">${new Date(T.datum).toLocaleDateString('nl-BE')}</p>
                     <span class="status">${T.status}</span>
                     <div class="actions">
                         <button class="btn-edit-task" title="Bewerken">
@@ -53,6 +54,37 @@ async function laadTasks() {
                 </article>
             ` ).join('')}
         </div>`;
+}
+
+async function slaTaskOp(e) {
+    e.preventDefault();
+
+    const editId = document.getElementById('edit-id').value;
+    const body = {
+        title: document.getElementById('title').value,
+        beschrijving: document.getElementById('beschrijving').value,
+        datum: document.getElementById('datum').value,
+        status: document.getElementById('status').value,
+    };
+    console.log(body)
+    const url = editId ? `/api/tasks/${editId}` : '/api/tasks';
+    const method = editId ? 'PUT' : 'POST';
+
+    const response = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+    });
+    const data = await response.json();
+
+    if (response.ok) {
+        // resetFormulier(); // formulier leegmaken
+        laadTasks(); // tabel herladen
+    } else {
+        const fout = document.getElementById('foutmelding');
+        fout.textContent = data.fout;
+        fout.hidden = false;
+    }
 }
 
 init();

@@ -93,6 +93,8 @@
 
             <div id="tasksTabel" class="tasks-wrapper"></div>
         </section>
+
+        <!-- Hier begint de task form / taak aanmaken -->
         <div class="overlay-new-task fade-overlay" style="display: none;">
             <div class="modal">
                 <form id="tasksForm">
@@ -101,31 +103,32 @@
                         <div class="close-btn-task" id="closeNewTask">x</div>
                     </div>
                     <div class="modal-body">
-                        <label class="field-label">
+                        <input type="hidden" id="edit-id">
+                        <label class="field-label" required>
                             <h3>Titel</h3>
                         </label>
-                        <input type="text" class="task-name-input" placeholder="voeg taaknaam toe" autofocus />
+                        <input id="title" type="text" class="task-name-input" placeholder="voeg taaknaam toe" autofocus />
                         <div class="dropdown-menu-left">
                             <label class="field-label">
-                                <h3>status</h3>
+                                <h3>Status</h3>
                             </label>
-                            <select class="status-dropdown">
-                                <option value="todo">Niet gestart</option>
-                                <option value="inprogress">bezig</option>
-                                <option value="done">Afgewerkt</option>
+                            <select id="status" class="status-dropdown">
+                                <option value="Niet gestart">Niet gestart</option>
+                                <option value="Bezig">Bezig</option>
+                                <option value="Afgewerkt">Afgewerkt</option>
                             </select>
                         </div>
                         <div class="description-field">
                             <label class="field-label">
                                 <h3>Beschrijving</h3>
                             </label>
-                            <textarea class="description-textarea" placeholder="voeg beschrijving toe"
+                            <textarea id="beschrijving" class="description-textarea" placeholder="voeg beschrijving toe"
                                 rows="6"></textarea>
                         </div>
-                        <label class="field-label">
+                        <label class="field-label" required>
                             <h3>Datum</h3>
                         </label>
-                        <input class="date-box" type="date" id="date" name="date">
+                        <input id="datum" class="date-box" type="date" id="date" name="date">
                     </div>
                     <div class="modal-footer">
                         <button class="btn-primary login-btn">Toevoegen</button>
