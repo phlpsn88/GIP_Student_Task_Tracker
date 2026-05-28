@@ -109,7 +109,7 @@ app.post('/api/tasks', vereisLogin, async (req, res) => {
 app.put('/api/tasks/:id', vereisLogin, async (req, res) => {
     const { title, beschrijving, datum, status } = req.body;
     const [r] = await pool.execute(
-        `UPDATE activiteiten
+        `UPDATE tasks
          SET title=?, beschrijving=?, datum=?, status=?
          WHERE id=? AND user_id=?`,
         [title, beschrijving || null, datum, status || 'Niet gestart',

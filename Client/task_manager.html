@@ -98,8 +98,10 @@
         <div class="overlay-new-task fade-overlay" style="display: none;">
             <div class="modal">
                 <form id="tasksForm">
+                    <!-- om te checken of we een nieuwe taak aanmaken of een taak bewerken via edit-id -->
+                    <input type="hidden" id="edit-id">
                     <div class="modal-header">
-                        <h2 class="modal-title">Taak toevoegen?</h2>
+                        <h2 class="modal-title" id="form-title">Taak toevoegen?</h2>
                         <div class="close-btn-task" id="closeNewTask">x</div>
                     </div>
                     <div class="modal-body">
@@ -107,7 +109,7 @@
                         <label class="field-label" required>
                             <h3>Titel</h3>
                         </label>
-                        <input id="title" type="text" class="task-name-input" placeholder="voeg taaknaam toe" autofocus />
+                        <input id="title" type="text" class="task-name-input" placeholder="voeg taaknaam toe" autofocus>
                         <div class="dropdown-menu-left">
                             <label class="field-label">
                                 <h3>Status</h3>
@@ -131,7 +133,7 @@
                         <input id="datum" class="date-box" type="date" id="date" name="date">
                     </div>
                     <div class="modal-footer">
-                        <button class="btn-primary login-btn">Toevoegen</button>
+                        <button class="btn-primary login-btn" id="save-btn">Toevoegen</button>
                     </div>
                 </form>
             </div>
