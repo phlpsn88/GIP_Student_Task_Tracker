@@ -108,11 +108,12 @@ app.post('/api/tasks', vereisLogin, async (req, res) => {
 // ── PUT /api/tasks/:id — eigen activiteit bewerken ────
 app.put('/api/tasks/:id', vereisLogin, async (req, res) => {
     const { title, beschrijving, datum, status } = req.body;
+    const parsedDate = new Date(datum);
     const [r] = await pool.execute(
         `UPDATE tasks
          SET title=?, beschrijving=?, datum=?, status=?
          WHERE id=? AND user_id=?`,
-        [title, beschrijving || null, datum, status || 'Niet gestart',
+        [title, beschrijving || null, parsedDate, status || 'Niet gestart',
          req.params.id, req.session.gebruikerId]
     );
     // affectedRows === 0: twee mogelijke oorzaken:
@@ -163,6 +164,85 @@ app.get('/api/tasks', async (req, res) => {
     // res.json() zet het JS-array om naar JSON-tekst en stuurt het terug.
     // Express zet automatisch de Content-Type header op 'application/json'.
     res.json(rijen);
+});
+
+// ── isAdmin-middleware ────────────────────────────────────────────────────────
+// Combineert twee controles:
+//   1. Is de gebruiker ingelogd?         → anders 401 Unauthorized
+//   2. Heeft de gebruiker de admin-rol?  → anders 403 Forbidden
+function isAdmin(req, res, next) {
+    if (!req.session.gebruikerId) {
+        return res.status(401).json({ fout: 'Inloggen vereist' });
+    }
+    if (req.session.rol !== 'admin') {
+        return res.status(403).json({ fout: 'Geen toegang' });
+    }
+    next();
+}
+
+// ── GET /api-admin/activiteiten — alle activiteiten met aanmakernaam ────────────────
+// Geen middleware: iedereen mag de lijst ophalen (ook gewone gebruikers).
+// Vervang de GET-route uit H03 door deze versie met LEFT JOIN.
+app.get('/api-admin/tasks', async (req, res) => {
+    const [rijen] = await pool.execute(`
+        SELECT
+            t.*,
+            u.naam AS aangemaakt_door
+        FROM tasks t
+        LEFT JOIN users u ON u.id = t.user_id
+        ORDER BY t.datum ASC
+    `);
+    res.json(rijen);
+});
+
+// ── GET /api-admin/activiteiten/:id — één activiteit ophalen ────────────────────────
+// Nieuw in H06: edit.html vraagt deze route op om het formulier in te vullen.
+// De browser stuurt: GET /api-admin/activiteiten/5
+// De server zoekt activiteit met id=5 en stuurt het terug als JSON.
+app.get('/api-admin/tasks/:id', isAdmin, async (req, res) => {
+    const [rijen] = await pool.execute(
+        'SELECT * FROM tasks WHERE id = ?',
+        [req.params.id]
+    );
+    if (rijen.length === 0) {
+        return res.status(404).json({ fout: 'Niet gevonden' });
+    }
+    res.json(rijen[0]);
+});
+
+// ── POST /api-admin/activiteiten — enkel admin ──────────────────────────────────────
+app.post('/api-admin/tasks', isAdmin, async (req, res) => {
+    const { title, beschrijving, datum, status} = req.body;
+    if (!title || !datum) {
+        return res.status(400).json({ fout: 'titel en datum zijn verplicht' });
+    }
+    const [r] = await pool.execute(
+        `INSERT INTO tasks
+         (title, beschrijving, datum, status, user_id)
+         VALUES (?, ?, ?, ?, ?)`,
+        [title, beschrijving || null, datum,
+         satus || null, req.session.gebruikerId]
+    );
+    res.status(201).json({ id: r.insertId, bericht: 'Tasks aangemaakt' });
+});
+
+// ── PUT /api-admin/activiteiten/:id — enkel admin, GEEN eigendomscontrole ───────────
+app.put('/api-admin/tasks/:id', isAdmin, async (req, res) => {
+    const { title, beschrijving, datum, status } = req.body;
+    await pool.execute(
+        `UPDATE tasks
+         SET title=?, beschrijving=?, datum=?, status=?
+         WHERE id=?`,
+        [title, beschrijving || null, datum,
+         status || null, req.params.id]
+    );
+    res.json({ bericht: 'Taak bijgewerkt' });
+});
+
+// ── DELETE /api-admin/activiteiten/:id — enkel admin, GEEN eigendomscontrole ────────
+app.delete('/api-admin/Tasks/:id', isAdmin, async (req, res) => {
+    await pool.execute('DELETE FROM tasks WHERE id=?', [req.params.id]);
+    res.status(204).end();
 });
 
 // ── POST /api/register — nieuw account aanmaken ────────────────────────────────

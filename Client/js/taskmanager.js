@@ -107,7 +107,6 @@ document.getElementById('tasksTabel').addEventListener('click', async function (
     if (btn.dataset.actie === 'bewerken') {
         // Zoek de activiteit op in de cache — geen extra API-call nodig
         const t = tasksCache.find(x => x.id === id);
-        console.log(t)
         if (t) startBewerken(
             t.id, t.title, t.beschrijving || '',
             t.datum.slice(0, 10),
@@ -120,7 +119,6 @@ document.getElementById('tasksTabel').addEventListener('click', async function (
 // ── Bewerken: formulier invullen met bestaande gegevens ───────────────────────
 function startBewerken(id, title, beschrijving, datum, status) {
     // Sla het id op in het verborgen veld — slaActiviteitOp() leest dit uit
-    console.log(datum)
     document.getElementById('edit-id').value = id;
     document.getElementById('title').value = title;
     document.getElementById('beschrijving').value = beschrijving;
