@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/width_1600.webp" type="image/x-icon">
     <title>Admin</title>
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -13,12 +14,12 @@
     <link rel="stylesheet" href="css/pop_up.css">
     <link rel="stylesheet" href="css/verwijder_popup.css">
     <link rel="stylesheet" href="css/tasks.css">
-    <script src="js/login.js" defer></script>
-    <script src="js/popup.js" defer></script>
+    <script src="js/login.js" type="module"></script>
+    <script src="js/popup.js" type="module"></script>
     <script src="js/auth.js" type="module"></script>
-    <script type="module" src="js/taskmanager.js"></script>
     <script src="js/nav-controle.js" type="module"></script>
     <script type="module" src="js/admin.js"></script>
+    
 </head>
 
 <body>
@@ -53,7 +54,7 @@
                     <label>Wachtwoord<input id="wachtwoordLogin" type="password" required></label>
                     <button type="submit" class="login-btn">Inloggen</button>
                 </form>
-                <p id="foutmelding" class="fout" hidden></p>
+                <p id="foutmeldingLogin" class="fout" hidden></p>
                 <div class="register">
                     Heb je nog geen account?<br>
                     Meld je dan <a id="registerFormLink">HIER</a> aan
@@ -72,7 +73,7 @@
                     <label>Wachtwoord<input id="wachtwoordRegister" type="password" required></label>
                     <button type="submit" class="login-btn">Aanmelden</button>
                 </form>
-                <p id="foutmelding" class="fout" hidden></p>
+                <p id="foutmeldingRegister" class="fout" hidden></p>
                 <div class="register">
                     Heb je al een account?<br>
                     log je dan <a id="loginFormLink">HIER</a> in
@@ -80,9 +81,67 @@
             </div>
         </div>
 
-        
+        <!-- Hier begint de echte task manager inhoud -->
+        <section class="task-manager-container">
+            <h2 hidden>Task Manager</h2>
 
-        <div id="tasksTabel">Laden...</div>
+            <div class="header-section">
+                <span id="gebruiker-naam"></span>
+                <button class="btn-new-task">
+                    Nieuwe taak <span class="plus">+</span>
+                </button>
+            </div>
+
+            <div id="tasksTabel" class="tasks-wrapper"></div>
+        </section>
+
+        <!-- Hier begint de task form / taak aanmaken -->
+        <div class="overlay-new-task fade-overlay" style="display: none;">
+            <div class="modal">
+                <form id="tasksForm">
+                    <!-- om te checken of we een nieuwe taak aanmaken of een taak bewerken via edit-id -->
+                    <input type="hidden" id="edit-id">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="form-title">Taak toevoegen?</h2>
+                        <div class="close-btn-task" id="closeNewTask">x</div>
+                    </div>
+                    <div class="modal-body">
+                        <label class="field-label" for="title">Titel</label>
+                        <input id="title" type="text" class="task-name-input" placeholder="voeg taaknaam toe" autofocus required>
+                        <div class="dropdown-menu-left">
+                            <label class="field-label" for="title">Status</label>
+                            <select id="status" class="status-dropdown">
+                                <option value="Niet gestart">Niet gestart</option>
+                                <option value="Bezig">Bezig</option>
+                                <option value="Afgewerkt">Afgewerkt</option>
+                            </select>
+                        </div>
+                        <div class="description-field">
+                            <label class="field-label" for="title">Beschrijving</label>
+                            <textarea id="beschrijving" class="description-textarea" placeholder="voeg beschrijving toe"
+                                rows="6"></textarea>
+                        </div>
+                        <label class="field-label" for="title">Datum</label>
+                        <input id="datum" class="date-box" type="date" name="date" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-primary login-btn" id="save-btn">Toevoegen</button>
+                    </div>
+                    <p id="foutmelding" class="fout" hidden></p>
+                </form>
+            </div>
+        </div>
+        <div class="overlay" id="popup" style="display: none;">
+            <div class="modal">
+                <h2>Taak verwijderen?</h2>
+                <p>Weet je zeker dat je de taak wilt verwijderen?</p>
+
+                <div class="buttons">
+                    <button class="btn delete">verwijderen</button>
+                    <button class="btn cancel" onclick="closePopup()">Annuleren</button>
+                </div>
+            </div>
+        </div>
 
     </main>
 

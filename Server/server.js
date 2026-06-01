@@ -221,7 +221,7 @@ app.post('/api-admin/tasks', isAdmin, async (req, res) => {
          (title, beschrijving, datum, status, user_id)
          VALUES (?, ?, ?, ?, ?)`,
         [title, beschrijving || null, datum,
-         satus || null, req.session.gebruikerId]
+         status || null, req.session.gebruikerId]
     );
     res.status(201).json({ id: r.insertId, bericht: 'Tasks aangemaakt' });
 });
