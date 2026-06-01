@@ -87,7 +87,7 @@
   justify-content: left;
 }
 
-/* 📱 Responsive */
+/* Responsive */
 @media (max-width: 500px) {
   .modal {
     padding: 20px 15px;

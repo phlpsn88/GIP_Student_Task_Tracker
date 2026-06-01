@@ -139,17 +139,23 @@
                 </form>
             </div>
         </div>
-        <div class="overlay" id="popup" style="display: none;">
+        <div class="overlay" id="popup-delete" style="display: none;">
             <div class="modal">
                 <h2>Taak verwijderen?</h2>
                 <p>Weet je zeker dat je de taak wilt verwijderen?</p>
 
                 <div class="buttons">
-                    <button class="btn delete">verwijderen</button>
-                    <button class="btn cancel" onclick="closePopup()">Annuleren</button>
+                    <div class="buttons">
+                        <button id="confirm-delete" class="btn delete">
+                            Verwijderen
+                        </button>
+
+                        <button id="cancel-delete" class="btn cancel">
+                            Annuleren
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
 
 
     </main>

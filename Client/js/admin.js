@@ -1,13 +1,17 @@
-const newTaskOverlay = document.querySelector('.overlay-new-task')
+const newTaskOverlay = document.querySelector('.overlay-new-task');
+const deletePopup = document.getElementById("popup-delete");
+
+let taskToDelete = null;
+
 async function init() {
     const res = await fetch('/api/mij');
     const gebruiker = await res.json();
 
     if (gebruiker.rol !== 'admin') { window.location.href = '/task_manager.html'; return; }
     document.getElementById('gebruiker-naam').textContent = `Hallo, ${gebruiker.naam}`;
-    
+
     laadTasks();
-    
+
     document.getElementById('tasksForm')
         .addEventListener('submit', slaTaskOp);
     document.getElementById('closeNewTask')
@@ -15,10 +19,10 @@ async function init() {
 }
 
 async function laadTasks() {
-    const res           = await fetch('/api-admin/tasks');
-    const tasks         = await res.json();
-    const container     = document.getElementById('tasksTabel');
-    tasksCache          = tasks;
+    const res = await fetch('/api-admin/tasks');
+    const tasks = await res.json();
+    const container = document.getElementById('tasksTabel');
+    tasksCache = tasks;
 
     if (tasks.length === 0) {
         container.innerHTML = '<p>Nog geen taken.</p>';
@@ -83,12 +87,12 @@ let tasksCache = [];
 document.getElementById('tasksTabel').addEventListener('click', async function (e) {
     const btn = e.target.closest('[data-actie]');
     if (!btn) return;
+
     const id = parseInt(btn.dataset.id);
 
     if (btn.dataset.actie === 'verwijderen') {
-        if (!confirm('Taak verwijderen?')) return;
-        await fetch(`/api-admin/tasks/${id}`, { method: 'DELETE' });
-        laadTasks();
+        taskToDelete = id;
+        deletePopup.style.display = "flex";
     }
 
     if (btn.dataset.actie === 'bewerken') {
@@ -101,6 +105,32 @@ document.getElementById('tasksTabel').addEventListener('click', async function (
         );
     }
 });
+
+document.getElementById('confirm-delete')
+    .addEventListener('click', async () => {
+
+    if (!taskToDelete) return;
+
+    const response = await fetch(
+        `/api-admin/tasks/${taskToDelete}`,
+        { method: 'DELETE' }
+    );
+
+    if (response.ok) {
+        laadTasks();
+    }
+
+    taskToDelete = null;
+    deletePopup.style.display = "none";
+});
+
+document.getElementById('cancel-delete')
+    .addEventListener('click', closePopup);
+
+function closePopup() {
+    taskToDelete = null;
+    deletePopup.style.display = "none";
+}
 
 
 // ── Bewerken: formulier invullen met bestaande gegevens ───────────────────────

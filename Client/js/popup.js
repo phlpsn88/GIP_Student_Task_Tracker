@@ -2,7 +2,7 @@ const newTaskButton = document.querySelector('.btn-new-task');
 const newTaskOverlay = document.querySelector('.overlay-new-task')
 const closeNewTask = document.querySelector('#closeNewTask')
 const deleteButtons = document.querySelectorAll(".btn-delete");
-const deletePopup = document.getElementById("popup");
+const deletePopup = document.getElementById("popup-delete");
 
 
 newTaskButton.addEventListener("click", function () {

@@ -1,3 +1,7 @@
+const deletePopup = document.getElementById("popup-delete");
+
+let taskToDelete = null;
+
 // Client/js/dashboard.js
 
 // ── Sessiecontrole bij laden ───────────────────────────────────────────────────
@@ -99,9 +103,8 @@ document.getElementById('tasksTabel').addEventListener('click', async function (
     const id = parseInt(btn.dataset.id);
 
     if (btn.dataset.actie === 'verwijderen') {
-        if (!confirm('Taak verwijderen?')) return;
-        await fetch(`/api/tasks/${id}`, { method: 'DELETE' });
-        laadTasks();
+        taskToDelete = id;
+        deletePopup.style.display = "flex";
     }
 
     if (btn.dataset.actie === 'bewerken') {
@@ -115,6 +118,30 @@ document.getElementById('tasksTabel').addEventListener('click', async function (
     }
 });
 
+document.getElementById('confirm-delete')
+    .addEventListener('click', async () => {
+
+    if (!taskToDelete) return;
+
+    const response = await fetch(
+        `/api/tasks/${taskToDelete}`,
+        { method: 'DELETE' }
+    );
+
+    if (response.ok) {
+        laadTasks();
+    }
+
+    taskToDelete = null;
+    deletePopup.style.display = "none";
+});
+
+document.getElementById('cancel-delete')
+    .addEventListener('click', () => {
+
+    taskToDelete = null;
+    deletePopup.style.display = "none";
+});
 
 // ── Bewerken: formulier invullen met bestaande gegevens ───────────────────────
 function startBewerken(id, title, beschrijving, datum, status) {
