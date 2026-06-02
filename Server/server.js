@@ -2,17 +2,17 @@
 
 // ── Imports ──────────────────────────────────────────────────────────────────
 // express: het web-framework waarmee je HTTP-routes definieert
-import express  from 'express';
+import express from 'express';
 // mysql2/promise: MySQL-driver met async/await-ondersteuning
-import mysql    from 'mysql2/promise';
+import mysql from 'mysql2/promise';
 // bcrypt: wachtwoorden hashen (versleutelen) en vergelijken
-import bcrypt   from 'bcrypt';
+import bcrypt from 'bcrypt';
 // express-session: sessies bijhouden (onthoud wie er ingelogd is)
-import session  from 'express-session';
+import session from 'express-session';
 
 // ── App aanmaken ──────────────────────────────────────────────────────────────
 // express() maakt een nieuw Express-applicatie-object aan
-const app  = express();
+const app = express();
 const port = 3000;  // poort waarop de server luistert
 
 // ── Middleware: statische bestanden ──────────────────────────────────────────
@@ -49,9 +49,9 @@ app.use(session({
 // createPool maakt een pool van herbruikbare verbindingen aan.
 // Een pool is efficiënter dan elke keer een nieuwe verbinding openen.
 const pool = mysql.createPool({
-    host:     'localhost',           // MySQL draait op dezelfde machine
-    port:     3306,                  // standaard MySQL-poort
-    user:     'root',                // MySQL-gebruiker
+    host: 'localhost',           // MySQL draait op dezelfde machine
+    port: 3306,                  // standaard MySQL-poort
+    user: 'root',                // MySQL-gebruiker
     password: 'toor', // ← vervang door jouw wachtwoord
     database: 'taskmanager',            // ← vervang door jouw databasenaam
 });
@@ -91,7 +91,7 @@ app.get('/api/mijn-tasks', vereisLogin, async (req, res) => {
 // ── POST /api/activiteiten — nieuwe activiteit aanmaken ──────
 // (vervangt de versie uit H03: user_id wordt nu automatisch ingesteld)
 app.post('/api/tasks', vereisLogin, async (req, res) => {
-    const {beschrijving, datum, title, status} = req.body;
+    const { beschrijving, datum, title, status } = req.body;
     if (!title || !datum) {
         return res.status(400).json({ fout: 'Titel en datum zijn verplicht' });
     }
@@ -114,7 +114,7 @@ app.put('/api/tasks/:id', vereisLogin, async (req, res) => {
          SET title=?, beschrijving=?, datum=?, status=?
          WHERE id=? AND user_id=?`,
         [title, beschrijving || null, parsedDate, status || 'Niet gestart',
-         req.params.id, req.session.gebruikerId]
+            req.params.id, req.session.gebruikerId]
     );
     // affectedRows === 0: twee mogelijke oorzaken:
     //   1. De activiteit bestaat niet (id ongeldig)
@@ -150,19 +150,21 @@ app.get('/api/test-db', async (req, res) => {
     res.json(rijen);
 });
 
-app.get('/api/tasks', async (req, res) => {
-    // pool.execute() voert de SQL-query uit en wacht op het resultaat (await).
-    // Het geeft een array van twee elementen terug:
-    //   [0] = de rijen die MySQL teruggeeft (een array van objecten)
-    //   [1] = metadata over de kolommen (negeren we hier)
-    // Door destructuring schrijven we [rijen] in plaats van result[0].
+app.get('/api/mijn-tasks', vereisLogin, async (req, res) => {
     const [rijen] = await pool.execute(
-        'SELECT * FROM tasks ORDER BY datum ASC'
-        // ORDER BY datum ASC = vroegste datum eerst
+        `SELECT *
+         FROM tasks
+         WHERE user_id = ?
+         ORDER BY
+             CASE status
+                 WHEN 'Niet gestart' THEN 1
+                 WHEN 'Bezig' THEN 2
+                 WHEN 'Afgerond' THEN 3
+                 ELSE 4
+             END`,
+        [req.session.gebruikerId]
     );
 
-    // res.json() zet het JS-array om naar JSON-tekst en stuurt het terug.
-    // Express zet automatisch de Content-Type header op 'application/json'.
     res.json(rijen);
 });
 
@@ -212,7 +214,7 @@ app.get('/api-admin/tasks/:id', isAdmin, async (req, res) => {
 
 // ── POST /api-admin/activiteiten — enkel admin ──────────────────────────────────────
 app.post('/api-admin/tasks', isAdmin, async (req, res) => {
-    const { title, beschrijving, datum, status} = req.body;
+    const { title, beschrijving, datum, status } = req.body;
     if (!title || !datum) {
         return res.status(400).json({ fout: 'titel en datum zijn verplicht' });
     }
@@ -221,7 +223,7 @@ app.post('/api-admin/tasks', isAdmin, async (req, res) => {
          (title, beschrijving, datum, status, user_id)
          VALUES (?, ?, ?, ?, ?)`,
         [title, beschrijving || null, datum,
-         status || null, req.session.gebruikerId]
+            status || null, req.session.gebruikerId]
     );
     res.status(201).json({ id: r.insertId, bericht: 'Tasks aangemaakt' });
 });
@@ -234,7 +236,7 @@ app.put('/api-admin/tasks/:id', isAdmin, async (req, res) => {
          SET title=?, beschrijving=?, datum=?, status=?
          WHERE id=?`,
         [title, beschrijving || null, datum,
-         status || null, req.params.id]
+            status || null, req.params.id]
     );
     res.json({ bericht: 'Taak bijgewerkt' });
 });
@@ -319,8 +321,8 @@ app.post('/api/login', async (req, res) => {
     // Sessie aanmaken: sla gebruikersgegevens op voor volgende requests.
     // req.session is een object dat express-session bijhoudt tussen requests.
     req.session.gebruikerId = gebruiker.id;    // nodig om te weten wie er ingelogd is
-    req.session.naam        = gebruiker.naam;  // voor weergave in de UI
-    req.session.rol         = gebruiker.rol;   // 'gebruiker' of 'admin'
+    req.session.naam = gebruiker.naam;  // voor weergave in de UI
+    req.session.rol = gebruiker.rol;   // 'gebruiker' of 'admin'
 
     // Stuur naam en rol terug — de front-end gebruikt dit om door te sturen
     res.json({ bericht: 'Ingelogd', naam: gebruiker.naam, rol: gebruiker.rol });
