@@ -28,15 +28,24 @@ document.getElementById('logoutBtn')
 
 document.getElementById('taskManagerLink')
     .addEventListener('click', async () => {
-        const response = await fetch('/api/mij');
-
-        if (!response.ok) {
-            const loginOverlay = document.querySelector('.overlay-login')
-            loginOverlay.style.display = "flex"
-            document.body.classList.add("remove-scrolling");
-            return;
-        }
-        window.location.href = '/task_manager.html';
+        checkIfUserIsLogedIn();
     });
+
+document.getElementById('taskManagerLinkFooter')
+    .addEventListener('click', async () => {
+        checkIfUserIsLogedIn();
+    });
+
+const checkIfUserIsLogedIn = async () => {
+    const response = await fetch('/api/mij');
+
+    if (!response.ok) {
+        const loginOverlay = document.querySelector('.overlay-login')
+        loginOverlay.style.display = "flex"
+        document.body.classList.add("remove-scrolling");
+        return;
+    }
+    window.location.href = '/task_manager.html';
+}
 
 init();

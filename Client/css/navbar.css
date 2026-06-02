@@ -32,10 +32,16 @@ body {
     display: flex;
     flex: 1;
     justify-content: space-evenly;
+    align-items: center;
     margin: 0;
     padding: 0;
     margin-left: 5em;
     height: 10vh;
+}
+
+.nav-links-menu {
+    line-height: normal;
+    cursor: pointer;
 }
 
 .nav-links li a {
@@ -47,10 +53,6 @@ body {
 
 .nav-links li a:hover {
     text-decoration: underline;
-}
-
-.nav-links-menu {
-    line-height: 10vh;
 }
 
 .menu-icon {

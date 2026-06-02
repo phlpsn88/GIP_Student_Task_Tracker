@@ -6,6 +6,13 @@
 
 body {
   font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 .footer {
@@ -37,8 +44,13 @@ body {
   text-decoration: none;
 }
 
+.footer-links-menu {
+  list-style: none;
+}
+
 .footer a:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .socials {

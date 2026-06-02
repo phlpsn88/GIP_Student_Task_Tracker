@@ -74,10 +74,6 @@ label {
     font-size: 18px;
 }
 
-.login-btn {
-    margin: 13px auto 25px;
-}
-
 input {
     width: 100%;
     padding: 14px 18px;
@@ -114,13 +110,26 @@ button {
     text-decoration: underline;
 }
 
+.fout {
+    color: #861919;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-btn-form {
+    display: block;
+    margin: 0 auto;
+}
+
 #loginFormLink,
 #registerFormLink {
     cursor: pointer;
 }
+
 @media(max-width: 504px) {
     .login-register-modal {
         max-width: 90%;
     }
-   
+
 }

@@ -93,7 +93,7 @@ app.get('/api/mijn-tasks', vereisLogin, async (req, res) => {
 app.post('/api/tasks', vereisLogin, async (req, res) => {
     const {beschrijving, datum, title, status} = req.body;
     if (!title || !datum) {
-        return res.status(400).json({ fout: 'titel en datum zijn verplicht' });
+        return res.status(400).json({ fout: 'Titel en datum zijn verplicht' });
     }
     const [r] = await pool.execute(
         `INSERT INTO tasks
@@ -290,6 +290,10 @@ app.post('/api/register', async (req, res) => {
 // ── POST /api/login — inloggen ─────────────────────────────────────────────────
 app.post('/api/login', async (req, res) => {
     const { email, wachtwoord } = req.body;
+
+    if (!email || !wachtwoord) {
+        return res.status(400).json({ fout: 'Email en wachtwoord zijn verplicht' });
+    }
 
     // Zoek de gebruiker op via e-mail
     const [rijen] = await pool.execute(
