@@ -76,12 +76,12 @@ label {
 
 input {
     width: 100%;
-    padding: 14px 18px;
+    padding: 10px;
     border-radius: 999px;
     border: none;
     outline: none;
     background: #c3d1df;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
     font-size: 16px;
 }
 

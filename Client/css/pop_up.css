@@ -26,7 +26,7 @@ body {
   border-radius: 12px;
   width: 100%;
   max-width: 620px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.22);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
   overflow: hidden;
 }
 
@@ -52,7 +52,7 @@ body {
 }
 
 .modal-body {
-  padding: 0rem 2rem 1.4rem;
+  padding: 0rem 2rem 0rem;
 }
 
 .task-name-row {
@@ -64,7 +64,7 @@ body {
 
 .task-name-input {
   flex: 1;
-  padding: 0.95rem 1.2rem;
+  padding: 10px;
   font-size: 1.1rem;
   border: none;
   border-radius: 8px;
@@ -81,7 +81,7 @@ body {
 }
 
 .task-name-input::placeholder {
-  color: rgba(255,255,255,0.78);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .form-row {
@@ -104,8 +104,7 @@ body {
 
 .description-textarea {
   width: 100%;
-  min-height: 140px;
-  padding: 0.95rem 1.2rem;
+  padding: 10px;
   border: none;
   border-radius: 8px;
   background: #3b82f6;
@@ -117,14 +116,17 @@ body {
 }
 
 .description-textarea::placeholder {
-  color: rgba(255,255,255,0.78);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .modal-footer {
-  padding: 1.2rem 2rem;
+  padding: 0.5rem 1rem;
   border-top: 1px solid #e5e7eb;
   background: #f8fafc;
   text-align: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn {

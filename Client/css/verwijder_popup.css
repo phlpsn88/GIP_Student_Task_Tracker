@@ -23,16 +23,15 @@
 .modal {
   background: #fff;
   border-radius: 16px;
-  padding: 30px 25px;
+  padding: 15px 12px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
 }
 
 /* Titel */
 .modal h2 {
   font-size: 28px;
-  margin-bottom: 15px;
 }
 
 /* Tekst */
