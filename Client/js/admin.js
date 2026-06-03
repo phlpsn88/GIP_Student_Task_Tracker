@@ -32,7 +32,7 @@ async function laadTasks() {
     container.innerHTML = `
         <div id="tasksTabel" class="tasks-wrapper">
             ${tasks.map(t => `
-                <article class="task-card">
+                <article class="task-card ${t.status === 'Afgewerkt' ? 'task-card-afgewerkt' : ''}">
                     <h3>${t.title}</h3>
                     <p class="description">${t.beschrijving}</p>
                     <p class="deadline">${new Date(t.datum).toLocaleDateString('nl-BE')}</p>
@@ -46,7 +46,7 @@ async function laadTasks() {
                         </button>
                     </div>
                 </article>
-            ` ).join('')}
+            `).join('')}
         </div>`;
 }
 

@@ -20,6 +20,10 @@
     flex-direction: column;
 }
 
+.task-card-afgewerkt {
+    background: linear-gradient(135deg, #4ecdc4, #00ff66);
+}
+
 .task-card::before {
     content: "";
     position: absolute;

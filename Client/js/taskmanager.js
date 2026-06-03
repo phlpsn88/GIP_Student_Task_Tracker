@@ -44,7 +44,7 @@ async function laadTasks() {
     container.innerHTML = `
         <div id="tasksTabel" class="tasks-wrapper">
             ${tasks.map(t => `
-                <article class="task-card">
+                <article class="task-card ${t.status === 'Afgewerkt' ? 'task-card-afgewerkt' : ''}">
                     <h3>${t.title}</h3>
                     <p class="description">${t.beschrijving}</p>
                     <p class="deadline">${new Date(t.datum).toLocaleDateString('nl-BE')}</p>
@@ -58,7 +58,7 @@ async function laadTasks() {
                         </button>
                     </div>
                 </article>
-            ` ).join('')}
+            `).join('')}
         </div>`;
 }
 
@@ -121,27 +121,27 @@ document.getElementById('tasksTabel').addEventListener('click', async function (
 document.getElementById('confirm-delete')
     .addEventListener('click', async () => {
 
-    if (!taskToDelete) return;
+        if (!taskToDelete) return;
 
-    const response = await fetch(
-        `/api/tasks/${taskToDelete}`,
-        { method: 'DELETE' }
-    );
+        const response = await fetch(
+            `/api/tasks/${taskToDelete}`,
+            { method: 'DELETE' }
+        );
 
-    if (response.ok) {
-        laadTasks();
-    }
+        if (response.ok) {
+            laadTasks();
+        }
 
-    taskToDelete = null;
-    deletePopup.style.display = "none";
-});
+        taskToDelete = null;
+        deletePopup.style.display = "none";
+    });
 
 document.getElementById('cancel-delete')
     .addEventListener('click', () => {
 
-    taskToDelete = null;
-    deletePopup.style.display = "none";
-});
+        taskToDelete = null;
+        deletePopup.style.display = "none";
+    });
 
 // ── Bewerken: formulier invullen met bestaande gegevens ───────────────────────
 function startBewerken(id, title, beschrijving, datum, status) {

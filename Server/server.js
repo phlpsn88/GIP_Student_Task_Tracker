@@ -82,7 +82,16 @@ app.get('/api/mijn-tasks', vereisLogin, async (req, res) => {
     const [rijen] = await pool.execute(
         // WHERE user_id = ? filtert enkel de activiteiten van de ingelogde gebruiker
         // req.session.gebruikerId werd ingesteld bij het inloggen in H04
-        'SELECT * FROM tasks WHERE user_id = ? ORDER BY datum ASC',
+        `SELECT * 
+        FROM tasks 
+        WHERE user_id = ? 
+        ORDER BY 
+            CASE status
+                 WHEN 'Niet gestart' THEN 1
+                 WHEN 'Bezig' THEN 2
+                 WHEN 'Afgerond' THEN 3
+                 ELSE 4
+            END`,
         [req.session.gebruikerId]
     );
     res.json(rijen);
@@ -192,7 +201,13 @@ app.get('/api-admin/tasks', async (req, res) => {
             u.naam AS aangemaakt_door
         FROM tasks t
         LEFT JOIN users u ON u.id = t.user_id
-        ORDER BY t.datum ASC
+        ORDER BY 
+            CASE t.status
+                 WHEN 'Niet gestart' THEN 1
+                 WHEN 'Bezig' THEN 2
+                 WHEN 'Afgerond' THEN 3
+                 ELSE 4
+            END
     `);
     res.json(rijen);
 });
