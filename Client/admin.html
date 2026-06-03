@@ -81,7 +81,7 @@
             </div>
         </div>
 
-        <!-- Hier begint de echte task manager inhoud -->
+        <!-- Task manager -->
         <section class="task-manager-container">
             <h2 hidden>Task Manager</h2>
 
@@ -95,20 +95,21 @@
             <div id="tasksTabel" class="tasks-wrapper"></div>
         </section>
 
-        <!-- Hier begint de task form / taak aanmaken -->
+        <!-- Task form -->
         <div class="overlay-new-task fade-overlay" style="display: none;">
             <div class="modal">
                 <form id="tasksForm">
-                    <!-- om te checken of we een nieuwe taak aanmaken of een taak bewerken via edit-id -->
                     <input type="hidden" id="edit-id">
+
                     <div class="modal-header">
                         <h2 class="modal-title" id="form-title">Taak toevoegen?</h2>
                         <div class="close-btn-task" id="closeNewTask">x</div>
                     </div>
+
                     <div class="modal-body">
                         <label class="field-label" for="title">Titel</label>
-                        <input id="title" type="text" class="task-name-input" placeholder="voeg taaknaam toe" autofocus
-                            required>
+                        <input id="title" type="text" class="task-name-input" placeholder="voeg taaknaam toe" autofocus required>
+
                         <div class="dropdown-menu-left">
                             <label class="field-label" for="title">Status</label>
                             <select id="status" class="status-dropdown">
@@ -117,21 +118,26 @@
                                 <option value="Afgewerkt">Afgewerkt</option>
                             </select>
                         </div>
+
                         <div class="description-field">
                             <label class="field-label" for="title">Beschrijving</label>
-                            <textarea id="beschrijving" class="description-textarea" placeholder="voeg beschrijving toe"
-                                rows="6"></textarea>
+                            <textarea id="beschrijving" class="description-textarea" placeholder="voeg beschrijving toe" rows="6"></textarea>
                         </div>
+
                         <label class="field-label" for="title">Datum</label>
                         <input id="datum" class="date-box" type="date" name="date" required>
                     </div>
+
                     <div class="modal-footer">
                         <button class="btn-primary login-btn" id="save-btn">Toevoegen</button>
                     </div>
+
                     <p id="foutmelding" class="fout" hidden></p>
                 </form>
             </div>
         </div>
+
+        <!-- Delete popup (FIXED: properly closed divs) -->
         <div class="overlay" id="popup-delete" style="display: none;">
             <div class="modal">
                 <h2>Taak verwijderen?</h2>
@@ -149,6 +155,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+
     </main>
 
     <!-- footer -->
@@ -160,14 +168,14 @@
             <p><strong>someone@example.com</strong></p>
             <p><strong>3740 Munsterbilzen - België</strong></p>
         </div>
-        <!-- navigation -->
+
         <div class="footer-column">
             <h3>R&A tasks</h3>
             <a href="index.html"><strong>Start pagina</strong></a>
             <a href="task_manager.html"><strong>Taak manager</strong></a>
             <a href="more_info.html"><strong>Meer info</strong></a>
         </div>
-        <!-- socials -->
+
         <div class="footer-column">
             <h3><strong>Volg ons</strong></h3>
             <div class="socials">

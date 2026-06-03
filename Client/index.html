@@ -2,16 +2,16 @@
 <html lang="nl">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/width_1600.webp" type="image/x-icon">
     <title>Homepage</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="css/homepangina.css" />
+    <link rel="stylesheet" href="css/homepangina.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/login.css">
@@ -22,23 +22,30 @@
 
 <body>
     <header>
-        <input type="hidden" id="hdnSession" data-value="@Request.RequestContext.HttpContext.Session['gebruikerId']" />
-
+        <input type="hidden" id="hdnSession" data-value="@Request.RequestContext.HttpContext.Session['gebruikerId']">
         <!-- navbar -->
         <nav class="navbar">
             <div class="logo">
                 <a href="index.html"><img src="img/logo_R&A_Tasks.png" alt="logo"></a>
             </div>
-
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon">&#9776;</label>
-
             <ul class="nav-links">
-                <li><a href="index.html" class="active nav-links-menu">Start pagina</a></li>
-                <li><a id="taskManagerLink" class="nav-links-menu">Taak manager</a></li>
-                <li><a href="more_info.html" class="nav-links-menu">Meer info</a></li>
-                <li id="linkLogin"><a class="login-btn" id="loginBtn">Login</a></li>
-                <li id="linkLogout"><a class="login-btn" id="logoutBtn" hidden>Logout</a></li>
+                <li>
+                    <a href="index.html" class="active nav-links-menu">Start pagina</a>
+                </li>
+                <li>
+                    <a id="taskManagerLink" class="nav-links-menu">Taak manager</a>
+                </li>
+                <li>
+                    <a href="more_info.html" class="nav-links-menu">Meer info</a>
+                </li>
+                <li id="linkLogin">
+                    <a class="login-btn" id="loginBtn">Login</a>
+                </li>
+                <li id="linkLogout">
+                    <a class="login-btn" id="logoutBtn" hidden></a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -46,31 +53,32 @@
     <main>
         <div class="main_body">
             <div class="hero">
-                <h1>Welcome to<br><span>R&A TASKS</span></h1>
+                <h1>
+                    Welcome to<br>
+                    <span>R&amp;A TASKS</span>
+                </h1>
                 <p>
-                    Taken efficiënt beheren vraagt om overzicht, structuur en een duidelijke aanpak. Met R&A Tasks houd
-                    je al je taken op één plek bij, stel je eenvoudig prioriteiten en werk je stap voor stap naar je
-                    doelen toe.
-
-                    Of het nu gaat om plannen, opvolgen of afronden. R&A Tasks helpt je om georganiseerd te blijven en
-                    het overzicht te bewaren.
-
-                    Welkom bij R&A Tasks. Ontdek hieronder hoe je jouw takenbeheer eenvoudiger en overzichtelijker kunt
-                    maken.
+                    Taken efficiënt beheren vraagt om overzicht, structuur en een duidelijke aanpak.
+                    Met R&amp;A Tasks houd je al je taken op één plek bij, stel je eenvoudig
+                    prioriteiten en werk je stap voor stap naar je doelen toe.
+                    Of het nu gaat om plannen, opvolgen of afronden. R&amp;A Tasks helpt je om
+                    georganiseerd te blijven en het overzicht te bewaren.
+                    Welkom bij R&amp;A Tasks. Ontdek hieronder hoe je jouw takenbeheer eenvoudiger
+                    en overzichtelijker kunt maken.
                 </p>
                 <a href="more_info.html" class="btn">Meer Info</a>
             </div>
             <div class="logo_spiraal">
-                <img src="img/width_1600.webp" alt="">
+                <img src="img/width_1600.webp" alt="R&A Tasks logo">
             </div>
         </div>
 
-        <!-- login button-->
+        <!-- login button -->
         <div class="overlay-login fade-overlay">
             <div class="login-register-modal">
                 <form id="login-form">
                     <div class="close-btn" id="closeBtnLogin">×</div>
-                    <h1>Login</h1>
+                    <h2>Login</h2>
                     <label>E-mailadres<input id="emailLogin" type="email"></label>
                     <label>Wachtwoord<input id="wachtwoordLogin" type="password"></label>
                     <button type="submit" class="login-btn-form">Inloggen</button>
@@ -82,48 +90,55 @@
                 </div>
             </div>
         </div>
+
         <!-- register button -->
         <div class="overlay-register fade-overlay">
             <div class="login-register-modal">
                 <form id="register-form">
                     <div class="close-btn" id="closeBtnRegister">×</div>
-                    <h1>Aanmelden</h1>
+                    <h2>Aanmelden</h2>
                     <label>Naam<input id="gebruikersnaam" type="text"></label>
                     <label>E-mailadres<input id="emailRegister" type="email"></label>
                     <label>Wachtwoord<input id="wachtwoordRegister" type="password"></label>
                     <p id="foutmeldingRegister" class="fout" hidden></p>
                     <button type="submit" class="login-btn-form">Aanmelden</button>
                 </form>
+
                 <div class="register">
                     Heb je al een account?<br>
-                    log je dan <a id="loginFormLink">HIER</a> in
+                    Log je dan <a id="loginFormLink">HIER</a> in
                 </div>
             </div>
         </div>
         <div class="info-container">
             <div class="info-item">
                 <i class="fa-solid fa-lightbulb"></i>
-                <p><strong>Slimme & praktische tips</strong><br>
-                    Ontdek handige ideeën die je dagelijkse taken sneller en efficiënter maken zonder ingewikkelde
-                    apps of dure tools nodig te hebben.</p>
+                <p>
+                    <strong>Slimme &amp; praktische tips</strong><br>
+                    Ontdek handige ideeën die je dagelijkse taken sneller en efficiënter maken
+                    zonder ingewikkelde apps of dure tools nodig te hebben.
+                </p>
             </div>
-
             <div class="info-item">
                 <i class="fa-solid fa-shield-halved"></i>
-                <p><strong>100% veilig & privé</strong><br>
-                    Je persoonlijke gegevens en activiteiten zijn volledig versleuteld met de nieuwste
-                    beveiligingstechnologie. Met een gerust hart alles delen en bijhouden.</p>
+                <p>
+                    <strong>100% veilig &amp; privé</strong><br>
+                    Je persoonlijke gegevens en activiteiten zijn volledig versleuteld met de
+                    nieuwste beveiligingstechnologie. Met een gerust hart alles delen en
+                    bijhouden.
+                </p>
             </div>
-
             <div class="info-item">
                 <i class="fa-solid fa-rocket"></i>
-                <p><strong>Direct meetbare vooruitgang</strong><br>
-                    Begin vandaag nog en zie binnen minuten of uren al concrete verbeteringen. Ons systeem helpt je écht
-                    sneller resultaat te boeken.</p>
+                <p>
+                    <strong>Direct meetbare vooruitgang</strong><br>
+                    Begin vandaag nog en zie binnen minuten of uren al concrete verbeteringen.
+                    Ons systeem helpt je écht sneller resultaat te boeken.
+                </p>
             </div>
         </div>
-
     </main>
+
     <!-- footer -->
     <footer class="footer">
         <div class="footer-column">
@@ -133,23 +148,25 @@
             <p><strong>someone@example.com</strong></p>
             <p><strong>3740 Munsterbilzen - België</strong></p>
         </div>
-
-        <!-- navigation -->
         <div class="footer-column">
-            <h3>R&amp;A tasks</h3>
+            <h3>R&amp;A Tasks</h3>
             <a href="index.html"><strong>Start pagina</strong></a>
             <a id="taskManagerLinkFooter"><strong>Taak manager</strong></a>
             <a href="more_info.html"><strong>Meer info</strong></a>
         </div>
-
-        <!-- socials -->
         <div class="footer-column">
             <h3><strong>Volg ons</strong></h3>
             <div class="socials">
                 <span><i class="fa-brands fa-instagram"></i></span>
                 <span><i class="fa-brands fa-facebook"></i></span>
             </div>
-            <p class="credit"><strong>Ontworpen door<br>Raf Angeli &amp; <br> Amine Kiadi</strong></p>
+            <p class="credit">
+                <strong>
+                    Ontworpen door<br>
+                    Raf Angeli &amp;<br>
+                    Amine Kiadi
+                </strong>
+            </p>
         </div>
     </footer>
 </body>
