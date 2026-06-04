@@ -70,7 +70,7 @@ h1 {
 
 label {
     display: block;
-    margin-bottom: 8px;
+    margin: 15px;
     font-size: 18px;
 }
 
@@ -120,6 +120,7 @@ button {
 .login-btn-form {
     display: block;
     margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 #loginFormLink,

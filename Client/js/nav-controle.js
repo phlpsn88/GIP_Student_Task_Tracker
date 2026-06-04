@@ -7,6 +7,7 @@ async function init() {
     const response = await fetch('/api/mij');
 
     if (!response.ok) {
+        alert('hello')
         document.getElementById('loginBtn').style.display = 'block';
         document.getElementById('logoutBtn').style.display = 'none';
         document.getElementById('linkLogin').style.display = 'block';
@@ -15,9 +16,9 @@ async function init() {
     }
 
     document.getElementById('loginBtn').style.display = 'none';
-    document.getElementById('logoutBtn').style.display = 'block';
+    document.getElementById('logoutBtn').style.display = 'flex';
     document.getElementById('linkLogin').style.display = 'none';
-    document.getElementById('linkLogout').style.display = 'block';
+    document.getElementById('linkLogout').style.display = 'flex';
 }
 
 document.getElementById('logoutBtn')
