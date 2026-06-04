@@ -38,7 +38,6 @@ main {
 
 .footer p,
 .footer a {
-  font-size: 16px;
   font-weight: 400;
   color: #ffffff;
   text-decoration: none;
@@ -49,8 +48,11 @@ main {
 }
 
 .footer a:hover {
-  text-decoration: underline;
   cursor: pointer;
+}
+
+.nav-links-footer a:hover{
+  text-decoration: underline;
 }
 
 .socials {
@@ -64,6 +66,9 @@ main {
   opacity: 0.8;
 }
 
+.fa-brands a {
+  text-decoration: none;
+}
 
 @media (max-width: 796px) {
   .footer {

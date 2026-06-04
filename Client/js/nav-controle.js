@@ -7,7 +7,6 @@ async function init() {
     const response = await fetch('/api/mij');
 
     if (!response.ok) {
-        alert('hello')
         document.getElementById('loginBtn').style.display = 'block';
         document.getElementById('logoutBtn').style.display = 'none';
         document.getElementById('linkLogin').style.display = 'block';

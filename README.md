@@ -1,111 +1,202 @@
-# 📋 Taskmanager – Volledig Stappenplan
+# 🚀 TaskManager – Installatiehandleiding
 
-# 🟢 Node.js Downloaden
-
-## 📥 Download Node.js
-
-Ga naar de officiële website om Node.js te downloaden:
-
-👉 [https://nodejs.org](https://nodejs.org/en/download)
+Welkom bij **TaskManager**! Volg onderstaande stappen om het project correct te installeren en op te starten.
 
 ---
 
-## ⚙️ Wat moet je doen?
+# 📋 Vereisten
 
-1. Open de link hierboven
-2. Klik op de **LTS versie (aanbevolen)**
-3. Download het bestand voor jouw besturingssysteem (Windows of Mac)
-4. Open het gedownloade bestand
-5. Volg de installatie stappen en klik telkens op **Next / Continue**
+Voor je begint, zorg ervoor dat je volgende software hebt geïnstalleerd:
+
+* ✅ Node.js (LTS-versie)
+* ✅ MySQL Server
+* ✅ MySQL Workbench
+* ✅ Visual Studio Code (aanbevolen)
 
 ---
 
-## ⚙️ 1. Project aanmaken
+# 1️⃣ Node.js Installeren
 
-### 📦 npm initialiseren
-**Bash — Terminal**
+## 📥 Download
+
+Download de nieuwste **LTS-versie** van Node.js via:
+
+**🌐 https://nodejs.org/en/download**
+
+## ⚙️ Installatie
+
+1. Open de website.
+2. Download de **LTS-versie**.
+3. Kies jouw besturingssysteem (Windows of macOS).
+4. Open het gedownloade bestand.
+5. Doorloop de installatie en klik telkens op **Next**.
+6. Controleer na installatie of Node.js correct werkt:
+
+```bash
+node -v
+npm -v
+```
+
+Wanneer beide versienummers worden weergegeven, is de installatie geslaagd.
+
+---
+
+# 2️⃣ Project Initialiseren
+
+Open een terminal in de map **Server**.
+
 ```bash
 cd Server
 npm init -y
 ```
 
+Dit maakt automatisch een `package.json` bestand aan waarin alle projectinstellingen worden opgeslagen.
+
 ---
 
-## 📦 2. Packages installeren
-**Bash — Terminal**
+# 3️⃣ Vereiste Packages Installeren
+
+Voer volgend commando uit:
+
 ```bash
 npm install express mysql2 bcrypt express-session
 ```
 
-### 💡 Waarom?
-| Package | Functie |
-|--------|--------|
-| express | Server & routes |
-| mysql2 | Database connectie |
-| bcrypt | Wachtwoorden beveiligen |
-| express-session | Login sessies |
+## 📦 Overzicht van de packages
+
+| Package         | Beschrijving                     |
+| --------------- | -------------------------------- |
+| Express         | Webserver en routing             |
+| MySQL2          | Verbinding met de MySQL-database |
+| Bcrypt          | Veilige opslag van wachtwoorden  |
+| Express Session | Beheer van gebruikerssessies     |
 
 ---
 
-## 🚫 3. .gitignore instellen
+# 4️⃣ Server Opstarten
 
-Maak bestand: `Server/.gitignore`
-node_modules/ dit moet in .gitignore staan
-```bash
-node_modules/
-```
+Start de applicatie vanuit de map **Server**.
 
----
+### Ontwikkelingsmodus
 
-## ▶️ 4. Server starten
-**Bash — Terminal van de map server**
 ```bash
 npm run dev
-# of
+```
+
+### Productiemodus
+
+```bash
 npm start
 ```
 
----
-
-## 🔍 5. Testen
-
-- http://localhost:3000  
+Na het opstarten zou de server zonder fouten moeten starten.
 
 ---
 
-## 🗄️ 6. Database opzetten (MySQL)
+# 5️⃣ Applicatie Testen
 
-- Maak database `taskmanager`
-- Voer [Database script](../GIP_Student_Task_Tracker/Server/database.sql) uit in MySQL Workbench
+Open je browser en ga naar:
 
----
-
-## 👤 7. Admin account aanmaken
-
-### Hash genereren
-**Bash — Terminal**
-```bash
-node -e "import('bcrypt').then(b => b.default.hash('Admin1234\!', 10).then(h => console.log(h)))"
+```text
+http://localhost:3000
 ```
 
-### SQL uitvoeren
+Wanneer de website wordt geladen, werkt de server correct.
+
+---
+
+# 6️⃣ MySQL Database Opzetten
+
+## 📂 Database aanmaken
+
+Maak een nieuwe database aan met de naam:
+
+```sql
+CREATE DATABASE taskmanager;
+```
+
+## 📥 Database Script Importeren
+
+1. Open MySQL Workbench.
+2. Maak verbinding met je MySQL-server.
+3. Selecteer de database `taskmanager`.
+4. Open het bestand:
+
+```text
+Server/database.sql
+```
+
+5. Voer het script uit.
+
+Na uitvoering worden alle tabellen automatisch aangemaakt.
+
+---
+
+# 7️⃣ Admin Account Aanmaken
+
+Om toegang te krijgen tot alle beheerdersfuncties moet een gebruiker de rol **admin** krijgen.
+
+## 🔐 Bcrypt Hash Genereren
+
+Open een terminal in de map **Server** en voer uit:
+
+```bash
+node -e "import('bcrypt').then(b => b.default.hash('<jouw_wachtwoord>', 10).then(h => console.log(h)))"
+```
+
+
+
+Kopieer vervolgens de gegenereerde hash.
+
+---
+
+## 👤 Adminrechten Toekennen
+
+Open MySQL Workbench en voer onderstaande query uit:
+
 ```sql
 UPDATE users
-SET wachtwoord = 'GEKOPIEERDE_HASH_HIER',
+SET
+    wachtwoord = 'GEKOPIEERDE_HASH_HIER',
     rol = 'admin'
 WHERE email = 'admin@taskmanager.be';
 ```
 
+### Voorbeeld
+
+```sql
+UPDATE users
+SET
+    wachtwoord = '$2b$10$XXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+    rol = 'admin'
+WHERE email = 'admin@taskmanager.be';
+```
+
+Na het uitvoeren van deze query beschikt het account over administratorrechten.
+
 ---
 
-## 🔐 8. Inloggen als admin
+# ✅ Installatie Voltooid
 
-Ga naar: http://localhost:3000  
-Klik op **Inloggen**
+Wanneer alle bovenstaande stappen succesvol zijn uitgevoerd:
 
-Log in met:
+* ✅ Node.js is geïnstalleerd
+* ✅ De database is aangemaakt
+* ✅ De server draait correct
+* ✅ De applicatie is bereikbaar via localhost
+* ✅ Het adminaccount is geconfigureerd
 
-- **Email:** admin@taskmanager.be  
-- **Wachtwoord:** het wachtwoord dat je hebt gebruikt bij het genereren van de bcrypt-hash(Admin1234!)
+Je bent nu klaar om TaskManager te gebruiken en verder te ontwikkelen.
 
 ---
+
+## 📞 Problemen?
+
+Controleer eerst:
+
+* Draait MySQL?
+* Bestaat de database `taskmanager`?
+* Zijn alle npm-packages geïnstalleerd?
+* Staat de databaseconfiguratie correct ingesteld?
+
+Bekijk eventuele foutmeldingen in de terminal voor meer informatie.

@@ -110,9 +110,15 @@ document.getElementById('tasksTabel').addEventListener('click', async function (
     if (btn.dataset.actie === 'bewerken') {
         // Zoek de activiteit op in de cache — geen extra API-call nodig
         const t = tasksCache.find(x => x.id === id);
+
+        let d = new Date(t.datum);
+        const parsedDate = new Date(d.getTime() - d.getTimezoneOffset() * 60000)
+            .toISOString()
+            .split('T')[0];
+
         if (t) startBewerken(
             t.id, t.title, t.beschrijving || '',
-            t.datum.slice(0, 10),
+            parsedDate,
             t.status
         );
     }
