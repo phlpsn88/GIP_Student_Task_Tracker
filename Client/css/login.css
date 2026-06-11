@@ -1,6 +1,25 @@
+:root {
+    --font-primary: "Segoe UI", Arial, sans-serif;
+
+    --color-white: #ffffff;
+    --color-black-overlay: rgba(0, 0, 0, 0.25);
+
+    --color-overlay-fade: rgb(191, 198, 204, 0.85);
+
+    --color-modal-gradient-start: #4fd6dd;
+    --color-modal-gradient-end: #0a4db3;
+
+    --color-close-btn-bg: #4b4b4b;
+
+    --color-input-bg: #c3d1df;
+    --color-error: #861919;
+
+    --shadow-modal: rgba(0, 0, 0, 0.3);
+}
+
 * {
     box-sizing: border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: var(--font-primary);
 }
 
 body {
@@ -11,7 +30,7 @@ body {
 .overlay-login {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.25);
+    background: var(--color-black-overlay);
     display: none;
     justify-content: center;
     align-items: center;
@@ -20,7 +39,7 @@ body {
 .overlay-register {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.25);
+    background: var(--color-black-overlay);
     display: none;
     justify-content: center;
     align-items: center;
@@ -28,17 +47,21 @@ body {
 
 .fade-overlay {
     z-index: 40;
-    background: rgb(191, 198, 204, 0.85);
+    background: var(--color-overlay-fade);
 }
 
 .login-register-modal {
     width: 420px;
     padding: 40px 35px;
     border-radius: 24px;
-    background: linear-gradient(135deg, #4fd6dd, #0a4db3);
-    color: white;
+    background: linear-gradient(
+        135deg,
+        var(--color-modal-gradient-start),
+        var(--color-modal-gradient-end)
+    );
+    color: var(--color-white);
     position: relative;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px var(--shadow-modal);
 }
 
 .close-btn {
@@ -48,7 +71,7 @@ body {
     right: -14px;
     width: 45px;
     height: 45px;
-    background: #4b4b4b;
+    background: var(--color-close-btn-bg);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -58,7 +81,7 @@ body {
 
 .close-btn a {
     text-decoration: none;
-    color: white;
+    color: var(--color-white);
 }
 
 h1 {
@@ -80,7 +103,7 @@ input {
     border-radius: 999px;
     border: none;
     outline: none;
-    background: #c3d1df;
+    background: var(--color-input-bg);
     margin-bottom: 12px;
     font-size: 16px;
 }
@@ -91,7 +114,7 @@ button {
     padding: 14px;
     border-radius: 999px;
     border: none;
-    background: #c3d1df;
+    background: var(--color-input-bg);
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
@@ -104,14 +127,14 @@ button {
 }
 
 .register a {
-    color: #ffffff;
+    color: var(--color-white);
     font-weight: 700;
     font-size: 22px;
     text-decoration: underline;
 }
 
 .fout {
-    color: #861919;
+    color: var(--color-error);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,9 +151,8 @@ button {
     cursor: pointer;
 }
 
-@media(max-width: 504px) {
+@media (max-width: 504px) {
     .login-register-modal {
         max-width: 90%;
     }
-
 }

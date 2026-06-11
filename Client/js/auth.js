@@ -31,7 +31,6 @@ if (registerForm) {
             // Fout (bv. e-mail al in gebruik) → toon de foutmelding
             const fout = document.getElementById('foutmeldingRegister');
             fout.textContent = data.fout;  // tekst van de server instellen
-            fout.style.color = 'black';
             fout.style.textAlign = 'center';
             fout.style.paddingBottom = '1em';
             fout.hidden = false;           // element zichtbaar maken

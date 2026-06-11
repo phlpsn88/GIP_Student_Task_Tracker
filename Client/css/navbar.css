@@ -1,6 +1,8 @@
 :root {
     --color-navbar-bg: #5ac5f2;
     --color-link: #ffffff;
+    --color-login-hover-bg: #413e3e;
+    --color-active-link: #000000;
 
     --font-body: Arial, sans-serif;
 }
@@ -60,7 +62,7 @@ body {
     font-size: 2em;
     cursor: pointer;
     user-select: none;
-    color: white;
+    color: var(--color-link);
 }
 
 #menu-toggle {
@@ -74,12 +76,12 @@ body {
 }
 
 .login-btn:hover {
-    background-color: #413e3e;
+    background-color: var(--color-login-hover-bg);
     transition-duration: 0.5s;
 }
 
 .active a {
-    color: black;
+    color: var(--color-active-link);
     text-decoration: underline;
 }
 

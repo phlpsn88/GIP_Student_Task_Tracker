@@ -1,14 +1,27 @@
+:root {
+    --color-white: #ffffff;
+
+    --color-card-background: rgba(61, 86, 128, 0.95);
+    --color-subtitle-text: rgba(255, 255, 255, 0.9);
+
+    --color-gradient-start: #1CB5E0;
+    --color-gradient-end: #000046;
+
+    --shadow-card: rgba(0, 0, 0, 0.15);
+    --shadow-title: rgba(0, 0, 0, 0.2);
+}
+
 .text-block {
-    background: rgba(61, 86, 128, 0.95);
+    background: var(--color-card-background);
     border-radius: 25px;
     padding: 40px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 30px var(--shadow-card);
     display: flex;
     align-items: center;
 }
 
 .text-block p {
-    color: white;
+    color: var(--color-white);
     font-size: 1.3rem;
     line-height: 1.9;
     font-weight: 500;
@@ -16,10 +29,10 @@
 }
 
 .placeholder-block {
-    background: rgba(61, 86, 128, 0.95);
+    background: var(--color-card-background);
     border-radius: 25px;
     overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 30px var(--shadow-card);
     transition: transform 0.3s ease;
 }
 
@@ -36,7 +49,7 @@
 }
 
 .info-title {
-    color: white;
+    color: var(--color-white);
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 60px;
@@ -69,17 +82,17 @@
 .info-main-title {
     font-size: clamp(2.8rem, 6vw, 5rem);
     font-weight: 800;
-    color: white;
+    color: var(--color-white);
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 3px;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 4px 20px var(--shadow-title);
 }
 
 .info-subtitle {
     max-width: 800px;
     margin: 0 auto;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--color-subtitle-text);
     font-size: clamp(1rem, 2vw, 1.4rem);
     line-height: 1.8;
 }
@@ -87,19 +100,23 @@
 .info-divider {
     width: 120px;
     height: 6px;
-    background: white;
+    background: var(--color-white);
     margin: 35px auto 0;
     border-radius: 50px;
 }
 
 .more-info-main {
-    background: #000046;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #1CB5E0, #000046);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #1CB5E0, #000046);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    ;
+    background: var(--color-gradient-end);
+    background: -webkit-linear-gradient(
+        to right,
+        var(--color-gradient-start),
+        var(--color-gradient-end)
+    );
+    background: linear-gradient(
+        to right,
+        var(--color-gradient-start),
+        var(--color-gradient-end)
+    );
 }
 
 @keyframes slideLeft {

@@ -1,3 +1,24 @@
+:root {
+    --color-text-light: #ffffff;
+
+    --color-task-gradient-start: #4ecdc4;
+    --color-task-gradient-end: #1f5fa9;
+
+    --color-task-completed-end: #00ff66;
+
+    --color-card-overlay: rgba(255, 255, 255, 0.08);
+    --color-status-bg: rgba(255, 255, 255, 0.2);
+    --color-action-btn-bg: rgba(255, 255, 255, 0.2);
+    --color-action-btn-hover-bg: rgba(255, 255, 255, 0.35);
+
+    --color-status-done: rgba(46, 204, 113, 0.5);
+    --color-status-todo: rgba(241, 196, 15, 0.5);
+    --color-status-not-started: rgba(231, 76, 60, 0.5);
+
+    --shadow-card: rgba(0, 0, 0, 0.15);
+    --shadow-card-hover: rgba(0, 0, 0, 0.25);
+}
+
 /* wrapper */
 .tasks-wrapper {
     display: grid;
@@ -8,11 +29,15 @@
 
 /* TASK CARD */
 .task-card {
-    background: linear-gradient(135deg, #4ecdc4, #1f5fa9);
-    color: white;
+    background: linear-gradient(
+        135deg,
+        var(--color-task-gradient-start),
+        var(--color-task-gradient-end)
+    );
+    color: var(--color-text-light);
     border-radius: 25px;
     padding: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 30px var(--shadow-card);
     position: relative;
     overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -21,7 +46,11 @@
 }
 
 .task-card-afgewerkt {
-    background: linear-gradient(135deg, #4ecdc4, #00ff66);
+    background: linear-gradient(
+        135deg,
+        var(--color-task-gradient-start),
+        var(--color-task-completed-end)
+    );
 }
 
 .task-card::before {
@@ -29,7 +58,7 @@
     position: absolute;
     width: 200px;
     height: 200px;
-    background: rgba(255,255,255,0.08);
+    background: var(--color-card-overlay);
     border-radius: 50%;
     top: -50px;
     right: -50px;
@@ -37,7 +66,7 @@
 
 .task-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 15px 35px var(--shadow-card-hover);
 }
 
 /* tekst */
@@ -61,25 +90,25 @@
 /* status */
 .status {
     display: inline-block;
-    width: fit-content; 
+    width: fit-content;
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 12px;
     margin-bottom: 15px;
-    background: rgba(255,255,255,0.2);
+    background: var(--color-status-bg);
     align-self: flex-start;
 }
 
 .status-done {
-    background: rgba(46, 204, 113, 0.5);
+    background: var(--color-status-done);
 }
 
 .status-todo {
-    background: rgba(241, 196, 15, 0.5);
+    background: var(--color-status-todo);
 }
 
 .status-not-started {
-    background: rgba(231, 76, 60, 0.5);
+    background: var(--color-status-not-started);
 }
 
 /* knoppen */
@@ -91,8 +120,8 @@
 
 .actions button {
     border: none;
-    background: rgba(255,255,255,0.2);
-    color: white;
+    background: var(--color-action-btn-bg);
+    color: var(--color-text-light);
     padding: 8px 12px;
     border-radius: 10px;
     cursor: pointer;
@@ -100,13 +129,10 @@
 }
 
 .actions button:hover {
-    background: rgba(255,255,255,0.35);
+    background: var(--color-action-btn-hover-bg);
     transform: scale(1.05);
 }
 
-/* ------------------------- */
-/* 📱 TABLET (<= 1024px) */
-/* ------------------------- */
 @media (max-width: 1024px) {
     .tasks-wrapper {
         padding: 25px;
@@ -118,9 +144,6 @@
     }
 }
 
-/* ------------------------- */
-/* 📱 GSM (<= 768px) */
-/* ------------------------- */
 @media (max-width: 768px) {
     .tasks-wrapper {
         grid-template-columns: 1fr;
@@ -153,9 +176,6 @@
     }
 }
 
-/* ------------------------- */
-/* 📱 KLEINE GSM (<= 480px) */
-/* ------------------------- */
 @media (max-width: 480px) {
     .tasks-wrapper {
         padding: 15px;

@@ -1,3 +1,9 @@
+:root {
+  --footer-bg-color: #0d2a52;
+  --footer-text-color: #ffffff;
+  --footer-credit-opacity: 0.8;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -16,8 +22,8 @@ main {
 }
 
 .footer {
-  background-color: #0d2a52;
-  color: #ffffff;
+  background-color: var(--footer-bg-color);
+  color: var(--footer-text-color);
   padding: 60px 80px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -39,7 +45,7 @@ main {
 .footer p,
 .footer a {
   font-weight: 400;
-  color: #ffffff;
+  color: var(--footer-text-color);
   text-decoration: none;
 }
 
@@ -51,7 +57,7 @@ main {
   cursor: pointer;
 }
 
-.nav-links-footer a:hover{
+.nav-links-footer a:hover {
   text-decoration: underline;
 }
 
@@ -63,7 +69,7 @@ main {
 
 .credit {
   font-size: 14px;
-  opacity: 0.8;
+  opacity: var(--footer-credit-opacity);
 }
 
 .fa-brands a {

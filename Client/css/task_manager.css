@@ -1,9 +1,19 @@
+:root {
+    --color-header-bg: #1e3a8a;
+    --color-white: #ffffff;
+    --color-button-text: #1e3a8a;
+
+    --color-dropdown-bg: #ffffff;
+
+    --font-size-plus: 1.4rem;
+}
+
 .header-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #1e3a8a;
-    color: white;
+    background: var(--color-header-bg);
+    color: var(--color-white);
     padding: 1rem 1.5rem;
 }
 
@@ -12,8 +22,8 @@
 }
 
 .btn-new-task {
-    background: white;
-    color: #1e3a8a;
+    background: var(--color-white);
+    color: var(--color-button-text);
     border: none;
     border-radius: 6px;
     font-weight: bold;
@@ -37,14 +47,14 @@
 }
 
 .btn-new-task .plus {
-    font-size: 1.4rem;
+    font-size: var(--font-size-plus);
     font-weight: bold;
 }
 
 .status-dropdown {
     border: solid;
     border-radius: 8px;
-    background: #ffffff;
+    background: var(--color-dropdown-bg);
     padding: 10px;
     font-size: 16px;
 }

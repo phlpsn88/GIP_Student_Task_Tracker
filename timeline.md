@@ -1,240 +1,287 @@
 # 📅 Projectplanning & Tijdlijn
 
+> **Project:** Ontwikkeling van een Task Manager Webapplicatie
+> **Periode:** November – Juni
+> **Doel:** Het ontwerpen, ontwikkelen, testen en opleveren van een gebruiksvriendelijke webapplicatie voor taakbeheer.
+
 ---
 
-## 🔍 Fase 1 – Analyse & Ontwerp
+# 🔍 Fase 1 – Analyse & Ontwerp
 
-**Periode:** November
+📆 **Periode:** November
 
-### Doel
+## 🎯 Doel
 
-Het project analyseren en een duidelijke basis leggen voor de ontwikkeling.
+Het project analyseren en een sterke basis creëren voor de verdere ontwikkeling van de applicatie.
 
-### Activiteiten
+## 🛠 Uitgevoerde activiteiten
 
-* Probleemstelling uitwerken
+* Probleemstelling definiëren
 * Requirements verzamelen en analyseren
 * ERD (Entity Relationship Diagram) ontwerpen
-* Wireframes opstellen
-* Projectplanning maken
+* Wireframes uitwerken
+* Projectplanning opstellen
 
-### Op te leveren producten
+## 📦 Opgeleverde resultaten
 
-✅ Analyseverslag
-✅ ERD
-✅ Wireframes
-✅ Projectplanning
+| Onderdeel       | Status |
+| --------------- | ------ |
+| Analyseverslag  | ✅      |
+| ERD             | ✅      |
+| Wireframes      | ✅      |
+| Projectplanning | ✅      |
 
-### Evaluatiecriteria
+## 📈 Evaluatiecriteria
 
 * Kwaliteit van de analyse
 * Correctheid van de documentatie
-* Planning en projectaanpak
+* Realistische planning en projectaanpak
 
 ---
 
-## 🗄️ Fase 2 – Ontwikkeling Databank
+# 🗄️ Fase 2 – Ontwikkeling Databank
 
-**Periode:** December
+📆 **Periode:** December
 
-### Doel
+## 🎯 Doel
 
-Een stabiele en efficiënte databankstructuur ontwerpen en implementeren.
+Een stabiele en efficiënte databankstructuur ontwerpen die als fundament dient voor de applicatie.
 
-### Activiteiten
+## 🛠 Uitgevoerde activiteiten
 
 * MySQL-tabellen ontwerpen
 * Relaties tussen tabellen definiëren
 * Databank implementeren
 * Databankstructuur testen
 
-### Op te leveren producten
+## 📦 Opgeleverde resultaten
 
-✅ MySQL-script
-✅ Werkende databank
+| Onderdeel         | Status |
+| ----------------- | ------ |
+| MySQL-script      | ✅      |
+| Werkende databank | ✅      |
 
-### Evaluatiecriteria
+## 📈 Evaluatiecriteria
 
-* Technische werking
 * Correcte databankstructuur
+* Technische werking
 * Dataconsistentie
 
 ---
 
-## 💻 Fase 3 – Applicatieontwikkeling
+# 💻 Fase 3 – Applicatieontwikkeling
 
-**Periode:** December – April
+📆 **Periode:** December – April
 
-### Januari
+## 🎯 Doel
 
-#### Week 1 – Authenticatie
+De frontend van de website ontwikkelen en de belangrijkste onderdelen van de taskmanager implementeren.
 
-* Loginfunctionaliteit ontwikkelen
-* Registratiemodule ontwikkelen
+## 🚀 Ontwikkelingsproces
 
-#### Week 2 – CRUD-functionaliteiten
+### 1️⃣ Basisstructuur van de website
 
-* Create
-* Read
-* Update
-* Delete
+Als eerste werden de vaste onderdelen van de website ontwikkeld:
 
-#### Week 3 – Validatie & Foutafhandeling
+* Navigatiebalk (Navbar)
+* Footer
 
-* Formuliervalidaties toevoegen
-* Error handling implementeren
+Deze vormen de basis van de gebruikersinterface en zijn zichtbaar op alle pagina's.
 
-#### Week 4 – Integratie
+### 2️⃣ Authenticatie
 
-* Front-end koppelen aan databank
-* Basisfunctionaliteiten testen
+Vervolgens werden de gebruikersformulieren ontwikkeld:
+
+* Loginpagina
+* Registratiepagina
+
+Hiermee kunnen gebruikers een account aanmaken en aanmelden.
+
+### 3️⃣ Homepagina
+
+De indexpagina werd ontworpen als centrale startpagina van de applicatie.
+
+### 4️⃣ Infopagina
+
+Een aparte informatiepagina werd toegevoegd waarop gebruikers meer uitleg krijgen over de werking van de website.
+
+### 5️⃣ Task Manager
+
+Het belangrijkste onderdeel van het project was de ontwikkeling van de taskmanager.
+
+Geïmplementeerde functionaliteiten:
+
+* Takenoverzicht
+* Taakdetails weergeven
+* Taken beheren
+
+### 6️⃣ Pop-upvensters
+
+Voor een gebruiksvriendelijke werking werden verschillende pop-ups toegevoegd:
+
+| Functionaliteit              | Beschrijving             |
+| ---------------------------- | ------------------------ |
+| ➕ Taak aanmaken              | Nieuwe taak toevoegen    |
+| ✏️ Taak bewerken             | Bestaande taak aanpassen |
+| ❌ Taak annuleren/verwijderen | Taak verwijderen         |
+
+## ✅ Resultaat
+
+Een volledig functionele frontend met werkende pagina's voor:
+
+* Registreren
+* Aanmelden
+* Informatie raadplegen
+* Taken beheren
 
 ---
 
-### Februari
+# 🧪 Fase 4 – Testing & Debugging
 
-#### Week 1 – User Interface
+📆 **Periode:** April
 
-* Layout ontwerpen
-* Gebruikerservaring verbeteren
+## 🎯 Geplande doelstelling
 
-#### Week 2 – Extra Functionaliteiten
+De applicatie uitgebreid testen, fouten opsporen en optimalisaties uitvoeren.
 
-* Filters implementeren
-* Sorteerfuncties toevoegen
-* Extra opties ontwikkelen
+## ℹ Situatie
 
-#### Week 3 – Rollen & Rechten
+Tijdens deze periode startte de stage en viel daarnaast ook een vakantieperiode. Hierdoor was er onvoldoende tijd beschikbaar om actief verder te werken aan het project.
 
-* Gebruikersrollen beheren
-* Toegangsrechten instellen
+### Omstandigheden
 
-#### Week 4 – Optimalisatie
+* Start van de stageperiode
+* Beperkte beschikbare projecttijd
+* Vakantieperiode
+* Geen actieve ontwikkeling uitgevoerd
 
-* Testdata toevoegen
-* Prestatieverbeteringen uitvoeren
+## ⚠ Gevolg
+
+De test- en debugfase werd tijdelijk uitgesteld en verplaatst naar een latere fase van het project.
+
+## ✅ Resultaat
+
+Er werden tijdens deze fase geen nieuwe functionaliteiten ontwikkeld. De focus lag volledig op stageverplichtingen en vakantie.
 
 ---
 
-### Maart
+# 📚 Fase 5 – Back-end Ontwikkeling
 
-#### Week 1 – Afwerking
+📆 **Periode:** Mei
 
-* Ontbrekende functionaliteiten afronden
+## 🎯 Doel
 
-#### Week 2 – Refactoring
+De achterliggende logica van de applicatie ontwikkelen en alle functionaliteiten operationeel maken.
 
-* Code opschonen
-* Structuur verbeteren
+## 🛠 Ontwikkelde onderdelen
 
-#### Week 3 – Integratietesten
+### Back-endstructuur
 
-* Samenwerking van alle modules testen
+* Opzetten van de server-side architectuur
+* Verwerken van gebruikersgegevens
+* Koppeling met de databank
+* Communicatie tussen frontend en backend
 
-#### Week 4 – Voorbereiding Testfase
+### Functionaliteiten
 
-* Testscenario's opstellen
-* Laatste controles uitvoeren
+De volgende functies werden volledig operationeel gemaakt:
 
-### Op te leveren producten
+| Functionaliteit            | Status |
+| -------------------------- | ------ |
+| Registreren                | ✅      |
+| Inloggen                   | ✅      |
+| Uitloggen                  | ✅      |
+| Taken aanmaken             | ✅      |
+| Taken bewerken             | ✅      |
+| Taken verwijderen          | ✅      |
+| Taken ophalen uit databank | ✅      |
+
+### Integratie
+
+Controle van:
+
+* Databankverbinding
+* Gegevensverwerking
+* Functionaliteiten van de taskmanager
+* Correcte werking van frontend en backend
+
+## ✅ Resultaat
+
+De applicatie beschikte over een volledig werkende backend en een correcte koppeling met de frontend.
+
+---
+
+# 🎤 Fase 6 – Bijwerken & Afwerken
+
+📆 **Periode:** Juni
+
+## 🎯 Doel
+
+De applicatie afronden, documenteren en voorbereiden voor presentatie en verdediging.
+
+## 🛠 Laatste verbeteringen
+
+### Website optimaliseren
+
+Er werden nog verschillende verbeteringen aangebracht aan:
+
+* JavaScript-functionaliteiten
+* CSS-opmaak
+* HTML-structuur
+* Algemene gebruiksvriendelijkheid
+
+### Eindtesten
+
+Alle onderdelen van de applicatie werden opnieuw getest:
+
+* Registratie
+* Login
+* Taskmanager
+* Databankverbinding
+* Gegevensopslag
+
+### Documentatie
+
+Alle projectdocumentatie werd nagekeken, bijgewerkt en geordend.
+
+Onder andere:
+
+* Technische documentatie
+* Projectplanning
+* Beschrijving van functionaliteiten
+* Testresultaten
+
+### Eindpresentatie
+
+Als afsluiting van het project werd:
+
+* Een presentatie opgesteld
+* De applicatie gedemonstreerd
+* Het project voorgesteld
+* Het project succesvol verdedigd
+
+## 🏁 Eindresultaat
 
 ✅ Volledig werkende webapplicatie
-
-### Evaluatiecriteria
-
-* Functionaliteit
-* Gebruiksvriendelijkheid
-* Correcte werking van alle modules
+✅ Afgewerkte documentatie
+✅ Succesvolle presentatie en verdediging
+✅ Project succesvol afgerond
 
 ---
 
-## 🧪 Fase 4 – Testing & Debugging
+# 📊 Overzicht Tijdlijn
 
-**Periode:** April
-
-### Doel
-
-De kwaliteit en betrouwbaarheid van de applicatie garanderen.
-
-### Activiteiten
-
-* Functioneel testen
-* Bugs opsporen
-* Fouten oplossen
-* Prestaties optimaliseren
-
-### Op te leveren producten
-
-✅ Testverslag
-
-### Evaluatiecriteria
-
-* Kwaliteit van de code
-* Stabiliteit van de applicatie
-* Doorgevoerde verbeteringen
+| Fase                      | Periode          | Status       |
+| ------------------------- | ---------------- | ------------ |
+| 🔍 Analyse & Ontwerp      | November         | ✅ Afgerond   |
+| 🗄️ Databankontwikkeling  | December         | ✅ Afgerond   |
+| 💻 Applicatieontwikkeling | December – April | ✅ Afgerond   |
+| 🧪 Testing & Debugging    | April            | ⏸ Uitgesteld |
+| 📚 Back-end Ontwikkeling  | Mei              | ✅ Afgerond   |
+| 🎤 Bijwerken & Afwerken   | Juni             | ✅ Afgerond   |
 
 ---
 
-## 📚 Fase 5 – Documentatie & Handleiding
+## 🎓 Conclusie
 
-**Periode:** Mei
-
-### Doel
-
-Een duidelijke handleiding voorzien voor eindgebruikers.
-
-### Activiteiten
-
-* Gebruikershandleiding schrijven
-* Screenshots toevoegen
-* Opmaak en structuur afwerken
-
-### Op te leveren producten
-
-✅ PDF-handleiding
-
-### Evaluatiecriteria
-
-* Duidelijkheid
-* Volledigheid
-* Gebruiksvriendelijkheid
-
----
-
-## 🎤 Fase 6 – Eindpresentatie
-
-**Periode:** Juni
-
-### Doel
-
-Het project presenteren en verdedigen.
-
-### Activiteiten
-
-* Presentatie voorbereiden
-* Demo van de applicatie geven
-* Mondelinge verdediging uitvoeren
-
-### Op te leveren producten
-
-✅ Presentatie
-✅ Demonstratie
-
-### Evaluatiecriteria
-
-* Communicatievaardigheden
-* Inhoudelijke kennis
-* Professionele presentatie
-
----
-
-# 📊 Overzicht
-
-| Fase                      | Periode          | Resultaat                       |
-| ------------------------- | ---------------- | ------------------------------- |
-| 🔍 Analyse & Ontwerp      | November         | Analyseverslag, ERD, Wireframes |
-| 🗄️ Databankontwikkeling  | December         | MySQL-databank                  |
-| 💻 Applicatieontwikkeling | December – April | Werkende webapplicatie          |
-| 🧪 Testing & Debugging    | April            | Testverslag                     |
-| 📚 Documentatie           | Mei              | PDF-handleiding                 |
-| 🎤 Eindpresentatie        | Juni             | Presentatie & Demo              |
+Gedurende het project werd stap voor stap een volledige taskmanager-webapplicatie ontwikkeld. Van analyse en ontwerp tot implementatie, testing, documentatie en presentatie werden alle belangrijke projectfasen succesvol doorlopen. Het eindresultaat is een functionele webapplicatie waarin gebruikers taken kunnen beheren via een moderne en gebruiksvriendelijke interface.

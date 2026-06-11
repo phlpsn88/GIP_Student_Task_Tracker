@@ -275,6 +275,12 @@ app.post('/api/register', async (req, res) => {
         return res.status(400).json({ fout: 'Wachtwoord moet minstens 8 tekens zijn' });
     }
 
+    const emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailCheck.test(email)) {
+        return res.status(400).json({ fout: 'Voer een geldig e-mailadres in' });
+    }
+
     // Controleer of dit e-mailadres al in gebruik is
     const [bestaande] = await pool.execute(
         'SELECT id FROM users WHERE email = ?', [email]
@@ -321,6 +327,12 @@ app.post('/api/login', async (req, res) => {
     // Zo weet een aanvaller niet of het e-mailadres bestaat of niet.
     if (rijen.length === 0) {
         return res.status(401).json({ fout: 'Ongeldig e-mailadres of wachtwoord' });
+    }
+
+    const emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailCheck.test(email)) {
+        return res.status(400).json({ fout: 'Voer een geldig e-mailadres in' });
     }
 
     const gebruiker = rijen[0];

@@ -34,7 +34,7 @@
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon">☰</label>
             <ul class="nav-links">
-                <li><a href="index.html" class="active nav-links-menu">Start pagina</a></li>
+                <li><a href="index.html" class="active nav-links-menu">Startpagina</a></li>
                 <li><a id="taskManagerLink" class="nav-links-menu">Taak manager</a></li>
                 <li><a href="more_info.html" class="nav-links-menu">Meer info</a></li>
                 <li id="linkLogin"><a class="login-btn" id="loginBtn">Login</a></li>
@@ -44,39 +44,40 @@
     </header>
 
     <main>
-        <!-- Login modal -->
+        <!-- login button -->
         <div class="overlay-login fade-overlay">
             <div class="login-register-modal">
                 <form id="login-form">
                     <div class="close-btn" id="closeBtnLogin">×</div>
-                    <h1>Login</h1>
-                    <label>E-mailadres<input id="emailLogin" type="email"></label>
+                    <h2>Login</h2>
+                    <label>E-mailadres<input id="emailLogin"></label>
                     <label>Wachtwoord<input id="wachtwoordLogin" type="password"></label>
                     <button type="submit" class="login-btn-form">Inloggen</button>
                 </form>
                 <p id="foutmeldingLogin" class="fout" hidden></p>
                 <div class="register">
                     Heb je nog geen account?<br>
-                    Registreer je dan <a id="registerFormLink">HIER</a>
+                    Registreer je dan <a id="registerFormLink">HIER</a> aan
                 </div>
             </div>
         </div>
 
-        <!-- Register modal -->
+        <!-- register button -->
         <div class="overlay-register fade-overlay">
             <div class="login-register-modal">
                 <form id="register-form">
                     <div class="close-btn" id="closeBtnRegister">×</div>
-                    <h1>Registreren</h1>
+                    <h2>Registreren</h2>
                     <label>Naam<input id="gebruikersnaam" type="text"></label>
-                    <label>E-mailadres<input id="emailRegister" type="email"></label>
+                    <label>E-mailadres<input id="emailRegister"></label>
                     <label>Wachtwoord<input id="wachtwoordRegister" type="password"></label>
+                    <p id="foutmeldingRegister" class="fout" hidden></p>
                     <button type="submit" class="login-btn-form">Registreren</button>
                 </form>
-                <p id="foutmeldingRegister" class="fout" hidden></p>
+                <p id="foutmeldingLogin" class="fout" hidden></p>
                 <div class="register">
                     Heb je al een account?<br>
-                    log je dan <a id="loginFormLink">HIER</a> in
+                    Log je dan <a id="loginFormLink">HIER</a> in
                 </div>
             </div>
         </div>
@@ -173,7 +174,7 @@
 
         <div class="footer-column">
             <h3>R&A tasks</h3>
-            <a href="index.html"><strong>Start pagina</strong></a>
+            <a href="index.html"><strong>Startpagina</strong></a>
             <a id="taskManagerLinkFooter"><strong>Taak manager</strong></a>
             <a href="more_info.html"><strong>Meer info</strong></a>
         </div>
@@ -181,15 +182,15 @@
         <div class="footer-column">
             <h3><strong>Volg ons</strong></h3>
             <div class="socials">
-               <span> <a href="https://www.instagram.com/">
-                     <i class="fa-brands fa-instagram"></i>
-                </a>
-                   </span>
+                <span> <a href="https://www.instagram.com/">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </span>
 
-               <span> <a href="https://www.facebook.com/?locale=nl_BE">
-                     <i class="fa-brands fa-facebook"></i>
-                </a>
-                   </span>
+                <span> <a href="https://www.facebook.com/?locale=nl_BE">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </span>
             </div>
             <p class="credit"><strong>&copy; Ontworpen door<br>Raf Angeli &<br> Amine Kiadi</strong></p>
         </div>
