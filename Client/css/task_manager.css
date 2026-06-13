@@ -4,6 +4,7 @@
     --color-button-text: #1e3a8a;
 
     --color-dropdown-bg: #ffffff;
+    --color-error: #861919;
 
     --font-size-plus: 1.4rem;
 }
@@ -57,6 +58,13 @@
     background: var(--color-dropdown-bg);
     padding: 10px;
     font-size: 16px;
+}
+
+.fout {
+    color: var(--color-error);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Responsive */

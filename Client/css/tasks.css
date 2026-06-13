@@ -6,6 +6,9 @@
 
     --color-task-completed-end: #00ff66;
 
+    --color-task-not-started-start: #ffb347;
+    --color-task-not-started-end: #ff5e5e;
+
     --color-card-overlay: rgba(255, 255, 255, 0.08);
     --color-status-bg: rgba(255, 255, 255, 0.2);
     --color-action-btn-bg: rgba(255, 255, 255, 0.2);
@@ -50,6 +53,14 @@
         135deg,
         var(--color-task-gradient-start),
         var(--color-task-completed-end)
+    );
+}
+
+.task-card-niet-gestart {
+    background: linear-gradient(
+        135deg,
+        var(--color-task-not-started-start),
+        var(--color-task-not-started-end)
     );
 }
 

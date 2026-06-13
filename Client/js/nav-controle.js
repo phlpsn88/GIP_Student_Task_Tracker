@@ -22,6 +22,7 @@ async function init() {
 
 document.getElementById('logoutBtn')
     .addEventListener('click', async () => {
+        sessionStorage.removeItem('herinneringGetoond');
         await fetch('/api/logout', { method: 'POST' });
         window.location.href = '/index.html';
     });

@@ -6,12 +6,28 @@ const deletePopup = document.getElementById("popup-delete");
 
 
 newTaskButton.addEventListener("click", function () {
+
+    const foutmelding = document.getElementById("foutmelding");
+
+    if (foutmelding) {
+        foutmelding.hidden = true;
+        foutmelding.textContent = "";
+    }
+
     newTaskOverlay.style.display = "flex"
     document.body.classList.add("remove-scrolling");
 });
 
 
 closeNewTask.addEventListener("click", function () {
+
+    const foutmelding = document.getElementById("foutmelding");
+
+    if (foutmelding) {
+        foutmelding.hidden = true;
+        foutmelding.textContent = "";
+    }
+
     newTaskOverlay.style.display = "none"
     document.body.classList.remove("remove-scrolling");
 });

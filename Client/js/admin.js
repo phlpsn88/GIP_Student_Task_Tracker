@@ -150,7 +150,7 @@ function startBewerken(id, title, beschrijving, datum, status) {
 function resetFormulier() {
     document.getElementById('tasksForm').reset(); // alle velden leegmaken
     document.getElementById('edit-id').value = '';
-    document.getElementById('form-title').textContent = 'Nieuwe tasks';
+    document.getElementById('form-title').textContent = 'Nieuwe taak';
     document.getElementById('save-btn').textContent = 'Toevoegen';
     document.getElementById('foutmelding').hidden = true;
 }

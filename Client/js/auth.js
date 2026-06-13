@@ -24,9 +24,18 @@ if (registerForm) {
         const data = await response.json();
 
         if (response.ok) {
-            // response.ok = true als de statuscode 200-299 is (hier: 201)
-            // Registratie gelukt → doorsturen naar loginpagina
-            window.location.href = 'index.html';
+
+            // Registreer-popup sluiten
+            registerOverlay.style.display = "none";
+
+            // Login-popup openen
+            loginOverlay.style.display = "flex";
+
+            // Registratieformulier leegmaken
+            registerForm.reset();
+
+            // Eventuele foutmelding verbergen
+            document.getElementById("foutmeldingRegister").hidden = true;
         } else {
             // Fout (bv. e-mail al in gebruik) → toon de foutmelding
             const fout = document.getElementById('foutmeldingRegister');
@@ -46,13 +55,13 @@ if (loginForm) {
     loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const email      = document.getElementById('emailLogin').value;
+        const email = document.getElementById('emailLogin').value;
         const wachtwoord = document.getElementById('wachtwoordLogin').value;
 
         const response = await fetch('/api/login', {
-            method:  'POST',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body:    JSON.stringify({ email, wachtwoord })
+            body: JSON.stringify({ email, wachtwoord })
         });
         const data = await response.json();
 

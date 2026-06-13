@@ -151,6 +151,26 @@ button {
     cursor: pointer;
 }
 
+.password-container {
+    position: relative;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 40%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+    color: var(--color-close-btn-bg);
+}
+
 @media (max-width: 504px) {
     .login-register-modal {
         max-width: 90%;

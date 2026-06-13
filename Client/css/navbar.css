@@ -102,6 +102,7 @@ body {
         padding: 1.25em 0;
         gap: 1.6em;
         text-align: center;
+        height: auto;
     }
 
     #menu-toggle:checked~.nav-links {

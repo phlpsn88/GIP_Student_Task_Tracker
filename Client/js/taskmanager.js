@@ -1,4 +1,6 @@
 const deletePopup = document.getElementById("popup-delete");
+const herinneringPopup = document.getElementById("popup-herinnering");
+const herinneringTekst = document.getElementById("herinnering-tekst");
 
 let taskToDelete = null;
 
@@ -18,6 +20,11 @@ async function init() {
         return;
     }
 
+    const responseTasks = await fetch('/api/mijn-tasks');
+    const tasks = await responseTasks.json();
+
+    controleerTakenVanVandaag(tasks);
+
     laadTasks();
 
     document.getElementById('tasksForm')
@@ -28,6 +35,44 @@ async function init() {
 }
 
 let tasksCache = [];
+
+function controleerTakenVanVandaag(tasks) {
+
+    if (sessionStorage.getItem('herinneringGetoond')) {
+        return;
+    }
+
+    const vandaag = new Date();
+    vandaag.setHours(0, 0, 0, 0);
+
+    const takenVandaag = tasks.filter(task => {
+
+        const taakDatum = new Date(task.datum);
+        taakDatum.setHours(0, 0, 0, 0);
+
+        return taakDatum.getTime() === vandaag.getTime()
+            && task.status !== 'Afgewerkt';
+    });
+
+    if (takenVandaag.length === 0) {
+        return;
+    }
+
+    setTimeout(() => {
+
+        const titels = takenVandaag
+            .map(t => `• ${t.title}`)
+            .join('<br>');
+
+        herinneringTekst.innerHTML =
+            `De volgende taak/taken moeten vandaag afgewerkt zijn:<br><br>${titels}`;
+
+        herinneringPopup.style.display = "flex";
+
+        document.body.classList.add("remove-scrolling");
+
+    }, 10000);
+}
 
 async function laadTasks() {
     // GET /api/mijn-activiteiten geeft enkel de activiteiten van de ingelogde gebruiker
@@ -44,7 +89,12 @@ async function laadTasks() {
     container.innerHTML = `
         <div id="tasksTabel" class="tasks-wrapper">
             ${tasks.map(t => `
-                <article class="task-card ${t.status === 'Afgewerkt' ? 'task-card-afgewerkt' : ''}">
+                <article class="task-card ${t.status === 'Afgewerkt'
+            ? 'task-card-afgewerkt'
+            : t.status === 'Niet gestart'
+                ? 'task-card-niet-gestart'
+                : ''
+        }">
                     <h3>${t.title}</h3>
                     <p class="description">${t.beschrijving}</p>
                     <p class="deadline">${new Date(t.datum).toLocaleDateString('nl-BE')}</p>
@@ -66,6 +116,39 @@ async function slaTaskOp(e) {
     e.preventDefault();
 
     const editId = document.getElementById('edit-id').value;
+
+    const title = document.getElementById('title').value.trim();
+    const gekozenDatum = document.getElementById('datum').value;
+
+    const fout = document.getElementById('foutmelding');
+    fout.hidden = true;
+
+    if (title === '' && gekozenDatum === '') {
+        fout.textContent = 'Titel en datum zijn verplicht.';
+        fout.hidden = false;
+        return;
+    }
+
+    if (title === '') {
+        fout.textContent = 'Titel is verplicht.';
+        fout.hidden = false;
+        return;
+    }
+
+    if (gekozenDatum === '') {
+        fout.textContent = 'Datum is verplicht.';
+        fout.hidden = false;
+        return;
+    }
+
+    const vandaag = new Date().toISOString().split("T")[0];
+
+    if (gekozenDatum < vandaag) {
+        fout.textContent = 'Je kunt geen datum in het verleden kiezen.';
+        fout.hidden = false;
+        return;
+    }
+
     const body = {
         title: document.getElementById('title').value,
         beschrijving: document.getElementById('beschrijving').value,
@@ -149,8 +232,21 @@ document.getElementById('cancel-delete')
         deletePopup.style.display = "none";
     });
 
+document.getElementById('close-herinnering')
+    .addEventListener('click', () => {
+
+        herinneringPopup.style.display = "none";
+
+        document.body.classList.remove("remove-scrolling");
+
+        sessionStorage.setItem('herinneringGetoond', 'true');
+    });
+
 // ── Bewerken: formulier invullen met bestaande gegevens ───────────────────────
 function startBewerken(id, title, beschrijving, datum, status) {
+
+    verbergFoutmelding();
+
     // Sla het id op in het verborgen veld — slaActiviteitOp() leest dit uit
     document.getElementById('edit-id').value = id;
     document.getElementById('title').value = title;
@@ -166,9 +262,10 @@ function startBewerken(id, title, beschrijving, datum, status) {
 function resetFormulier() {
     document.getElementById('tasksForm').reset(); // alle velden leegmaken
     document.getElementById('edit-id').value = '';
-    document.getElementById('form-title').textContent = 'Nieuwe tasks';
+    document.getElementById('form-title').textContent = 'Nieuwe taak';
     document.getElementById('save-btn').textContent = 'Toevoegen';
-    document.getElementById('foutmelding').hidden = true;
+
+    verbergFoutmelding();
 }
 
 init();

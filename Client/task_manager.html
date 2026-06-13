@@ -51,13 +51,20 @@
                     <div class="close-btn" id="closeBtnLogin">×</div>
                     <h2>Login</h2>
                     <label>E-mailadres<input id="emailLogin"></label>
-                    <label>Wachtwoord<input id="wachtwoordLogin" type="password"></label>
+                    <label>Wachtwoord
+                        <div class="password-container">
+                            <input id="wachtwoordLogin" type="password">
+                            <span class="toggle-password" data-target="wachtwoordLogin">
+                                <i class="fa-solid fa-eye"></i>
+                            </span>
+                        </div>
+                    </label>
                     <button type="submit" class="login-btn-form">Inloggen</button>
                 </form>
                 <p id="foutmeldingLogin" class="fout" hidden></p>
                 <div class="register">
                     Heb je nog geen account?<br>
-                    Registreer je dan <a id="registerFormLink">HIER</a> aan
+                    Registreer je dan <a id="registerFormLink">HIER</a>
                 </div>
             </div>
         </div>
@@ -70,7 +77,14 @@
                     <h2>Registreren</h2>
                     <label>Naam<input id="gebruikersnaam" type="text"></label>
                     <label>E-mailadres<input id="emailRegister"></label>
-                    <label>Wachtwoord<input id="wachtwoordRegister" type="password"></label>
+                    <label>Wachtwoord
+                        <div class="password-container">
+                            <input id="wachtwoordRegister" type="password">
+                            <span class="toggle-password" data-target="wachtwoordRegister">
+                                <i class="fa-solid fa-eye"></i>
+                            </span>
+                        </div>
+                    </label>
                     <p id="foutmeldingRegister" class="fout" hidden></p>
                     <button type="submit" class="login-btn-form">Registreren</button>
                 </form>
@@ -88,7 +102,7 @@
             <div class="header-section">
                 <span id="gebruiker-naam"></span>
                 <button class="btn-new-task">
-                    Nieuwe taak <span class="plus">+</span>
+                    Nieuwe taak
                 </button>
             </div>
 
@@ -103,14 +117,14 @@
                     <input type="hidden" id="edit-id">
 
                     <div class="modal-header">
-                        <h2 class="modal-title" id="form-title">Taak toevoegen?</h2>
+                        <h2 class="modal-title" id="form-title">Taak toevoegen</h2>
                         <div class="close-btn-task" id="closeNewTask">x</div>
                     </div>
 
                     <div class="modal-body">
 
-                        <label class="field-label">Titel</label>
-                        <input id="title" type="text" class="task-name-input" placeholder="voeg taaknaam toe" autofocus>
+                        <label class="field-label">Titel<span>*</span></label>
+                        <input id="title" type="text" class="task-name-input" placeholder="Voeg taaknaam toe" autofocus>
 
                         <div class="dropdown-menu-left">
                             <label class="field-label">Status</label>
@@ -123,11 +137,11 @@
 
                         <div class="description-field">
                             <label class="field-label">Beschrijving</label>
-                            <textarea id="beschrijving" class="description-textarea" placeholder="voeg beschrijving toe"
+                            <textarea id="beschrijving" class="description-textarea" placeholder="Voeg beschrijving toe"
                                 rows="6"></textarea>
                         </div>
 
-                        <label class="field-label">Datum</label>
+                        <label class="field-label">Datum<span>*</span></label>
                         <input class="date-box" type="date" name="date" id="datum">
 
                     </div>
@@ -160,6 +174,19 @@
                 </div>
             </div>
         </div>
+        <div class="overlay" id="popup-herinnering" style="display: none;">
+            <div class="modal">
+                <h2>⚠️ Herinnering</h2>
+
+                <p id="herinnering-tekst"></p>
+
+                <div class="buttons">
+                    <button id="close-herinnering" class="btn cancel">
+                        OK
+                    </button>
+                </div>
+            </div>
+        </div>
 
     </main>
 
@@ -177,6 +204,7 @@
             <a href="index.html"><strong>Startpagina</strong></a>
             <a id="taskManagerLinkFooter"><strong>Taak manager</strong></a>
             <a href="more_info.html"><strong>Meer info</strong></a>
+            <a id="footerLoginBtn"><strong>Login</strong></a>
         </div>
         <div class="footer-column">
             <h3><strong>Volg ons</strong></h3>
