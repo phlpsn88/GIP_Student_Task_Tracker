@@ -85,13 +85,7 @@ app.get('/api/mijn-tasks', vereisLogin, async (req, res) => {
         `SELECT * 
         FROM tasks 
         WHERE user_id = ? 
-        ORDER BY 
-            CASE status
-                 WHEN 'Niet gestart' THEN 1
-                 WHEN 'Bezig' THEN 2
-                 WHEN 'Afgerond' THEN 3
-                 ELSE 4
-            END`,
+        ORDER BY datum ASC`,
         [req.session.gebruikerId]
     );
     res.json(rijen);
@@ -164,13 +158,7 @@ app.get('/api/mijn-tasks', vereisLogin, async (req, res) => {
         `SELECT *
          FROM tasks
          WHERE user_id = ?
-         ORDER BY
-             CASE status
-                 WHEN 'Niet gestart' THEN 1
-                 WHEN 'Bezig' THEN 2
-                 WHEN 'Afgerond' THEN 3
-                 ELSE 4
-             END`,
+         ORDER BY datum ASC`,
         [req.session.gebruikerId]
     );
 
@@ -201,13 +189,7 @@ app.get('/api-admin/tasks', async (req, res) => {
             u.naam AS aangemaakt_door
         FROM tasks t
         LEFT JOIN users u ON u.id = t.user_id
-        ORDER BY 
-            CASE t.status
-                 WHEN 'Niet gestart' THEN 1
-                 WHEN 'Bezig' THEN 2
-                 WHEN 'Afgerond' THEN 3
-                 ELSE 4
-            END
+        ORDER BY datum ASC
     `);
     res.json(rijen);
 });

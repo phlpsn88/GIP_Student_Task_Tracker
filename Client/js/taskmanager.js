@@ -96,7 +96,7 @@ async function laadTasks() {
                 : ''
         }">
                     <h3>${t.title}</h3>
-                    <p class="description">${t.beschrijving}</p>
+                    <p class="description">${t.beschrijving || ''}</p>
                     <p class="deadline">${new Date(t.datum).toLocaleDateString('nl-BE')}</p>
                     <span class="status">${t.status}</span>
                     <div class="actions">
@@ -151,7 +151,7 @@ async function slaTaskOp(e) {
 
     const body = {
         title: document.getElementById('title').value,
-        beschrijving: document.getElementById('beschrijving').value,
+        beschrijving: document.getElementById('beschrijving').value.trim() || '',
         datum: document.getElementById('datum').value,
         status: document.getElementById('status').value,
     };
@@ -241,6 +241,15 @@ document.getElementById('close-herinnering')
 
         sessionStorage.setItem('herinneringGetoond', 'true');
     });
+
+function verbergFoutmelding() {
+    const foutmelding = document.getElementById('foutmelding');
+
+    if (foutmelding) {
+        foutmelding.hidden = true;
+        foutmelding.textContent = '';
+    }
+}
 
 // ── Bewerken: formulier invullen met bestaande gegevens ───────────────────────
 function startBewerken(id, title, beschrijving, datum, status) {

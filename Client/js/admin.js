@@ -32,9 +32,14 @@ async function laadTasks() {
     container.innerHTML = `
         <div id="tasksTabel" class="tasks-wrapper">
             ${tasks.map(t => `
-                <article class="task-card ${t.status === 'Afgewerkt' ? 'task-card-afgewerkt' : ''}">
+                <article class="task-card ${t.status === 'Afgewerkt'
+            ? 'task-card-afgewerkt'
+            : t.status === 'Niet gestart'
+                ? 'task-card-niet-gestart'
+                : ''
+        }">
                     <h3>${t.title}</h3>
-                    <p class="description">${t.beschrijving}</p>
+                    <p class="description">${t.beschrijving || ''}</p>
                     <p class="deadline">${new Date(t.datum).toLocaleDateString('nl-BE')}</p>
                     <span class="status">${t.status}</span>
                     <div class="actions">
